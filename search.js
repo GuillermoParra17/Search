@@ -211,6 +211,14 @@ function renderResults(results, searchTerm) {
                 item.description,
                 searchTerm
             );
+        const subitemsHtml =
+            item.subitems && item.subitems.length
+                ? item.subitems
+                    .map(subitem =>
+                    `<div class="subitem-name">• ${subitem}</div>`
+                    )
+                    .join("")
+                : "<div class='subitem-name'>No subitems</div>";
 
         const keywords = searchTerm
     .split(" ")
@@ -264,9 +272,16 @@ function renderResults(results, searchTerm) {
                 </div>
 
                 <div class="section-label">
+                    Subitems
+                </div>
+                
+                <div>
+                    ${subitemsHtml}
+                </div>
+                
+                <div class="section-label">
                     Description
                 </div>
-
                 <div class="snippet">
                     ${snippet}
                 </div>
