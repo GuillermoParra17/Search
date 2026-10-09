@@ -104,24 +104,48 @@ function buildSnippet(text, searchTerm) {
 
     if (!text) return "";
 
+    const searchWords =
+        searchTerm
+            .split(" ")
+            .filter(word => word.trim() !== "");
+
+    let snippet = text;
+
+    const firstWord = searchWords[0];
+
     const index =
-        text
-        .toLowerCase()
-        .indexOf(searchTerm.toLowerCase());
+        text.toLowerCase()
+            .indexOf(firstWord.toLowerCase());
 
-    if (index === -1) {
+    if (index !== -1) {
 
-        return text.substring(0, 150);
+        const start =
+            Math.max(0, index - 50);
+
+        const end =
+            Math.min(text.length, index + 100);
+
+        snippet =
+            "..." +
+            text.substring(start, end) +
+            "...";
 
     }
 
-    const start =
-        Math.max(0, index - 50);
+    searchWords.forEach(word => {
 
-    const end =
-        Math.min(text.length, index + 100);
+        const regex =
+            new RegExp(`(${word})`, "gi");
 
-    return "..." + text.substring(start, end) + "...";
+        snippet =
+            snippet.replace(
+                regex,
+                "<mark>$1</mark>"
+            );
+
+    });
+
+    return snippet;
 
 }
 
