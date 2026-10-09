@@ -71,6 +71,13 @@ h1 {
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,.08);
     border-left: 5px solid #0073ea;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
 }
 
 .result-header {
@@ -80,7 +87,7 @@ h1 {
 }
 
 .match-score {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: #0073ea;
 }
@@ -88,7 +95,7 @@ h1 {
 .match-type {
     background: #e8f3ff;
     color: #0073ea;
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
@@ -98,9 +105,31 @@ h1 {
     color: #676879;
     font-size: 12px;
     margin-top: 12px;
-    margin
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
 
-    .keywords {
+.board-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.work-package {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.subitem-name {
+    font-size: 15px;
+}
+
+.snippet {
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.keywords {
     margin-top: 10px;
 }
 
@@ -127,12 +156,18 @@ h1 {
     margin-bottom: 10px;
 }
 
-    .result-card {
-    cursor: pointer;
-    transition: all 0.2s ease;
+.open-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #0073ea;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
 }
 
-.result-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+mark {
+    background: #fff59d;
+    border-radius: 4px;
+    padding: 1px 3px;
 }
