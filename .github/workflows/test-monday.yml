@@ -1,4 +1,4 @@
-name: Get Boards
+name: Get My Boards
 
 on:
   workflow_dispatch:
@@ -13,4 +13,4 @@ jobs:
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ workspaces(ids: 2266387) { id name boards { id name } } }"}'
+          -d '{"query":"{ boards(limit: 10) { id name } }"}'
