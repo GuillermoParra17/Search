@@ -13,4 +13,4 @@ jobs:
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ boards(ids: 5057678016) { items_page(limit: 1) { items { id name subitems { id name } } } } }"}'
+          -d '{"query":"{ boards(ids: 5057678016) { items_page(limit: 10) { items { id name subitems { id name } } } } }"}'
