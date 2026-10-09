@@ -1,4 +1,5 @@
 let allData = [];
+let fuse;
 
 fetch("data.json")
     .then(response => response.json())
@@ -10,10 +11,33 @@ fetch("data.json")
 
         buildBoardFilter();
 
+        fuse = new Fuse(allData, {
+            includeScore: true,
+            threshold: 0.4,
+            keys: [
+                {
+                    name: "itemName",
+                    weight: 0.5
+                },
+                {
+                    name: "description",
+                    weight: 0.3
+                },
+                {
+                    name: "subitems",
+                    weight: 0.2
+                }
+            ]
+        });
+
+        document
+            .getElementById("searchInput")
+            .addEventListener("input", runSearch);
+
     })
     .catch(error => {
 
-        console.error("Error loading data:", error);
+        console.error(error);
 
         document.getElementById("stats").innerHTML =
             "Error loading workspace data";
@@ -22,10 +46,8 @@ fetch("data.json")
 
 function updateStats(data) {
 
-    document.getElementById("stats").innerHTML = `
-        ${data.boards} Boards Indexed |
-        ${data.items.length} Records Available
-    `;
+    document.getElementById("stats").innerHTML =
+        `${data.boards} Boards Indexed | ${data.items.length} Records Available`;
 
 }
 
@@ -36,13 +58,9 @@ function buildBoardFilter() {
 
     boardList.innerHTML = "";
 
-    const uniqueBoards = [
-
-        ...new Set(
-            allData.map(item => item.boardName)
-        )
-
-    ].sort();
+    const uniqueBoards =
+        [...new Set(allData.map(item => item.boardName))]
+            .sort();
 
     uniqueBoards.forEach(board => {
 
@@ -58,11 +76,164 @@ function buildBoardFilter() {
                 value="${board}"
                 checked
             >
-
             ${board}
         `;
 
         boardList.appendChild(label);
+
+    });
+
+}
+
+function getSelectedBoards() {
+
+    const selected = [];
+
+    document
+        .querySelectorAll(".board-checkbox:checked")
+        .forEach(box => {
+
+            selected.push(box.value);
+
+        });
+
+    return selected;
+}
+
+function buildSnippet(text, searchTerm) {
+
+    if (!text) return "";
+
+    const index =
+        text
+        .toLowerCase()
+        .indexOf(searchTerm.toLowerCase());
+
+    if (index === -1) {
+
+        return text.substring(0, 150);
+
+    }
+
+    const start =
+        Math.max(0, index - 50);
+
+    const end =
+        Math.min(text.length, index + 100);
+
+    return "..." + text.substring(start, end) + "...";
+
+}
+
+function runSearch() {
+
+    const searchTerm =
+        document
+            .getElementById("searchInput")
+            .value
+            .trim();
+
+    if (!searchTerm) {
+
+        document.getElementById("resultCount").innerHTML = "";
+        document.getElementById("results").innerHTML = "";
+
+        return;
+
+    }
+
+    const selectedBoards =
+        getSelectedBoards();
+
+    let results =
+        fuse.search(searchTerm);
+
+    results =
+        results.filter(result =>
+            selectedBoards.includes(
+                result.item.boardName
+            )
+        );
+
+    document
+        .getElementById("resultCount")
+        .innerHTML =
+        `${results.length} result(s) found`;
+
+    renderResults(results, searchTerm);
+
+}
+
+function renderResults(results, searchTerm) {
+
+    const container =
+        document.getElementById("results");
+
+    container.innerHTML = "";
+
+    results.forEach(result => {
+
+        const item =
+            result.item;
+
+        const percentage =
+            Math.round(
+                (1 - result.score) * 100
+            );
+
+        const snippet =
+            buildSnippet(
+                item.description,
+                searchTerm
+            );
+
+        container.innerHTML += `
+
+            <div class="result-card">
+
+                <div class="result-header">
+
+                    <div class="match-score">
+                        ${percentage}% Match
+                    </div>
+
+                    <div class="match-type">
+                        Work Package
+                    </div>
+
+                </div>
+
+                <div class="section-label">
+                    Board
+                </div>
+
+                <div class="board-name">
+                    ${item.boardName}
+                </div>
+
+                <div class="section-label">
+                    Work Package
+                </div>
+
+                <div class="work-package">
+                    ${item.itemName}
+                </div>
+
+                <div class="section-label">
+                    Description
+                </div>
+
+                <div class="snippet">
+                    ${snippet}
+                </div>
+
+                ${item.url}
+                    Open in Monday
+                </a>
+
+            </div>
+
+        `;
 
     });
 
