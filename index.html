@@ -2,55 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workspace Search</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workspace Search</title>
 
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0" defer></script>
-    <script src="search.ead>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+  search.jsscript>
+</head>
 
 <body>
 
-    <div class="container">
+  <div class="container">
 
-        <h1>Workspace Search</h1>
+    <h1>Workspace Search</h1>
 
-        <div id="stats" class="stats">
-            Loading workspace statistics...
-        </div>
+    <div id="stats" class="stats">
+      Loading workspace statistics...
+    </div>
 
-        <div class="search-section">
-            <input
-                id="searchInput"
-                type="text"
-                placeholder="Search Work Packages, Descriptions / Deliverables and Subitems..."
-            >
-        </div>
+    <div class="search-section">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search Work Packages, Descriptions / Deliverables and Subitems..."
+      >
+    </div>
 
-        <div class="filters">
+    <div class="filters">
 
-            <h3>Board Filter</h3>
+      <h3>Board Filter</h3>
 
-            <label class="board-option">
-                <input
-                    type="checkbox"
-                    id="selectAllBoards"
-                    checked
-                >
-                All Boards
-            </label>
+      <label class="board-option">
+        <input
+          type="checkbox"
+          id="selectAllBoards"
+          checked>
+        All Boards
+      </label>
 
-            <div id="boardList"></div>
-
-        </div>
-
-        <div id="resultCount"></div>
-
-        <div id="results"></div>
+      <div id="boardList"></div>
 
     </div>
+
+    <div id="resultCount"></div>
+
+    <div id="results"></div>
+
+  </div>
 
 </body>
 
