@@ -230,7 +230,7 @@ function renderResults(results, searchTerm) {
 
         container.innerHTML += `
 
-            <<div
+            <div
                 class="result-card"
                 onclick="window.open('${item.url}', '_blank')"
             >
