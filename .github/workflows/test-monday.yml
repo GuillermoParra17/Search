@@ -1,4 +1,4 @@
-name: Test Monday Connection
+name: Test Workspace
 
 on:
   workflow_dispatch:
@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test Monday API
+      - name: Query Workspace
         run: |
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ me { id name } }"}'
+          -d '{"query":"{ workspaces(ids: 2266387) { id name } }"}'
