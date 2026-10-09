@@ -206,6 +206,19 @@ function renderResults(results, searchTerm) {
                 (1 - result.score) * 100
             );
 
+        let scoreColor = "#ef4444";
+
+            if (percentage >= 90) {
+                scoreColor = "#22c55e";
+            }
+            else if (percentage >= 75) {
+                scoreColor = "#0073ea";
+            }
+            else if (percentage >= 60) {
+                scoreColor = "#f59e0b";
+            }
+
+
         const snippet =
             buildSnippet(
                 item.description,
@@ -300,9 +313,12 @@ const subitemsHtml =
 
                 <div class="result-header">
 
-                    <div class="match-score">
-                        ${percentage}% Match
-                    </div>
+                    <div
+                            class="match-score"
+                            style="color:${scoreColor}"
+                        >
+                            ${percentage}% Match
+                        </div>
 
                     <div class="match-type">
                         ${matchLocation}
