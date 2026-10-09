@@ -175,6 +175,7 @@ function renderResults(results, searchTerm) {
 
         const item =
             result.item;
+        console.log(item);
 
         const percentage =
             Math.round(
