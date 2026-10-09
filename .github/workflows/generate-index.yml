@@ -10,6 +10,9 @@ jobs:
 
   build-index:
 
+    permissions:
+      contents: write
+
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Run Index Generator
         env:
@@ -30,13 +33,11 @@ jobs:
 
       - name: Commit data.json
         run: |
-
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           git add data.json
 
-          git diff --staged --quiet || \
-          git commit -m "Update search index"
+          git diff --staged --quiet || git commit -m "Update search index"
 
-          git push
+          git push origin HEAD:main
