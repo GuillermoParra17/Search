@@ -197,7 +197,10 @@ function renderResults(results, searchTerm) {
 
         container.innerHTML += `
 
-            <div class="result-card">
+            <<div
+                class="result-card"
+                onclick="window.open('${item.url}', '_blank')"
+            >
 
                 <div class="result-header">
 
@@ -242,10 +245,6 @@ function renderResults(results, searchTerm) {
                 <div class="snippet">
                     ${snippet}
                 </div>
-
-                ${item.url}
-                    Open in Monday
-                </a>
 
             </div>
 
