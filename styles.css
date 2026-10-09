@@ -127,3 +127,12 @@ h1 {
     margin-bottom: 10px;
 }
 
+    .result-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
