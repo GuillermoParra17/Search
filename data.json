@@ -1,1 +1,37 @@
-
+{
+  "boards": 3,
+  "generated": "2026-10-09",
+  "items": [
+    {
+      "boardName": "CSV Portfolio",
+      "itemName": "Computerized System Validation",
+      "description": "Validation protocol execution for SAP migration and quality review activities.",
+      "subitems": [
+        "Validation Review",
+        "Protocol Approval"
+      ],
+      "url": "https://globalroche.monday.com/boards/5095413574"
+    },
+    {
+      "boardName": "Digital Quality",
+      "itemName": "Data Integrity Assessment",
+      "description": "Assessment of data integrity controls within business systems.",
+      "subitems": [
+        "Risk Assessment",
+        "Validation Protocol"
+      ],
+      "url": "https://globalroche.monday.com/boards/5095413574"
+    },
+    {
+      "boardName": "SAP Landscape",
+      "itemName": "Migration Testing",
+      "description": "Testing strategy and validation activities for SAP migration.",
+      "subitems": [
+        "User Acceptance Testing",
+        "Review Validation Protocol"
+      ],
+      "url": "https://globalroche.monday.com/boards/5095413574"
+    }
+  ]
+}
+``
