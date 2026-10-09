@@ -1,4 +1,4 @@
-name: Get Boards With Workspace
+name: Find WBO Tech Suite Boards
 
 on:
   workflow_dispatch:
@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get Boards
+      - name: Find Boards
         run: |
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ boards(limit: 20) { id name workspace { id name } } }"}'
+          -d '{"query":"{ boards(limit: 100) { id name workspace { id name } } }"}'
