@@ -238,6 +238,31 @@ function renderResults(results, searchTerm) {
     });
 
 }
+document.addEventListener("change", function (event) {
+
+    if (event.target.id === "selectAllBoards") {
+
+        const checked = event.target.checked;
+
+        document
+            .querySelectorAll(".board-checkbox")
+            .forEach(box => {
+
+                box.checked = checked;
+
+            });
+
+        runSearch();
+    }
+
+    if (event.target.classList.contains("board-checkbox")) {
+
+        runSearch();
+
+    }
+
+});
+`
 
 console.log("Search.js loaded successfully");
 console.log("Fuse type:", typeof Fuse);
