@@ -99,3 +99,31 @@ h1 {
     font-size: 12px;
     margin-top: 12px;
     margin
+
+    .keywords {
+    margin-top: 10px;
+}
+
+.keyword {
+    display: inline-block;
+    background: #e8f3ff;
+    color: #0073ea;
+    border-radius: 16px;
+    padding: 4px 10px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.match-location {
+    display: inline-block;
+    background: #f2f3f5;
+    color: #323338;
+    border-radius: 16px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
