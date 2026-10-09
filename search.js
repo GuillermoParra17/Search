@@ -211,6 +211,29 @@ function renderResults(results, searchTerm) {
                 item.description,
                 searchTerm
             );
+
+        let matchLocation = "DESCRIPTION";
+
+        if (
+            item.itemName &&
+            item.itemName
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase())
+        ) {
+            matchLocation = "WORK PACKAGE";
+        }
+        
+        if (
+            item.subitems &&
+            item.subitems.some(subitem =>
+                subitem
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+            )
+        ) {
+            matchLocation = "SUBITEM";
+        }
+        
         const subitemsHtml =
             item.subitems && item.subitems.length
                 ? item.subitems
@@ -242,7 +265,7 @@ function renderResults(results, searchTerm) {
                     </div>
 
                     <div class="match-type">
-                        DESCRIPTION
+                        ${matchLocation}
                     </div>
 
                 </div>
