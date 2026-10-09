@@ -234,7 +234,7 @@ function renderResults(results, searchTerm) {
                     </div>
 
                     <div class="match-type">
-                        Work Package
+                        DESCRIPTION
                     </div>
 
                 </div>
