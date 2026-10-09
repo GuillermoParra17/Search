@@ -295,7 +295,7 @@ function renderResults(results, searchTerm) {
                 </div>
 
                 <div class="section-label">
-                    Subitems
+                    Matching Subitems
                 </div>
                 
                 <div>
