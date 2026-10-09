@@ -187,6 +187,14 @@ function renderResults(results, searchTerm) {
                 searchTerm
             );
 
+        const keywords = searchTerm
+    .split(" ")
+    .filter(word => word.trim() !== "")
+    .map(word =>
+        `<span class="keyword">${word}</span>`
+    )
+    .join("");
+
         container.innerHTML += `
 
             <div class="result-card">
@@ -217,6 +225,14 @@ function renderResults(results, searchTerm) {
 
                 <div class="work-package">
                     ${item.itemName}
+                </div>
+
+                <div class="section-label">
+                    Keywords
+                </div>
+
+                <div class="keywords">
+                    ${keywords}
                 </div>
 
                 <div class="section-label">
