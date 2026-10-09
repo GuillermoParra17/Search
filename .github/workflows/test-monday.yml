@@ -1,4 +1,4 @@
-name: Find Work Package Overview Boards
+name: Get Hungary Work Packages
 
 on:
   workflow_dispatch:
@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Find Boards
+      - name: Get Work Packages
         run: |
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ boards(limit: 500) { id name workspace { id name } } }"}'
+          -d '{"query":"{ boards(ids: 5057678016) { id name items_page(limit: 5) { items { id name } } } }"}'
