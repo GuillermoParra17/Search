@@ -1,0 +1,16 @@
+name: Test Monday Connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test Monday API
+        run: |
+          curl -X POST https://api.monday.com/v2 \
+          -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{"query":"{ me { id name } }"}'
