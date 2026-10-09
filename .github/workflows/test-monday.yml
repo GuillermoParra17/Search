@@ -1,4 +1,4 @@
-name: Get Column Names
+name: Get Description Content
 
 on:
   workflow_dispatch:
@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get Columns
+      - name: Get Description
         run: |
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ boards(ids: 5057678016) { columns { id title type } } }"}'
+          -d '{"query":"{ boards(ids: 5057678016) { items_page(limit: 1) { items { id name column_values(ids:[\"long_text_1\"]) { id text } } } } }"}'
