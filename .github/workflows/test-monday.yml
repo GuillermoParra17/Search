@@ -1,4 +1,4 @@
-name: Get Subitems
+name: Get Full Column Values
 
 on:
   workflow_dispatch:
@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get Subitems
+      - name: Get Columns
         run: |
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ boards(ids: 5057678016) { items_page(limit: 10) { items { id name subitems { id name } } } } }"}'
+          -d '{"query":"{ boards(ids: 5057678016) { items_page(limit: 1) { items { id name column_values { id text value } } } } }"}'
