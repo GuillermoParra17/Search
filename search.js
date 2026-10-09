@@ -67,3 +67,6 @@ function buildBoardFilter() {
     });
 
 }
+
+console.log("Search.js loaded successfully");
+console.log("Fuse type:", typeof Fuse);
