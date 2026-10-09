@@ -1,4 +1,4 @@
-name: Test Workspace
+name: Get Boards
 
 on:
   workflow_dispatch:
@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Query Workspace
+      - name: Get Boards
         run: |
           curl -X POST https://api.monday.com/v2 \
           -H "Authorization: ${{ secrets.MONDAY_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          -d '{"query":"{ workspaces(ids: 2266387) { id name } }"}'
+          -d '{"query":"{ workspaces(ids: 2266387) { id name boards { id name } } }"}'
