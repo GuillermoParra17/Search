@@ -234,14 +234,54 @@ function renderResults(results, searchTerm) {
             matchLocation = "SUBITEM";
         }
         
-        const subitemsHtml =
-            item.subitems && item.subitems.length
-                ? item.subitems
-                    .map(subitem =>
-                    `<div class="subitem-name">• ${subitem}</div>`
-                    )
-                    .join("")
-                : "<div class='subitem-name'>No subitems</div>";
+        const searchWords =
+    searchTerm
+        .toLowerCase()
+        .split(" ")
+        .filter(word => word.trim() !== "");
+
+const matchingSubitems =
+    (item.subitems || []).filter(subitem =>
+
+        searchWords.some(word =>
+            subitem
+                .toLowerCase()
+                .includes(word)
+        )
+
+    );
+
+const subitemsHtml =
+    matchingSubitems.length
+
+        ? matchingSubitems
+            .map(subitem => {
+
+                let highlighted = subitem;
+
+                searchWords.forEach(word => {
+
+                    const regex =
+                        new RegExp(`(${word})`, "gi");
+
+                    highlighted =
+                        highlighted.replace(
+                            regex,
+                            "<mark>$1</mark>"
+                        );
+
+                });
+
+                return `
+                    <div class="subitem-name">
+                        ⭐ ${highlighted}
+                    </div>
+                `;
+
+            })
+            .join("")
+
+        : "<div class='subitem-name'>No matching subitems</div>";
 
         const keywords = searchTerm
     .split(" ")
