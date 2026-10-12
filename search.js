@@ -344,7 +344,11 @@ function runSearch() {
     let results =
         fuse.search(searchTerm);
 
-    console.log("Selected Boards:", selectedBoards);
+    console.log(
+    "Actual Board Names:",
+    [...new Set(allData.map(x => x.boardName))]
+    );
+    
     console.log("First Result Board:",
     allData[0].boardName
     );
