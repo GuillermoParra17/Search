@@ -354,11 +354,16 @@ function runSearch() {
     );
     console.log("First Board:", results[0]?.item?.boardName);
     results =
-        results.filter(result =>
-            selectedBoards.includes(
-                result.item.boardName
-            )
-        );
+        results =
+            results.filter(result => {
+        
+                return selectedBoards.some(board =>
+        
+                    result.item.boardName.includes(board)
+        
+                );
+        
+            });
 
     document
         .getElementById("resultCount")
