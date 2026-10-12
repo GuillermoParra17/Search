@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T06:11:54.801Z",
+  "generatedAt": "2026-10-12T10:39:43.677Z",
   "boards": 81,
   "items": [
     {
@@ -5236,7 +5236,9 @@
         "Hemlibra HCPs updates + CI",
         "Hemophilia soc AGM",
         "Hemlibra HKPHOSGH Symposium sponsorship",
-        "Hemlibra narrative"
+        "Hemlibra Scenarios planning",
+        "Hemlibra PAG reactivation",
+        "Formulate Hemlibra brand strategy"
       ],
       "url": "https://globalroche.monday.com/boards/2034369384/pulses/2117280613"
     },
@@ -12880,7 +12882,8 @@
         "2026 ESMO diva연구자 미팅 tapping - 홍민희, 조병철?",
         "YL211 cMET  ADC 11월 중 개시 - 특정 센터 support예정",
         "Consultation tapping - Severance: HR Kim",
-        "Consultation tapping - 지방거점센터 칠곡경대? 울산대?"
+        "Consultation tapping - 지방거점센터 칠곡경대? 울산대?",
+        "ESMO 에서 조병철교수 F2F 일정 논의 중: Dr. Marie-Hélène Wasmer (Senior Clinical Scientist)"
       ],
       "url": "https://globalroche.monday.com/boards/2034314243/pulses/3149916942"
     },
@@ -26316,6 +26319,14 @@
     {
       "boardId": "5043241195",
       "boardName": "[Serbia & Montenegro] Work Package Overview",
+      "itemId": "3276188847",
+      "itemName": "New work package",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5043241195/pulses/3276188847"
+    },
+    {
+      "boardId": "5043241195",
+      "boardName": "[Serbia & Montenegro] Work Package Overview",
       "itemId": "2759774891",
       "itemName": "Warehouse Launch",
       "subitems": [
@@ -26342,7 +26353,8 @@
         "Co-work with agency on digital campaign per regional centers",
         "OCT Rozaje dedicated timeline for Retina screening - feasibility",
         "Digital/Omnichannel plan",
-        "Narrative Roche investm in ophtalmology 2026"
+        "Narrative Roche investm in ophtalmology 2026",
+        "Track and measure KPIs behind the campaign"
       ],
       "url": "https://globalroche.monday.com/boards/5043241195/pulses/2901249019"
     },
@@ -30556,7 +30568,8 @@
         "ESMO Oncology Scientific Exchange and Network Forum Mail atılması",
         "ESMO CEETRIS Voice Toplantı Speaker hekim belirlenmesi",
         "ESMO CEETRIS Voice Toplantı Speaker sunum iletimi",
-        "ESMO Roche Oncology Scientific Exchange"
+        "ESMO Roche Oncology Scientific Exchange",
+        "ESMO katılımcı hekim ziyaretleri"
       ],
       "url": "https://globalroche.monday.com/boards/1773051053/pulses/3260608652"
     },
@@ -38130,7 +38143,7 @@
       "boardId": "5057605420",
       "boardName": "[Czech Republic] Work Package Overview",
       "itemId": "2670807455",
-      "itemName": "Patient´s workshop Ostrava (až v 2027)",
+      "itemName": "Patient´s workshop Ostrava (únor/březen 2027)",
       "subitems": [
         "Program",
         "Speakers",
@@ -38214,7 +38227,7 @@
       "boardId": "5057605420",
       "boardName": "[Czech Republic] Work Package Overview",
       "itemId": "2670841885",
-      "itemName": "Patient´s workshop Brno (adults, listopad)",
+      "itemName": "Patient´s workshop Brno (adults, moved to C1 27)",
       "subitems": [
         "Program",
         "Speakers",
@@ -38247,7 +38260,7 @@
       "boardId": "5057605420",
       "boardName": "[Czech Republic] Work Package Overview",
       "itemId": "2670844792",
-      "itemName": "Patient´s workshop UHKT",
+      "itemName": "Patient´s workshop UHKT 24.10.",
       "subitems": [
         "Program",
         "Speakers",
@@ -52777,7 +52790,7 @@
         "P&L: CMSC deck incl. latest pregnancy data (for MVM reactive use) approved and trained (c2)",
         "P&L: Update Medical deck for MVM  pregnancy (ECTRIMS data) final and trained",
         "P&L: Internal training on pregnancy label update (c3)",
-        "P&L: Messaging and materials pregnancy final & trained (c3 (mogelijke uitloop c1 2027))",
+        "P&L: Messaging and materials pregnancy final & trained",
         "P&L: SOPRANINO publication",
         "P&L: MINORE publication",
         "pediatric EMA submission",
@@ -52812,7 +52825,9 @@
         "Financial business case",
         "Readout OCARINA III",
         "Readout PORTAMENTO",
-        "Readout OCTAVIBE"
+        "Readout OCTAVIBE",
+        "Positionering, past het in portfolio (info vanuit global)",
+        "Wat is er nodig, wil het ziekenhuis dit voorschrijven? UK, GER, FRA marktonderzoek gebruiken en vragen voor lokaal marktonderzoek voorbereiden"
       ],
       "url": "https://globalroche.monday.com/boards/5057671124/pulses/2927358211"
     },
@@ -52914,12 +52929,12 @@
         "MVM MS updates",
         "Vaccination & OCR Whitepaper",
         "MS pioneer initiative Boerhaave contract",
-        "MS pioneer initiative Advisory board Neurologist",
+        "MS pioneer initiative Advisory board Neurologist (ronde tafel)",
         "MS pioneer initiative MS Vereniging",
-        "MS pioneer initiative medical writer/agency  set up",
         "MS pioneer initiative strategic concept and campaign",
         "MS pioneer initiative digital hub",
-        "MS pioneer initiative 'boerhaave on tour'"
+        "MS pioneer initiative 'boerhaave on tour'",
+        "RFP together with procurement"
       ],
       "url": "https://globalroche.monday.com/boards/5057671124/pulses/2699553479"
     },
@@ -52933,8 +52948,8 @@
         "AI MRI: first patient in",
         "AI MRI: internal administration based on synopsis/design in slides final",
         "AI MRI: internal administration (including GLOBAL mandatory SOPs/processes) final",
-        "AI MRI: nWMO aanvraag",
-        "AI MRI: protocol final",
+        "DELETE AI MRI: nWMO aanvraag",
+        "DELETE AI MRI: protocol final",
         "AI MRI: project synopsis approved by PI (content)",
         "AI MRI: study design in slides co-created with PI",
         "NfL Academy Dutch speakers approved",
@@ -57625,7 +57640,10 @@
         "Przygotowanie launchu produktu na rynek po refundacji",
         "Objection Handler Warsztat: Przełamywanie Obiekcji & Storytelling (0,5 dnia)",
         "Kolejne moduły wiedzy medycznej (0,5 dnia)",
-        "Budowanie Mostu „Reumato-Nefro” – lokalne ROE (5-6 Polska, 02-03.2027, spotkania interdyscyplinarne HCO A/B)"
+        "Budowanie Mostu „Reumato-Nefro” – lokalne ROE (5-6 Polska, 02-03.2027, spotkania interdyscyplinarne HCO A/B)",
+        "Decyzja (typu „go/no-go”) zespołu ET dotycząca wskazań: toczeń rumieniowaty układowy (SLE), idiopatyczny zespół nerczycowy (INS) i pierwotna nefropatia błoniasta (pMN)",
+        "SLE reimbursement: market research, HTA, adboard, drug program,",
+        "INS, pMN: HTA, adboard, drug program"
       ],
       "url": "https://globalroche.monday.com/boards/1667970515/pulses/3257409969"
     },
@@ -59106,7 +59124,10 @@
         "Trnavsky den",
         "SKAP",
         "Content of medical education",
-        "HCC - príprava komunikácie na 2027"
+        "HCC - príprava komunikácie na 2027",
+        "KDIO",
+        "Preceptorship BC",
+        "LC register"
       ],
       "url": "https://globalroche.monday.com/boards/5057691950/pulses/2646037754"
     },
