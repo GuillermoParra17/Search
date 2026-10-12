@@ -227,4 +227,15 @@ mark {
 
     font-weight: 600;
 
+    cursor: pointer;
+    
+    transition: all 0.2s;
+
+}
+
+.board-summary-pill:hover {
+
+    background: #0073ea;
+    color: white;
+
 }
