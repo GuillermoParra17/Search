@@ -212,6 +212,25 @@ function highlightText(text, searchTerm) {
 
 }
 
+function getRegionLabel(region) {
+
+    const labels = {
+
+        Africa: "🌍 Africa",
+        APAC: "🌏 APAC",
+        CEETRIS: "🌐 CEETRIS",
+        Europe: "🌍 Europe",
+        LATAM: "🌎 LATAM",
+        i8: "🚀 i8",
+        CLT: "🏢 CLT",
+        IPS: "🔬 IPS"
+
+    };
+
+    return labels[region] || region;
+
+}
+
 function buildRegionFilter() {
 
     const boardList =
@@ -235,7 +254,7 @@ function buildRegionFilter() {
                     value="${region}"
                     checked
                 >
-                ${region}
+                ${getRegionLabel(region)}
             `;
 
             boardList.appendChild(label);
