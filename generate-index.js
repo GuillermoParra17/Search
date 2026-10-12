@@ -176,7 +176,8 @@ async function buildIndex() {
               .map(sub => sub.name),
 
           url:
-            `https://globalroche.monday.com/boards/${board.id}`
+            url:
+                `https://globalroche.monday.com/boards/${board.id}/pulses/${item.id}`
 
         });
 
