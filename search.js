@@ -382,14 +382,36 @@ function runSearch() {
 
     console.log("Active Filter:", activeBoardFilter);
 
-            if (activeBoardFilter) {
-            
-                results =
-                    results.filter(result =>
-                        result.item.boardName.includes(activeBoardFilter)
-                    );
-            
-            }
+            if (activeBoardFilter === "__OTHER__") {
+
+    const boardCounts = {};
+
+    results.forEach(result => {
+        const board = result.item.boardName;
+        boardCounts[board] =
+            (boardCounts[board] || 0) + 1;
+    });
+
+    const topBoards =
+        Object.entries(boardCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
+            .map(([board]) => board);
+
+    results =
+        results.filter(result =>
+            !topBoards.includes(result.item.boardName)
+        );
+
+}
+else if (activeBoardFilter) {
+
+    results =
+        results.filter(result =>
+            result.item.boardName.includes(activeBoardFilter)
+        );
+
+}
     
     document
         .getElementById("resultCount")
@@ -435,34 +457,61 @@ function renderResults(results, searchTerm) {
         
         });
         
-        const boardSummary = Object.entries(boardCounts)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 10)
-            .map(([board, count]) => {
-                const shortBoard =
-                    board
-                        .replace(" Work Package Overview", "")
-                        .replace(" WP Portfolio Overview", "")
-                        .replace(" Work Packages Overview", "");
-            
-                return `
-                        <span
-                            class="board-summary-pill"
-                            onclick="filterBoard(this.dataset.board)"
-                            data-board="${board}"
-                        >
-                            ${shortBoard} (${count})
-                        </span>
-                    `;
-            
-            })
-            .join("");
+        const sortedBoards = Object.entries(boardCounts)
+    .sort((a, b) => b[1] - a[1]);
+
+const topBoards = sortedBoards.slice(0, 10);
+
+const otherBoards = sortedBoards.slice(10);
+
+const otherBoardsCount =
+    otherBoards.reduce(
+        (sum, [, count]) => sum + count,
+        0
+    );
+
+const boardSummary = topBoards
+    .map(([board, count]) => {
+
+        const shortBoard =
+            board
+                .replace(" Work Package Overview", "")
+                .replace(" WP Portfolio Overview", "")
+                .replace(" Work Packages Overview", "");
+
+        return `
+            <span
+                class="board-summary-pill"
+                onclick="filterBoard(this.dataset.board)"
+                data-board="${board}"
+            >
+                ${shortBoard} (${count})
+            </span>
+        `;
+    })
+    .join("");
+
+    let otherBoardsPill = "";
+
+if (otherBoards.length > 0) {
+
+    otherBoardsPill = `
+        <span
+            class="board-summary-pill"
+            onclick="filterOtherBoards()"
+        >
+            Other Affiliates (${otherBoardsCount})
+        </span>
+    `;
+
+}
         
         container.innerHTML += `
-            <div class="board-summary">
-                ${boardSummary}
-            </div>
-    `;
+    <div class="board-summary">
+        ${boardSummary}
+        ${otherBoardsPill}
+    </div>
+`;
 
     results.forEach(result => {
 
@@ -674,13 +723,24 @@ function clearSearch() {
 }
 
 let activeBoardFilter = null;
+let showOtherBoards = false;
 
 function filterBoard(boardName) {
+
+    showOtherBoards = false;
 
     activeBoardFilter = boardName;
 
     runSearch();
+}
 
+function filterOtherBoards() {
+
+    activeBoardFilter = "__OTHER__";
+
+    showOtherBoards = true;
+
+    runSearch();
 }
 
 function clearBoardFilter() {
