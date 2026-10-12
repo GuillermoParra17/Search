@@ -439,16 +439,20 @@ function renderResults(results, searchTerm) {
 
     container.innerHTML = "";
 
-    if (activeBoardFilter) {
+    if (activeBoardFilter || otherAffiliatesFilter) {
 
         container.innerHTML += `
             <div class="active-filter">
-                Active Board Filter:
+                Active Affiliate Filter:
                 <span
                     class="active-filter-pill"
                     onclick="clearBoardFilter()"
                 >
-                    ${activeBoardFilter} ✕
+                    ${
+                        otherAffiliatesFilter
+                            ? "Other Affiliates"
+                            : activeBoardFilter
+                    } ✕
                 </span>
             </div>
         `;
