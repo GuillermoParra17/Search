@@ -71,7 +71,7 @@ function updateStats(data) {
         Last Updated: ${formattedDate}
         <br>
         <small>
-        Search results are refreshed daily from Monday.com.
+        Search results are refreshed daily from WBO Tech Suite.
         </small>
         `;
  
