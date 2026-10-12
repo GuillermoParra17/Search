@@ -428,6 +428,16 @@ function renderResults(results, searchTerm) {
 
     const boardCounts = {};
 
+            results.forEach(result => {
+         
+        const board =
+        result.item.boardName;
+         
+        boardCounts[board] =
+        (boardCounts[board] || 0) + 1;
+         
+        });
+
     const startIndex =
     (currentPage - 1) * resultsPerPage;
 
