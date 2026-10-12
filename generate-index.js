@@ -120,6 +120,7 @@ async function getBoard(boardId) {
           column_values {
             id
             text
+            value
           }
 
           subitems {
@@ -169,7 +170,9 @@ async function buildIndex() {
                 itemName: item.name,
               
                 description:
-                  descriptionColumn?.text || "",
+                        descriptionColumn?.text ||
+                        descriptionColumn?.value ||
+                        "",
               
                 subitems:
                   (item.subitems || [])
