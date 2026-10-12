@@ -345,6 +345,9 @@ function runSearch() {
         fuse.search(searchTerm);
 
     console.log("Selected Boards:", selectedBoards);
+    console.log("First Result Board:",
+    allData[0].boardName
+    );
     console.log("First Board:", results[0]?.item?.boardName);
     results =
         results.filter(result =>
