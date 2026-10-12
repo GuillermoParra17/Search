@@ -508,20 +508,23 @@ const boardSummary = topBoards
     })
     .join("");
 
-    let otherBoardsPill = "";
+   let otherBoardsPill = "";
 
-if (otherBoards.length > 0) {
-
-    otherBoardsPill = `
-        <span
-            class="board-summary-pill"
-            onclick="filterOtherBoards()"
-        >
-            Other Affiliates (${otherBoardsCount})
-        </span>
-    `;
-
-}
+        if (
+            otherBoards.length > 0 &&
+            activeBoardFilter !== "Other Affiliate(s)"
+        ) {
+        
+            otherBoardsPill = `
+                <span
+                    class="board-summary-pill"
+                    onclick="filterOtherBoards()"
+                >
+                    Other Affiliates (${otherBoardsCount})
+                </span>
+            `;
+        
+        }
         
         container.innerHTML += `
     <div class="board-summary">
