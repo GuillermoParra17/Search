@@ -688,7 +688,7 @@ function clearBoardFilter() {
     activeBoardFilter = null;
 
     document
-        .querySelectorAll(".board-checkbox")
+        .querySelectorAll(".region-checkbox")
         .forEach(box => {
 
             box.checked = true;
