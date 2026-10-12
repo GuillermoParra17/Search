@@ -1,6 +1,9 @@
-let unfilteredResults = [];
-let allData = [];
-let fuse;
+1  let unfilteredResults = [];
+2  let currentPage = 1;
+3  const RESULTS_PER_PAGE = 50;
+
+4  let allData = [];
+5  let fuse;
 
 const REGION_MAP = {
 
@@ -533,7 +536,21 @@ const boardSummary = topBoards
     </div>
 `;
 
-    results.forEach(result => {
+    const totalPages =
+    Math.ceil(
+        results.length / RESULTS_PER_PAGE
+    );
+
+const startIndex =
+    (currentPage - 1) * RESULTS_PER_PAGE;
+
+const endIndex =
+    startIndex + RESULTS_PER_PAGE;
+
+const pagedResults =
+    results.slice(startIndex, endIndex);
+
+pagedResults.forEach(result => {
 
         const item =
             result.item;
@@ -747,6 +764,8 @@ let showOtherBoards = false;
 
 function filterBoard(boardName) {
 
+    currentPage = 1;
+
     showOtherBoards = false;
 
     activeBoardFilter = boardName;
@@ -756,15 +775,18 @@ function filterBoard(boardName) {
 
 function filterOtherBoards() {
 
+    currentPage = 1;
+
     activeBoardFilter = "Other Affiliate(s)";
 
     showOtherBoards = true;
 
     runSearch();
+
 }
 
 function clearBoardFilter() {
-
+    currentPage = 1;
     activeBoardFilter = null;
 
     document
