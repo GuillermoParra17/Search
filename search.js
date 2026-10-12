@@ -688,9 +688,10 @@ const subitemsHtml =
 
         `;
 
-    });
+    };
 
 }
+
 document.addEventListener("change", function (event) {
 
     if (event.target.id === "selectAllBoards") {
