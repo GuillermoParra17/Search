@@ -647,7 +647,7 @@ document.addEventListener("change", function (event) {
         const checked = event.target.checked;
 
         document
-            .querySelectorAll(".board-checkbox")
+            .querySelectorAll(".region-checkbox")
             .forEach(box => {
 
                 box.checked = checked;
