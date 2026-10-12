@@ -1,3 +1,4 @@
+let unfilteredResults = [];
 let allData = [];
 let fuse;
 
@@ -380,6 +381,8 @@ function runSearch() {
         
             });
 
+    unfilteredResults = [...results];
+
     console.log("Active Filter:", activeBoardFilter);
 
             if (activeBoardFilter === "Other Affiliate(s)") {
@@ -396,7 +399,7 @@ summaryResults = summaryResults.filter(result =>
     )
 );
 
-summaryResults.forEach(result => {
+unfilteredResults.forEach(result => {
 
     const board = result.item.boardName;
 
