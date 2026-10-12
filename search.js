@@ -271,7 +271,8 @@ function renderResults(results, searchTerm) {
                 return `
                         <span
                             class="board-summary-pill"
-                            onclick="filterBoard('${board}')"
+                            onclick="filterBoard(this.dataset.board)"
+                            data-board="${board}"
                         >
                             ${shortBoard} (${count})
                         </span>
