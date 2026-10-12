@@ -1,5 +1,8 @@
 let allData = [];
 let fuse;
+let currentPage = 1;
+const resultsPerPage = 50;
+``
 
 const REGION_MAP = {
 
@@ -395,7 +398,7 @@ function runSearch() {
         .getElementById("resultCount")
         .innerHTML =
         `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)`;
-    
+        currentPage = 1;
         renderResults(results, searchTerm);
 
 }
@@ -425,7 +428,16 @@ function renderResults(results, searchTerm) {
 
     const boardCounts = {};
 
-    results.forEach(result => {
+    const startIndex =
+    (currentPage - 1) * resultsPerPage;
+
+    const endIndex =
+        startIndex + resultsPerPage;
+    
+    const paginatedResults =
+        results.slice(startIndex, endIndex);
+        
+        paginatedResults.forEach(result => {
     
             const board =
                 result.item.boardName;
