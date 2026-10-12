@@ -320,7 +320,7 @@ const subitemsHtml =
             })
             .join("")
 
-        : "<div class='subitem-name'>No matching subitems</div>";
+        : "";
 
         const keywords = searchTerm
     .split(" ")
@@ -376,13 +376,15 @@ const subitemsHtml =
                     ${keywords}
                 </div>
 
+                ${subitemsHtml ? `
                 <div class="section-label">
                     Matching Subitems
                 </div>
-                
+            
                 <div>
                     ${subitemsHtml}
                 </div>
+                ` : ""}
             
             </div>
 
