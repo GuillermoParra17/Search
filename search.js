@@ -469,14 +469,8 @@ const boardSummary = topBoards
             })
             .join("");
         
-        const otherBoardsCount =
-    Object.entries(boardCounts)
-        .sort((a, b) => b[1] - a[1])
-        .slice(10)
-        .reduce(
-            (sum, [, count]) => sum + count,
-            0
-        );
+            Object.entries(boardCounts)
+
 
 const otherBoardsPill =
     otherBoardsCount > 0
