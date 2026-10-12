@@ -464,7 +464,16 @@ function renderResults(results, searchTerm) {
 
     const boardCounts = {};
 
-    results.forEach(result => {
+    const startIndex =
+    (currentPage - 1) * resultsPerPage;
+
+    const endIndex =
+        startIndex + resultsPerPage;
+    
+    const paginatedResults =
+        results.slice(startIndex, endIndex);
+    
+    paginatedResults.forEach(result => {
     
             const board =
                 result.item.boardName;
