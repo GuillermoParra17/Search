@@ -70,7 +70,7 @@ function updateStats(data) {
         <br>
         Last Updated: ${formattedDate}
         <br>
-        Search index is automatically refreshed once per day.
+        Data is automatically refreshed once per day.
         `;
 
 }
