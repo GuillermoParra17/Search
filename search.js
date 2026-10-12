@@ -390,6 +390,38 @@ function runSearch() {
                     );
             
             }
+
+    if (otherAffiliatesFilter) {
+
+    const sortedBoards =
+        Object.entries(
+            results.reduce((acc, result) => {
+
+                const board =
+                    result.item.boardName;
+
+                acc[board] =
+                    (acc[board] || 0) + 1;
+
+                return acc;
+
+            }, {})
+        )
+        .sort((a, b) => b[1] - a[1]);
+
+    const topBoards =
+        sortedBoards
+            .slice(0, 10)
+            .map(([board]) => board);
+
+    results =
+        results.filter(result =>
+            !topBoards.includes(
+                result.item.boardName
+            )
+        );
+
+}
     
     document
         .getElementById("resultCount")
@@ -435,10 +467,21 @@ function renderResults(results, searchTerm) {
         
         });
         
-        const boardSummary = Object.entries(boardCounts)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 10)
-            .map(([board, count]) => {
+        const sortedBoards = Object.entries(boardCounts)
+                .sort((a, b) => b[1] - a[1]);
+            
+            const topBoards = sortedBoards.slice(0, 10);
+            
+            const otherBoards = sortedBoards.slice(10);
+            
+            const otherBoardsCount =
+                otherBoards.reduce(
+                    (sum, [, count]) => sum + count,
+                    0
+                );
+            
+            const boardSummary = topBoards
+                .map(([board, count]) => {
                 const shortBoard =
                     board
                         .replace(" Work Package Overview", "")
@@ -458,11 +501,26 @@ function renderResults(results, searchTerm) {
             })
             .join("");
         
-        container.innerHTML += `
-            <div class="board-summary">
-                ${boardSummary}
-            </div>
-    `;
+        const otherBoardsPill =
+    otherBoards.length > 0
+
+        ? `
+            <span
+                class="board-summary-pill"
+                onclick="filterOtherBoards()"
+            >
+                Other Affiliates (${otherBoardsCount})
+            </span>
+        `
+
+        : "";
+
+container.innerHTML += `
+    <div class="board-summary">
+        ${boardSummary}
+        ${otherBoardsPill}
+    </div>
+`;
 
     results.forEach(result => {
 
@@ -683,9 +741,22 @@ function filterBoard(boardName) {
 
 }
 
+let otherAffiliatesFilter = false;
+
+function filterOtherBoards() {
+
+    otherAffiliatesFilter = true;
+
+    activeBoardFilter = null;
+
+    runSearch();
+
+}
+
 function clearBoardFilter() {
 
     activeBoardFilter = null;
+    otherAffiliatesFilter = false;
 
     document
         .querySelectorAll(".region-checkbox")
