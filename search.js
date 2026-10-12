@@ -1,9 +1,6 @@
 let allData = [];
 let fuse;
 
-let currentPage = 1;
-const resultsPerPage = 50;
-
 const REGION_MAP = {
 
     Africa: [
@@ -361,16 +358,30 @@ function runSearch() {
 
     let results =
         fuse.search(searchTerm);
+
+    console.log(
+    "Actual Board Names:",
+    [...new Set(allData.map(x => x.boardName))]
+    );
+    
+    console.log("First Result Board:",
+    allData[0].boardName
+    );
+    console.log("First Board:", results[0]?.item?.boardName);
     results =
-        results.filter(result => {
-         
-        return selectedBoards.some(board =>
-         
-        result.item.boardName.includes(board)
-         
-        );
-         
-        });
+        results =
+            results.filter(result => {
+        
+                return selectedBoards.some(board =>
+        
+                    result.item.boardName.includes(board)
+        
+                );
+        
+            });
+
+    console.log("Active Filter:", activeBoardFilter);
+
             if (activeBoardFilter) {
             
                 results =
@@ -379,44 +390,12 @@ function runSearch() {
                     );
             
             }
-
-            if (otherAffiliatesFilter) {
-        
-            const sortedBoards =
-                Object.entries(
-                    results.reduce((acc, result) => {
-        
-                        const board =
-                            result.item.boardName;
-        
-                        acc[board] =
-                            (acc[board] || 0) + 1;
-        
-                        return acc;
-        
-                    }, {})
-                )
-                .sort((a, b) => b[1] - a[1]);
-        
-            const topBoards =
-                sortedBoards
-                    .slice(0, 10)
-                    .map(([board]) => board);
-        
-            results =
-                results.filter(result =>
-                    !topBoards.includes(
-                        result.item.boardName
-                    )
-                );
-        
-        }
     
     document
         .getElementById("resultCount")
         .innerHTML =
-        `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)`;
-        currentPage = 1;
+        `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} board(s)`;
+    
         renderResults(results, searchTerm);
 
 }
@@ -428,71 +407,37 @@ function renderResults(results, searchTerm) {
 
     container.innerHTML = "";
 
-    
-    if (activeBoardFilter || otherAffiliatesFilter) {
+    if (activeBoardFilter) {
 
         container.innerHTML += `
             <div class="active-filter">
-                Active Affiliate Filter:
+                Active Board Filter:
                 <span
                     class="active-filter-pill"
                     onclick="clearBoardFilter()"
                 >
-                    ${
-                        otherAffiliatesFilter
-                            ? "Other Affiliates"
-                            : activeBoardFilter
-                    } ✕
+                    ${activeBoardFilter} ✕
                 </span>
             </div>
         `;
     
     }
 
-   const boardCounts = {};
+    const boardCounts = {};
 
-const startIndex =
-    (currentPage - 1) * resultsPerPage;
-
-const endIndex =
-    startIndex + resultsPerPage;
-
-const paginatedResults =
-    results.slice(startIndex, endIndex);
-
-/* Build affiliate stats from ALL results */
-results.forEach(result => {
-
-    const board =
-        result.item.boardName;
-
-    boardCounts[board] =
-        (boardCounts[board] || 0) + 1;
-
-});
-
-    container.innerHTML += `
-        <div class="pagination-info">
-        Showing ${startIndex + 1}-${Math.min(endIndex, results.length)}
-        of ${results.length.toLocaleString()}
-        results
-        </div>
-        `;
-
-        const sortedBoards = Object.entries(boardCounts)
-            .sort((a, b) => b[1] - a[1]);
+    results.forEach(result => {
+    
+            const board =
+                result.item.boardName;
         
-        const topBoards = sortedBoards.slice(0, 10);
+            boardCounts[board] =
+                (boardCounts[board] || 0) + 1;
         
-        const otherBoards = sortedBoards.slice(10);
+        });
         
-        const otherBoardsCount =
-            otherBoards.reduce(
-                (sum, [, count]) => sum + count,
-                0
-            );
-            
-        const boardSummary = topBoards
+        const boardSummary = Object.entries(boardCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
             .map(([board, count]) => {
                 const shortBoard =
                     board
@@ -512,44 +457,18 @@ results.forEach(result => {
             
             })
             .join("");
+        
+        container.innerHTML += `
+            <div class="board-summary">
+                ${boardSummary}
+            </div>
+    `;
 
-        const otherBoardsPill =
-            otherBoards.length > 0
-        
-                ? `
-                    <span
-                        class="board-summary-pill"
-                        onclick="filterOtherBoards()"
-                    >
-                        Other Affiliates (${otherBoardsCount})
-                    </span>
-                `
-        
-                : "";
-    
-           container.innerHTML += `
-                <div class="section-label">
-                    Top Affiliates
-                </div>
-            
-                <div class="board-summary">
-                    ${boardSummary}
-                    ${otherBoardsPill}
-                </div>
-            `;
-    
-            paginatedResults.forEach(result => {
-            
-                const item =
-                    result.item;
-            
-                const percentage =
-                    Math.round(
-                        (1 - result.score) * 100
-                    );
+    results.forEach(result => {
 
         const item =
             result.item;
+        console.log(item);
 
         const percentage =
             Math.round(
@@ -567,6 +486,13 @@ results.forEach(result => {
             else if (percentage >= 60) {
                 scoreColor = "#f59e0b";
             }
+
+
+        const snippet =
+            buildSnippet(
+                item.description,
+                searchTerm
+            );
 
         let matchLocation = "WORK PACKAGE";
 
@@ -685,21 +611,22 @@ const subitemsHtml =
                 </div>
 
                 ${subitemsHtml ? `
-                    <div class="section-label">
-                        Matching Subitems
-                    </div>
-                
-                    <div>
-                        ${subitemsHtml}
-                    </div>
+                <div class="section-label">
+                    Matching Subitems
+                </div>
+            
+                <div>
+                    ${subitemsHtml}
+                </div>
                 ` : ""}
             
-          </div>
-        
-        `;
-        
-        });
+            </div>
 
+        `;
+
+    });
+
+}
 document.addEventListener("change", function (event) {
 
     if (event.target.id === "selectAllBoards") {
@@ -747,23 +674,10 @@ function clearSearch() {
 }
 
 let activeBoardFilter = null;
-let otherAffiliatesFilter = false;
 
 function filterBoard(boardName) {
- 
-otherAffiliatesFilter = false;
- 
-activeBoardFilter = boardName;
- 
-runSearch();
- 
-}
 
-function filterOtherBoards() {
-
-    otherAffiliatesFilter = true;
-
-    activeBoardFilter = null;
+    activeBoardFilter = boardName;
 
     runSearch();
 
@@ -772,10 +686,9 @@ function filterOtherBoards() {
 function clearBoardFilter() {
 
     activeBoardFilter = null;
-    otherAffiliatesFilter = false;
 
     document
-        .querySelectorAll(".region-checkbox")
+        .querySelectorAll(".board-checkbox")
         .forEach(box => {
 
             box.checked = true;
