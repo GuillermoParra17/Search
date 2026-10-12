@@ -365,6 +365,8 @@ function runSearch() {
         
             });
 
+    console.log("Active Filter:", activeBoardFilter);
+
             if (activeBoardFilter) {
             
                 results =
