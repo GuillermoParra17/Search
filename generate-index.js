@@ -160,26 +160,25 @@ async function buildIndex() {
 
         items.push({
 
-          boardId: board.id,
+                boardId: board.id,
+              
+                boardName: board.name,
+              
+                itemId: item.id,
+              
+                itemName: item.name,
+              
+                description:
+                  descriptionColumn?.text || "",
+              
+                subitems:
+                  (item.subitems || [])
+                    .map(sub => sub.name),
+              
+                url:
+                  `https://globalroche.monday.com/boards/${board.id}/pulses/${item.id}`
 
-          boardName: board.name,
-
-          itemId: item.id,
-
-          itemName: item.name,
-
-          description:
-            descriptionColumn?.text || "",
-
-          subitems:
-            (item.subitems || [])
-              .map(sub => sub.name),
-
-          url:
-            url:
-                `https://globalroche.monday.com/boards/${board.id}/pulses/${item.id}`
-
-        });
+      });
 
       }
 
