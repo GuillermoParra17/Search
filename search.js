@@ -57,8 +57,21 @@ fetch("data.json")
 
 function updateStats(data) {
 
+    const generated =
+        new Date(data.generatedAt);
+
+    const formattedDate =
+        generated.toLocaleString();
+
     document.getElementById("stats").innerHTML =
-        `${data.boards} Boards Indexed | ${data.items.length} Records Available`;
+        `
+        ${data.boards} Boards Indexed |
+        ${data.items.length.toLocaleString()} Work Packages Indexed
+        <br>
+        Last Updated: ${formattedDate}
+        <br>
+        Search index is automatically refreshed once per day.
+        `;
 
 }
 
