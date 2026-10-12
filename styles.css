@@ -294,15 +294,39 @@ mark {
 
 }
 
-.pagination-info {
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 20px 0;
+}
 
-    margin-bottom: 15px;
+.pagination button {
+    background: white;
+    border: 1px solid #d0d7de;
+    color: #0073ea;
+    padding: 8px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
 
-    font-size: 14px;
+.pagination button:hover:not(:disabled) {
+    background: #0073ea;
+    color: white;
+}
 
-    font-weight: 600;
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
-    color: #555;
-
+.active-page {
+    background: #0073ea !important;
+    color: white !important;
+    border-color: #0073ea !important;
 }
 
