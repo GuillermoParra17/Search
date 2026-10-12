@@ -477,18 +477,22 @@ function renderResults(results, searchTerm) {
                         class="board-summary-pill"
                         onclick="filterOtherBoards()"
                     >
-                        Other Boards (${otherBoardsCount})
+                        Other Affiliates (${otherBoardsCount})
                     </span>
                 `
         
                 : "";
     
-        container.innerHTML += `
-    <div class="board-summary">
-        ${boardSummary}
-        ${otherBoardsPill}
-    </div>
-`;
+           container.innerHTML += `
+        <div class="section-label">
+            Top Affiliates
+        </div>
+    
+        <div class="board-summary">
+            ${boardSummary}
+            ${otherBoardsPill}
+        </div>
+    `;
 
     results.forEach(result => {
 
