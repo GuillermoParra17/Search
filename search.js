@@ -659,9 +659,18 @@ document.addEventListener("change", function (event) {
 
     if (event.target.classList.contains("region-checkbox")) {
 
-        runSearch();
+    const allRegions =
+        document.querySelectorAll(".region-checkbox");
 
-    }
+    const checkedRegions =
+        document.querySelectorAll(".region-checkbox:checked");
+
+    document.getElementById("selectAllBoards").checked =
+        allRegions.length === checkedRegions.length;
+
+    runSearch();
+
+}
 
 });
 
