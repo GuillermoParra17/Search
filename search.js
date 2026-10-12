@@ -418,5 +418,17 @@ document.addEventListener("change", function (event) {
 
 });
 
+function clearSearch() {
+
+    document.getElementById("searchInput").value = "";
+
+    document.getElementById("results").innerHTML = "";
+
+    document.getElementById("resultCount").innerHTML = "";
+
+    document.getElementById("searchInput").focus();
+
+}
+
 console.log("Search.js loaded successfully");
 console.log("Fuse type:", typeof Fuse);
