@@ -550,6 +550,45 @@ const endIndex =
 const pagedResults =
     results.slice(startIndex, endIndex);
 
+    let paginationHtml = "";
+
+if (totalPages > 1) {
+
+    paginationHtml = `
+        <div class="pagination">
+            <button
+                ${currentPage === 1 ? "disabled" : ""}
+                onclick="goToPage(${currentPage - 1})"
+            >
+                ◀ Previous
+            </button>
+    `;
+
+    for (let i = 1; i <= totalPages; i++) {
+
+        paginationHtml += `
+            <button
+                onclick="goToPage(${i})"
+                class="${i === currentPage ? 'active-page' : ''}"
+            >
+                ${i}
+            </button>
+        `;
+
+    }
+
+    paginationHtml += `
+            <button
+                ${currentPage === totalPages ? "disabled" : ""}
+                onclick="goToPage(${currentPage + 1})"
+            >
+                Next ▶
+            </button>
+        </div>
+    `;
+}
+
+container.innerHTML += paginationHtml;
 pagedResults.forEach(result => {
 
         const item =
@@ -711,6 +750,8 @@ const subitemsHtml =
         `;
 
     });
+
+    container.innerHTML += paginationHtml;
     
     if (totalPages > 1) {
 
