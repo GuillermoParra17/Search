@@ -736,7 +736,7 @@ function filterBoard(boardName) {
 
 function filterOtherBoards() {
 
-    activeBoardFilter = "__OTHER__";
+    activeBoardFilter = "Other Affiliate(s)";
 
     showOtherBoards = true;
 
