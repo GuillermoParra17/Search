@@ -381,14 +381,7 @@ const subitemsHtml =
                 <div>
                     ${subitemsHtml}
                 </div>
-                
-                <div class="section-label">
-                    Description
-                </div>
-                <div class="snippet">
-                    ${snippet}
-                </div>
-
+            
             </div>
 
         `;
