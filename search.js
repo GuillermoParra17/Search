@@ -515,6 +515,17 @@ function renderResults(results, searchTerm) {
 
         : "";
 
+const otherBoardsPill =
+    otherBoards.length > 0
+
+        ? `
+            <span class="board-summary-pill">
+                Other Affiliates (${otherBoardsCount})
+            </span>
+        `
+
+        : "";
+
 container.innerHTML += `
     <div class="board-summary">
         ${boardSummary}
