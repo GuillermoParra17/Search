@@ -154,12 +154,7 @@ async function buildIndex() {
 
       for (const item of board.items_page.items) {
 
-        const descriptionColumn =
-          item.column_values.find(
-            col => col.id === "long_text_1"
-          );
-
-        items.push({
+       items.push({
 
                 boardId: board.id,
               
@@ -168,12 +163,7 @@ async function buildIndex() {
                 itemId: item.id,
               
                 itemName: item.name,
-              
-                description:
-                        descriptionColumn?.text ||
-                        descriptionColumn?.value ||
-                        "",
-              
+               
                 subitems:
                   (item.subitems || [])
                     .map(sub => sub.name),
