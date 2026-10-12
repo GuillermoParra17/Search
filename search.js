@@ -344,6 +344,8 @@ function runSearch() {
     let results =
         fuse.search(searchTerm);
 
+    console.log("Selected Boards:", selectedBoards);
+    console.log("First Board:", results[0]?.item?.boardName);
     results =
         results.filter(result =>
             selectedBoards.includes(
