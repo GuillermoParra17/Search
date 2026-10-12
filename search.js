@@ -435,10 +435,21 @@ function renderResults(results, searchTerm) {
         
         });
         
-        const boardSummary = Object.entries(boardCounts)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 10)
-            .map(([board, count]) => {
+        const sortedBoards = Object.entries(boardCounts)
+    .sort((a, b) => b[1] - a[1]);
+
+const topBoards = sortedBoards.slice(0, 10);
+
+const otherBoards = sortedBoards.slice(10);
+
+const otherBoardsCount =
+    otherBoards.reduce(
+        (sum, [, count]) => sum + count,
+        0
+    );
+
+const boardSummary = topBoards
+    .map(([board, count]) => {
                 const shortBoard =
                     board
                         .replace(" Work Package Overview", "")
