@@ -442,6 +442,15 @@ function renderResults(results, searchTerm) {
 
     container.innerHTML = "";
 
+    container.innerHTML += `
+        <div class="pagination-info">
+            Showing ${startIndex + 1}-${Math.min(endIndex, results.length)}
+            of ${results.length.toLocaleString()}
+            results
+        </div>
+    ;
+
+
     if (activeBoardFilter || otherAffiliatesFilter) {
 
         container.innerHTML += `
@@ -469,6 +478,11 @@ function renderResults(results, searchTerm) {
 
     const endIndex =
         startIndex + resultsPerPage;
+
+    const totalPages =
+    Math.ceil(
+        results.length / resultsPerPage
+    );
     
     const paginatedResults =
         results.slice(startIndex, endIndex);
