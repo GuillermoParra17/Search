@@ -394,7 +394,7 @@ function runSearch() {
     document
         .getElementById("resultCount")
         .innerHTML =
-        `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} board(s)`;
+        `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)`;
     
         renderResults(results, searchTerm);
 
