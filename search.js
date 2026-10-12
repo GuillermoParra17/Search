@@ -1,9 +1,9 @@
-1  let unfilteredResults = [];
-2  let currentPage = 1;
-3  const RESULTS_PER_PAGE = 50;
+let unfilteredResults = [];
+let currentPage = 1;
+const RESULTS_PER_PAGE = 50;
 
-4  let allData = [];
-5  let fuse;
+let allData = [];
+let fuse;
 
 const REGION_MAP = {
 
