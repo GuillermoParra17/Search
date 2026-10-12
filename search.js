@@ -791,7 +791,6 @@ const subitemsHtml =
 
     paginationHtml += `</div>`;
 
-    container.innerHTML += paginationHtml;
 
 }
 }
