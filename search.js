@@ -365,6 +365,15 @@ function runSearch() {
         
             });
 
+            if (activeBoardFilter) {
+            
+                results =
+                    results.filter(result =>
+                        result.item.boardName.includes(activeBoardFilter)
+                    );
+            
+            }
+    
     document
         .getElementById("resultCount")
         .innerHTML =
@@ -652,15 +661,6 @@ let activeBoardFilter = null;
 function filterBoard(boardName) {
 
     activeBoardFilter = boardName;
-
-    document
-        .querySelectorAll(".board-checkbox")
-        .forEach(box => {
-
-            box.checked =
-                box.value === boardName;
-
-        });
 
     runSearch();
 
