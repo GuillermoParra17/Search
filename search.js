@@ -528,15 +528,25 @@ results.forEach(result => {
                 : "";
     
            container.innerHTML += `
-        <div class="section-label">
-            Top Affiliates
-        </div>
+                <div class="section-label">
+                    Top Affiliates
+                </div>
+            
+                <div class="board-summary">
+                    ${boardSummary}
+                    ${otherBoardsPill}
+                </div>
+            `;
     
-        <div class="board-summary">
-            ${boardSummary}
-            ${otherBoardsPill}
-        </div>
-    `;
+            paginatedResults.forEach(result => {
+            
+                const item =
+                    result.item;
+            
+                const percentage =
+                    Math.round(
+                        (1 - result.score) * 100
+                    );
 
         const item =
             result.item;
