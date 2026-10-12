@@ -542,7 +542,7 @@ function renderResults(results, searchTerm) {
         </div>
     `;
 
-    results.forEach(result => {
+    paginatedResults.forEach(result => {
 
         const item =
             result.item;
