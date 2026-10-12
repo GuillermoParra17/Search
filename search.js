@@ -269,10 +269,13 @@ function renderResults(results, searchTerm) {
                         .replace(" Work Packages Overview", "");
             
                 return `
-                    <span class="board-summary-pill">
-                        ${shortBoard} (${count})
-                    </span>
-                `;
+                        <span
+                            class="board-summary-pill"
+                            onclick="filterBoard('${board}')"
+                        >
+                            ${shortBoard} (${count})
+                        </span>
+                    `;
             
             })
             .join("");
@@ -489,6 +492,21 @@ function clearSearch() {
     document.getElementById("resultCount").innerHTML = "";
 
     document.getElementById("searchInput").focus();
+
+}
+
+function filterBoard(boardName) {
+
+    document
+        .querySelectorAll(".board-checkbox")
+        .forEach(box => {
+
+            box.checked =
+                box.value === boardName;
+
+        });
+
+    runSearch();
 
 }
 
