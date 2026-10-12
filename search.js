@@ -387,7 +387,9 @@ function runSearch() {
     const boardCounts = {};
 
 let summaryResults = fuse.search(searchTerm);
-
+console.log("Summary Results:", summaryResults.length);
+console.log("Display Results:", results.length);
+                
 summaryResults = summaryResults.filter(result =>
     getSelectedBoards().some(board =>
         result.item.boardName.includes(board)
