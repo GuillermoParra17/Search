@@ -1,6 +1,115 @@
 let allData = [];
 let fuse;
 
+const REGION_MAP = {
+
+    Africa: [
+        "Africa BC DAN",
+        "Central Africa (Congo)",
+        "East Africa (Kenya)",
+        "Francophone West-Africa and Lusophone Africa (Cote d'Ivoire)",
+        "Ghana",
+        "Nigeria",
+        "South Africa"
+    ],
+
+    APAC: [
+        "Australia",
+        "DAN Oncology",
+        "FP Squad",
+        "Hong Kong",
+        "Indonesia",
+        "Malaysia",
+        "New Zealand",
+        "Philippines",
+        "Singapore",
+        "South Korea",
+        "Taiwan",
+        "Thailand",
+        "Vietnam"
+    ],
+
+    CEETRIS: [
+        "Albania",
+        "Bangladesh",
+        "Belarus",
+        "Bosnia-Herzegovina",
+        "Georgia and Azerbaijan",
+        "India",
+        "Kazakhstan & Central Asia",
+        "Macedonia & Kosovo",
+        "Pakistan",
+        "Russia",
+        "Serbia & Montenegro",
+        "Türkiye",
+        "Turkmenistan",
+        "Ukraine and Moldova",
+        "CEETRIS ET",
+        "CEETRIS DAN"
+    ],
+
+    Europe: [
+        "Austria",
+        "Baltics",
+        "BELUX",
+        "Bulgaria",
+        "Croatia",
+        "Czech Republic",
+        "Denmark and Iceland",
+        "Estonia",
+        "Finland",
+        "Greece",
+        "Hungary",
+        "Ireland",
+        "Israel",
+        "Latvia",
+        "Lithuania",
+        "Netherlands",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Slovakia",
+        "Slovenia",
+        "Sweden",
+        "Switzerland"
+    ],
+
+    LATAM: [
+        "Argentina",
+        "CCAV",
+        "Chile",
+        "Colombia",
+        "Ecuador",
+        "Mexico",
+        "Peru & Bolivia",
+        "Uruguay & Paraguay",
+        "Latam DA",
+        "Latam Enabling Pillars"
+    ],
+
+    i8: [
+        "Brazil",
+        "Canada",
+        "China",
+        "FR",
+        "Germany",
+        "Italy",
+        "Spain",
+        "UK",
+        "i8"
+    ],
+
+    CLT: [
+        "CLT"
+    ],
+
+    IPS: [
+        "IPS"
+    ]
+
+};
+
 fetch("data.json")
     .then(response => response.json())
     .then(data => {
@@ -9,7 +118,7 @@ fetch("data.json")
 
         updateStats(data);
 
-        buildBoardFilter();
+        buildRegionFilter();
 
         fuse = new Fuse(allData, {
             includeScore: true,
@@ -102,53 +211,65 @@ function highlightText(text, searchTerm) {
     return highlighted;
 
 }
-function buildBoardFilter() {
+
+function buildRegionFilter() {
 
     const boardList =
         document.getElementById("boardList");
 
     boardList.innerHTML = "";
 
-    const uniqueBoards =
-        [...new Set(allData.map(item => item.boardName))]
-            .sort();
+    Object.keys(REGION_MAP)
+        .forEach(region => {
 
-    uniqueBoards.forEach(board => {
+            const label =
+                document.createElement("label");
 
-        const label =
-            document.createElement("label");
+            label.className =
+                "board-option";
 
-        label.className = "board-option";
+            label.innerHTML = `
+                <input
+                    type="checkbox"
+                    class="region-checkbox"
+                    value="${region}"
+                    checked
+                >
+                ${region}
+            `;
 
-        label.innerHTML = `
-            <input
-                type="checkbox"
-                class="board-checkbox"
-                value="${board}"
-                checked
-            >
-            ${board}
-        `;
+            boardList.appendChild(label);
 
-        boardList.appendChild(label);
-
-    });
+        });
 
 }
 
 function getSelectedBoards() {
 
-    const selected = [];
+    const selectedRegions = [];
 
     document
-        .querySelectorAll(".board-checkbox:checked")
+        .querySelectorAll(".region-checkbox:checked")
         .forEach(box => {
 
-            selected.push(box.value);
+            selectedRegions.push(box.value);
 
         });
 
-    return selected;
+    const selectedBoards = [];
+
+    selectedRegions.forEach(region => {
+
+        REGION_MAP[region].forEach(board => {
+
+            selectedBoards.push(board);
+
+        });
+
+    });
+
+    return selectedBoards;
+
 }
 
 function buildSnippet(text, searchTerm) {
@@ -492,7 +613,7 @@ document.addEventListener("change", function (event) {
         runSearch();
     }
 
-    if (event.target.classList.contains("board-checkbox")) {
+    if (event.target.classList.contains("region-checkbox")) {
 
         runSearch();
 
