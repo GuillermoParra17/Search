@@ -466,8 +466,7 @@ function renderResults(results, searchTerm) {
 
 unfilteredResults.forEach(result => {
 
-    const board =
-        result.item.boardName;
+    const board = result.item.boardName;
 
     boardCounts[board] =
         (boardCounts[board] || 0) + 1;
