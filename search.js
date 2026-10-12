@@ -233,9 +233,9 @@ function runSearch() {
     document
         .getElementById("resultCount")
         .innerHTML =
-        `${results.length} result(s) found`;
-
-    renderResults(results, searchTerm);
+        `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} board(s)`;
+    
+        renderResults(results, searchTerm);
 
 }
 
@@ -245,6 +245,34 @@ function renderResults(results, searchTerm) {
         document.getElementById("results");
 
     container.innerHTML = "";
+
+    const boardCounts = {};
+
+    results.forEach(result => {
+    
+            const board =
+                result.item.boardName;
+        
+            boardCounts[board] =
+                (boardCounts[board] || 0) + 1;
+        
+        });
+        
+        const boardSummary = Object.entries(boardCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
+            .map(([board, count]) =>
+                `<span class="board-summary-pill">
+                    ${board} (${count})
+                </span>`
+            )
+            .join("");
+        
+        container.innerHTML += `
+            <div class="board-summary">
+                ${boardSummary}
+            </div>
+    `;
 
     results.forEach(result => {
 
