@@ -361,30 +361,16 @@ function runSearch() {
 
     let results =
         fuse.search(searchTerm);
-
-    console.log(
-    "Actual Board Names:",
-    [...new Set(allData.map(x => x.boardName))]
-    );
-    
-    console.log("First Result Board:",
-    allData[0].boardName
-    );
-    console.log("First Board:", results[0]?.item?.boardName);
     results =
-        results =
-            results.filter(result => {
-        
-                return selectedBoards.some(board =>
-        
-                    result.item.boardName.includes(board)
-        
-                );
-        
-            });
-
-    console.log("Active Filter:", activeBoardFilter);
-
+        results.filter(result => {
+         
+        return selectedBoards.some(board =>
+         
+        result.item.boardName.includes(board)
+         
+        );
+         
+        });
             if (activeBoardFilter) {
             
                 results =
@@ -442,15 +428,7 @@ function renderResults(results, searchTerm) {
 
     container.innerHTML = "";
 
-    container.innerHTML += `
-        <div class="pagination-info">
-            Showing ${startIndex + 1}-${Math.min(endIndex, results.length)}
-            of ${results.length.toLocaleString()}
-            results
-        </div>
-    ;
-
-
+    
     if (activeBoardFilter || otherAffiliatesFilter) {
 
         container.innerHTML += `
@@ -471,31 +449,35 @@ function renderResults(results, searchTerm) {
     
     }
 
-    const boardCounts = {};
+   const boardCounts = {};
 
-    const startIndex =
+const startIndex =
     (currentPage - 1) * resultsPerPage;
 
-    const endIndex =
-        startIndex + resultsPerPage;
+const endIndex =
+    startIndex + resultsPerPage;
 
-    const totalPages =
-    Math.ceil(
-        results.length / resultsPerPage
-    );
-    
-    const paginatedResults =
-        results.slice(startIndex, endIndex);
-    
-    paginatedResults.forEach(result => {
-    
-            const board =
-                result.item.boardName;
-        
-            boardCounts[board] =
-                (boardCounts[board] || 0) + 1;
-        
-        });
+const paginatedResults =
+    results.slice(startIndex, endIndex);
+
+/* Build affiliate stats from ALL results */
+results.forEach(result => {
+
+    const board =
+        result.item.boardName;
+
+    boardCounts[board] =
+        (boardCounts[board] || 0) + 1;
+
+});
+
+    container.innerHTML += `
+        <div class="pagination-info">
+        Showing ${startIndex + 1}-${Math.min(endIndex, results.length)}
+        of ${results.length.toLocaleString()}
+        results
+        </div>
+        `;
 
         const sortedBoards = Object.entries(boardCounts)
             .sort((a, b) => b[1] - a[1]);
@@ -556,11 +538,8 @@ function renderResults(results, searchTerm) {
         </div>
     `;
 
-    paginatedResults.forEach(result => {
-
         const item =
             result.item;
-        console.log(item);
 
         const percentage =
             Math.round(
@@ -578,13 +557,6 @@ function renderResults(results, searchTerm) {
             else if (percentage >= 60) {
                 scoreColor = "#f59e0b";
             }
-
-
-        const snippet =
-            buildSnippet(
-                item.description,
-                searchTerm
-            );
 
         let matchLocation = "WORK PACKAGE";
 
@@ -794,7 +766,7 @@ function clearBoardFilter() {
     otherAffiliatesFilter = false;
 
     document
-        .querySelectorAll(".board-checkbox")
+        .querySelectorAll(".region-checkbox")
         .forEach(box => {
 
             box.checked = true;
