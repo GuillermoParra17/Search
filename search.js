@@ -261,11 +261,20 @@ function renderResults(results, searchTerm) {
         const boardSummary = Object.entries(boardCounts)
             .sort((a, b) => b[1] - a[1])
             .slice(0, 10)
-            .map(([board, count]) =>
-                `<span class="board-summary-pill">
-                    ${board} (${count})
-                </span>`
-            )
+            .map(([board, count]) => {
+                const shortBoard =
+                    board
+                        .replace(" Work Package Overview", "")
+                        .replace(" WP Portfolio Overview", "")
+                        .replace(" Work Packages Overview", "");
+            
+                return `
+                    <span class="board-summary-pill">
+                        ${shortBoard} (${count})
+                    </span>
+                `;
+            
+            })
             .join("");
         
         container.innerHTML += `
