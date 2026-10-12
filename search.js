@@ -30,9 +30,20 @@ fetch("data.json")
             ]
         });
 
+        let searchTimeout;
+
         document
             .getElementById("searchInput")
-            .addEventListener("input", runSearch);
+            .addEventListener("input", () => {
+        
+                clearTimeout(searchTimeout);
+        
+                searchTimeout = setTimeout(
+                    runSearch,
+                    300
+                );
+        
+            });
 
     })
     .catch(error => {
