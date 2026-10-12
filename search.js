@@ -386,11 +386,23 @@ function runSearch() {
 
     const boardCounts = {};
 
-    results.forEach(result => {
-        const board = result.item.boardName;
-        boardCounts[board] =
-            (boardCounts[board] || 0) + 1;
-    });
+let summaryResults = fuse.search(searchTerm);
+
+summaryResults = summaryResults.filter(result =>
+    getSelectedBoards().some(board =>
+        result.item.boardName.includes(board)
+    )
+);
+
+summaryResults.forEach(result => {
+
+    const board = result.item.boardName;
+
+    boardCounts[board] =
+        (boardCounts[board] || 0) + 1;
+
+});
+
 
     const topBoards =
         Object.entries(boardCounts)
