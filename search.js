@@ -464,15 +464,16 @@ function renderResults(results, searchTerm) {
 
     const boardCounts = {};
 
-    results.forEach(result => {
-    
-            const board =
-                result.item.boardName;
-        
-            boardCounts[board] =
-                (boardCounts[board] || 0) + 1;
-        
-        });
+unfilteredResults.forEach(result => {
+
+    const board =
+        result.item.boardName;
+
+    boardCounts[board] =
+        (boardCounts[board] || 0) + 1;
+
+});
+
         
         const sortedBoards = Object.entries(boardCounts)
     .sort((a, b) => b[1] - a[1]);
