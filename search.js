@@ -410,6 +410,15 @@ function renderResults(results, searchTerm) {
 
     container.innerHTML = "";
 
+    const startIndex =
+    (currentPage - 1) * resultsPerPage;
+
+    const endIndex =
+        startIndex + resultsPerPage;
+    
+    const paginatedResults =
+        results.slice(startIndex, endIndex);
+    
     if (activeBoardFilter) {
 
         container.innerHTML += `
@@ -427,6 +436,15 @@ function renderResults(results, searchTerm) {
     }
 
     const boardCounts = {};
+
+    const startIndex =
+    (currentPage - 1) * resultsPerPage;
+
+const endIndex =
+    startIndex + resultsPerPage;
+
+const paginatedResults =
+    results.slice(startIndex, endIndex);
 
             results.forEach(result => {
          
