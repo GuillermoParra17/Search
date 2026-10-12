@@ -434,10 +434,21 @@ function renderResults(results, searchTerm) {
                 (boardCounts[board] || 0) + 1;
         
         });
+
+        const sortedBoards = Object.entries(boardCounts)
+            .sort((a, b) => b[1] - a[1]);
         
-        const boardSummary = Object.entries(boardCounts)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 10)
+        const topBoards = sortedBoards.slice(0, 10);
+        
+        const otherBoards = sortedBoards.slice(10);
+        
+        const otherBoardsCount =
+            otherBoards.reduce(
+                (sum, [, count]) => sum + count,
+                0
+            );
+            
+        const boardSummary = topBoards
             .map(([board, count]) => {
                 const shortBoard =
                     board
@@ -457,12 +468,27 @@ function renderResults(results, searchTerm) {
             
             })
             .join("");
+
+        const otherBoardsPill =
+            otherBoards.length > 0
         
+                ? `
+                    <span
+                        class="board-summary-pill"
+                        onclick="filterOtherBoards()"
+                    >
+                        Other Boards (${otherBoardsCount})
+                    </span>
+                `
+        
+                : "";
+    
         container.innerHTML += `
-            <div class="board-summary">
-                ${boardSummary}
-            </div>
-    `;
+    <div class="board-summary">
+        ${boardSummary}
+        ${otherBoardsPill}
+    </div>
+`;
 
     results.forEach(result => {
 
