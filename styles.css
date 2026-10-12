@@ -239,3 +239,35 @@ mark {
     color: white;
 
 }
+
+.active-filter {
+
+    margin-bottom: 15px;
+
+    font-weight: 600;
+
+}
+
+.active-filter-pill {
+
+    display: inline-block;
+
+    background: #0073ea;
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    margin-left: 10px;
+
+}
+
+.active-filter-pill:hover {
+
+    background: #005bb5;
+
+}
