@@ -469,11 +469,30 @@ const boardSummary = topBoards
             })
             .join("");
         
-        container.innerHTML += `
-            <div class="board-summary">
-                ${boardSummary}
-            </div>
-    `;
+        const otherBoardsCount =
+    Object.entries(boardCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(10)
+        .reduce(
+            (sum, [, count]) => sum + count,
+            0
+        );
+
+const otherBoardsPill =
+    otherBoardsCount > 0
+        ? `
+            <span class="board-summary-pill">
+                Other Affiliates (${otherBoardsCount})
+            </span>
+        `
+        : "";
+
+container.innerHTML += `
+    <div class="board-summary">
+        ${boardSummary}
+        ${otherBoardsPill}
+    </div>
+`;
 
     results.forEach(result => {
 
