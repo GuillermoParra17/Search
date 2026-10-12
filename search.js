@@ -382,7 +382,7 @@ function runSearch() {
 
     console.log("Active Filter:", activeBoardFilter);
 
-            if (activeBoardFilter === "__OTHER__") {
+            if (activeBoardFilter === "Other Affiliate(s)") {
 
     const boardCounts = {};
 
