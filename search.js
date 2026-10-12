@@ -128,11 +128,7 @@ fetch("data.json")
                     name: "itemName",
                     weight: 0.5
                 },
-                {
-                    name: "description",
-                    weight: 0.3
-                },
-                {
+                                {
                     name: "subitems",
                     weight: 0.2
                 }
@@ -498,27 +494,18 @@ function renderResults(results, searchTerm) {
                 searchTerm
             );
 
-        let matchLocation = "DESCRIPTION";
+        let matchLocation = "WORK PACKAGE";
 
-        if (
-            item.itemName &&
-            item.itemName
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase())
-        ) {
-            matchLocation = "WORK PACKAGE";
-        }
-        
-        if (
-            item.subitems &&
-            item.subitems.some(subitem =>
-                subitem
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase())
-            )
-        ) {
-            matchLocation = "SUBITEM";
-        }
+            if (
+                item.subitems &&
+                item.subitems.some(subitem =>
+                    subitem
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                )
+            ) {
+                matchLocation = "SUBITEM";
+            }
         
         const searchWords =
     searchTerm
