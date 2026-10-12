@@ -77,6 +77,31 @@ function updateStats(data) {
  
 }
 
+function highlightText(text, searchTerm) {
+
+    if (!text) return "";
+
+    let highlighted = text;
+
+    searchTerm
+        .split(" ")
+        .filter(word => word.trim() !== "")
+        .forEach(word => {
+
+            const regex =
+                new RegExp(`(${word})`, "gi");
+
+            highlighted =
+                highlighted.replace(
+                    regex,
+                    "<mark>$1</mark>"
+                );
+
+        });
+
+    return highlighted;
+
+}
 function buildBoardFilter() {
 
     const boardList =
@@ -365,7 +390,7 @@ const subitemsHtml =
                 </div>
 
                 <div class="work-package">
-                    ${item.itemName}
+                    ${highlightText(item.itemName, searchTerm)}
                 </div>
 
                 <div class="section-label">
