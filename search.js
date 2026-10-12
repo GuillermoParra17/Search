@@ -390,6 +390,38 @@ function runSearch() {
                     );
             
             }
+
+            if (otherAffiliatesFilter) {
+        
+            const sortedBoards =
+                Object.entries(
+                    results.reduce((acc, result) => {
+        
+                        const board =
+                            result.item.boardName;
+        
+                        acc[board] =
+                            (acc[board] || 0) + 1;
+        
+                        return acc;
+        
+                    }, {})
+                )
+                .sort((a, b) => b[1] - a[1]);
+        
+            const topBoards =
+                sortedBoards
+                    .slice(0, 10)
+                    .map(([board]) => board);
+        
+            results =
+                results.filter(result =>
+                    !topBoards.includes(
+                        result.item.boardName
+                    )
+                );
+        
+        }
     
     document
         .getElementById("resultCount")
@@ -707,11 +739,13 @@ let activeBoardFilter = null;
 let otherAffiliatesFilter = false;
 
 function filterBoard(boardName) {
-
-    activeBoardFilter = boardName;
-
-    runSearch();
-
+ 
+otherAffiliatesFilter = false;
+ 
+activeBoardFilter = boardName;
+ 
+runSearch();
+ 
 }
 
 function filterOtherBoards() {
@@ -727,6 +761,7 @@ function filterOtherBoards() {
 function clearBoardFilter() {
 
     activeBoardFilter = null;
+    otherAffiliatesFilter = false;
 
     document
         .querySelectorAll(".board-checkbox")
