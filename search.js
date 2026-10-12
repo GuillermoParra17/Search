@@ -1,6 +1,9 @@
 let allData = [];
 let fuse;
 
+let currentPage = 1;
+const resultsPerPage = 50;
+
 const REGION_MAP = {
 
     Africa: [
@@ -427,7 +430,7 @@ function runSearch() {
         .getElementById("resultCount")
         .innerHTML =
         `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)`;
-    
+        currentPage = 1;
         renderResults(results, searchTerm);
 
 }
