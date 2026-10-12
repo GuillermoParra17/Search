@@ -56,23 +56,25 @@ fetch("data.json")
     });
 
 function updateStats(data) {
-
-    const generated =
+ 
+        const generated =
         new Date(data.generatedAt);
-
-    const formattedDate =
+         
+        const formattedDate =
         generated.toLocaleString();
-
-    document.getElementById("stats").innerHTML =
+         
+        document.getElementById("stats").innerHTML =
         `
-        ${data.boards} Boards Indexed |
-        ${data.items.length.toLocaleString()} Work Packages Indexed
+        <strong>${data.boards}</strong> Boards Indexed |
+        <strong>${data.items.length.toLocaleString()}</strong> Work Packages Indexed
         <br>
         Last Updated: ${formattedDate}
         <br>
-        Data is automatically refreshed once per day.
+        <small>
+        Search results are refreshed daily from Monday.com.
+        </small>
         `;
-
+ 
 }
 
 function buildBoardFilter() {
