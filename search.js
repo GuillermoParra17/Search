@@ -246,6 +246,22 @@ function renderResults(results, searchTerm) {
 
     container.innerHTML = "";
 
+    if (activeBoardFilter) {
+
+        container.innerHTML += `
+            <div class="active-filter">
+                Active Board Filter:
+                <span
+                    class="active-filter-pill"
+                    onclick="clearBoardFilter()"
+                >
+                    ${activeBoardFilter} ✕
+                </span>
+            </div>
+        `;
+    
+    }
+
     const boardCounts = {};
 
     results.forEach(result => {
@@ -496,7 +512,11 @@ function clearSearch() {
 
 }
 
+let activeBoardFilter = null;
+
 function filterBoard(boardName) {
+
+    activeBoardFilter = boardName;
 
     document
         .querySelectorAll(".board-checkbox")
@@ -504,6 +524,22 @@ function filterBoard(boardName) {
 
             box.checked =
                 box.value === boardName;
+
+        });
+
+    runSearch();
+
+}
+
+function clearBoardFilter() {
+
+    activeBoardFilter = null;
+
+    document
+        .querySelectorAll(".board-checkbox")
+        .forEach(box => {
+
+            box.checked = true;
 
         });
 
