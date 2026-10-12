@@ -202,3 +202,30 @@ mark {
     background: #005bb5;
 
 }
+
+.board-summary {
+
+    margin-bottom: 20px;
+
+}
+
+.board-summary-pill {
+
+    display: inline-block;
+
+    background: #eaf3ff;
+
+    color: #0073ea;
+
+    padding: 6px 12px;
+
+    margin: 4px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+``
