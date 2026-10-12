@@ -675,22 +675,20 @@ const subitemsHtml =
                 </div>
 
                 ${subitemsHtml ? `
-                <div class="section-label">
-                    Matching Subitems
-                </div>
-            
-                <div>
-                    ${subitemsHtml}
-                </div>
+                    <div class="section-label">
+                        Matching Subitems
+                    </div>
+                
+                    <div>
+                        ${subitemsHtml}
+                    </div>
                 ` : ""}
             
-            </div>
-
+          </div>
+        
         `;
-
-    };
-
-}
+        
+        });
 
 document.addEventListener("change", function (event) {
 
