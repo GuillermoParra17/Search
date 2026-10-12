@@ -44,14 +44,36 @@ h1 {
 }
 
 #boardList {
-    max-height: 250px;
-    overflow-y: auto;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
 }
 
+
 .board-option {
-    display: block;
-    padding: 5px 0;
-    font-size: 14px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 12px;
+
+    margin: 2px;
+
+    background: #eaf3ff;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #0073ea;
+
 }
 
 #resultCount {
