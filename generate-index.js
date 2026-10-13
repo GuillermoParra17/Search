@@ -166,6 +166,16 @@ async function buildIndex() {
 
       for (const item of board.items_page.items) {
 
+if (item.name === "[2026] Optimizing Fluid Access for Vabysmo") {
+    console.log(
+        JSON.stringify(
+            item.column_values,
+            null,
+            2
+        )
+    );
+}
+        
        items.push({
 
                 boardId: board.id,
