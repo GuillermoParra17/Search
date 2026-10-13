@@ -900,5 +900,105 @@ function goToPage(page) {
 
 }
 
+
+function exportAllData() {
+
+    const rows =
+        allData.map(item => ({
+            Board: item.boardName,
+            "Work Package": item.itemName,
+            URL: item.url,
+            Subitems:
+                (item.subitems || [])
+                    .join(" | ")
+        }));
+
+    downloadCsv(
+        rows,
+        "all-work-packages.csv"
+    );
+
+}
+
+function exportSearchResults() {
+
+    const rows =
+        currentSearchResults.map(result => ({
+
+            Board:
+                result.item.boardName,
+
+            "Work Package":
+                result.item.itemName,
+
+            URL:
+                result.item.url,
+
+            Subitems:
+                (result.item.subitems || [])
+                    .join(" | ")
+
+        }));
+
+    downloadCsv(
+        rows,
+        "search-results.csv"
+    );
+
+}
+
+function downloadCsv(rows, filename) {
+
+    if (!rows.length) {
+
+        alert("No data to export");
+
+        return;
+
+    }
+
+    const headers =
+        Object.keys(rows[0]);
+
+    const csv = [
+
+        headers.join(","),
+
+        ...rows.map(row =>
+            headers
+                .map(header =>
+                    `"${String(
+                        row[header]
+                    ).replace(/"/g, '""')}"`
+                )
+                .join(",")
+        )
+
+    ].join("\n");
+
+    const blob = new Blob(
+        [csv],
+        {
+            type: "text/csv;charset=utf-8;"
+        }
+    );
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        URL.createObjectURL(blob);
+
+    link.download =
+        filename;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+}
+
 console.log("Search.js loaded successfully");
 console.log("Fuse type:", typeof Fuse);
