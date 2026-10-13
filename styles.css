@@ -348,9 +348,7 @@ mark {
 
 
 .page-range {
-    text-align: center;
     font-size: 12px;
     color: #666;
-    margin-top: 6px;
-    margin-bottom: 10px;
+    margin-top: 4px;
 }
