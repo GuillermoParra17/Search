@@ -124,22 +124,21 @@ async function getBoard(boardId) {
 
       items_page(limit:500) {
         items {
-          id
-          name
-        
-          column_values {
-            id
-            text
-            column {
-              title
+              id
+              name
+            
+              column_values {
+                text
+                column {
+                  title
+                }
+              }
+            
+              subitems {
+                id
+                name
+              }
             }
-          }
-        
-          subitems {
-            id
-            name
-          }
-        }
       }
     }
   }
