@@ -341,7 +341,7 @@ mark {
 
 .stats-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 20px;
+    gap: 15px;
 }
