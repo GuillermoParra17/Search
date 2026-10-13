@@ -658,46 +658,58 @@ pagedResults.forEach(result => {
 
         let matchLocation = "WORK PACKAGE";
 
-                const searchLower =
-                    searchTerm.toLowerCase();
-                
-                if (
-                    item.description &&
+            const searchWords =
+                searchTerm
+                    .toLowerCase()
+                    .split(" ")
+                    .filter(word => word.trim() !== "");
+            
+            if (
+                item.description &&
+                searchWords.some(word =>
                     item.description
                         .toLowerCase()
-                        .includes(searchLower)
-                ) {
-                    matchLocation = "DESCRIPTION";
-                }
-                
-                if (
-                    item.learnings &&
+                        .includes(word)
+                )
+            ) {
+                matchLocation = "DESCRIPTION";
+            }
+            
+            if (
+                item.learnings &&
+                searchWords.some(word =>
                     item.learnings
                         .toLowerCase()
-                        .includes(searchLower)
-                ) {
-                    matchLocation = "LEARNINGS";
-                }
-                
-                if (
-                    item.realizedHWWK &&
+                        .includes(word)
+                )
+            ) {
+                matchLocation = "LEARNINGS";
+            }
+            
+            if (
+                item.realizedHWWK &&
+                searchWords.some(word =>
                     item.realizedHWWK
                         .toLowerCase()
-                        .includes(searchLower)
-                ) {
-                    matchLocation = "REALIZED HWWK";
-                }
-                
-                if (
-                    item.subitems &&
-                    item.subitems.some(subitem =>
+                        .includes(word)
+                )
+            ) {
+                matchLocation = "REALIZED HWWK";
+            }
+            
+            if (
+                item.subitems &&
+                item.subitems.some(subitem =>
+                    searchWords.some(word =>
                         subitem
                             .toLowerCase()
-                            .includes(searchLower)
+                            .includes(word)
                     )
-                ) {
-                    matchLocation = "SUBITEM";
-                }
+                )
+            ) {
+                matchLocation = "SUBITEM";
+            }
+
         
         const searchWords =
     searchTerm
