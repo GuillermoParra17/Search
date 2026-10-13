@@ -658,16 +658,46 @@ pagedResults.forEach(result => {
 
         let matchLocation = "WORK PACKAGE";
 
-            if (
-                item.subitems &&
-                item.subitems.some(subitem =>
-                    subitem
+                const searchLower =
+                    searchTerm.toLowerCase();
+                
+                if (
+                    item.description &&
+                    item.description
                         .toLowerCase()
-                        .includes(searchTerm.toLowerCase())
-                )
-            ) {
-                matchLocation = "SUBITEM";
-            }
+                        .includes(searchLower)
+                ) {
+                    matchLocation = "DESCRIPTION";
+                }
+                
+                if (
+                    item.learnings &&
+                    item.learnings
+                        .toLowerCase()
+                        .includes(searchLower)
+                ) {
+                    matchLocation = "LEARNINGS";
+                }
+                
+                if (
+                    item.realizedHWWK &&
+                    item.realizedHWWK
+                        .toLowerCase()
+                        .includes(searchLower)
+                ) {
+                    matchLocation = "REALIZED HWWK";
+                }
+                
+                if (
+                    item.subitems &&
+                    item.subitems.some(subitem =>
+                        subitem
+                            .toLowerCase()
+                            .includes(searchLower)
+                    )
+                ) {
+                    matchLocation = "SUBITEM";
+                }
         
         const searchWords =
     searchTerm
@@ -777,7 +807,12 @@ const subitemsHtml =
                     Description / Deliverables
                 </div>
                 <div>
-                    ${highlightText(item.description, searchTerm)}
+                    ${highlightText(
+                        item.description.length > 300
+                            ? item.description.substring(0, 300) + "..."
+                            : item.description,
+                        searchTerm
+                    )}
                 </div>
                 ` : ""}
                 
@@ -786,7 +821,12 @@ const subitemsHtml =
                     Learnings
                 </div>
                 <div>
-                    ${highlightText(item.learnings, searchTerm)}
+                    ${highlightText(
+                        item.learnings.length > 300
+                            ? item.learnings.substring(0, 300) + "..."
+                            : item.learnings,
+                        searchTerm
+                    )}
                 </div>
                 ` : ""}
                 
@@ -795,7 +835,12 @@ const subitemsHtml =
                     Realized HWWK?
                 </div>
                 <div>
-                    ${highlightText(item.realizedHWWK, searchTerm)}
+                    ${highlightText(
+                        item.realizedHWWK.length > 300
+                            ? item.realizedHWWK.substring(0, 300) + "..."
+                            : item.realizedHWWK,
+                        searchTerm
+                    )}
                 </div>
                 ` : ""}
 
