@@ -456,10 +456,6 @@ const endResult =
             .innerHTML =
             `
             ${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)
-            <br>
-            <small>
-                Showing ${startResult}-${endResult} of ${results.length.toLocaleString()}
-            </small>
             `;
     
         renderResults(results, searchTerm);
@@ -814,6 +810,11 @@ const subitemsHtml =
     `;
 
     paginationHtml += `</div>`;
+    paginationHtml += `
+    <div class="page-range">
+        Showing ${startResult}-${endResult} of ${results.length.toLocaleString()}
+    </div>
+`;
 
 
 }
