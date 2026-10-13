@@ -292,6 +292,7 @@ function buildRegionFilter() {
 }
 
 function getSelectedBoards() {
+    
 
     const selectedRegions = [];
 
@@ -316,6 +317,22 @@ function getSelectedBoards() {
     });
 
     return selectedBoards;
+
+}
+
+function getSelectedSearchFields() {
+
+    const fields = [];
+
+    document
+        .querySelectorAll(".search-field:checked")
+        .forEach(box => {
+
+            fields.push(box.value);
+
+        });
+
+    return fields;
 
 }
 
