@@ -113,15 +113,7 @@ const REGION_MAP = {
     ],
 
     Archive: [
-    "IPS Archive",
-    "LATAM Archive",
-    "Africa Archive",
-    "APAC Archive",
-    "CEETRIS Archive",
-    "Europe Archive",
-    "I8 Archive",
-    "CLT Archive",
-    "PI Archive"
+    "Archive"
     ]
 
 };
