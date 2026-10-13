@@ -1,4 +1,6 @@
 let unfilteredResults = [];
+let currentSearchResults = [];
+
 let currentPage = 1;
 const RESULTS_PER_PAGE = 50;
 
@@ -438,7 +440,8 @@ else if (activeBoardFilter) {
         );
 
 }
-    
+
+    currentSearchResults = [...results];
     document
         .getElementById("resultCount")
         .innerHTML =
