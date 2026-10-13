@@ -713,86 +713,102 @@ pagedResults.forEach(result => {
             );
 
     const selectedSearchFields =
-    getSelectedSearchFields();    
+    getSelectedSearchFields();
+
+    let matchLocation = "MATCH";
     
-    let matchLocation = "WORK PACKAGE";
-        
-            const matchWords =
-                searchTerm
+    const matchWords =
+        searchTerm
+            .toLowerCase()
+            .split(" ")
+            .filter(word =>
+                word.trim().length > 3
+            );
+    
+    if (
+        selectedSearchFields.includes("itemName") &&
+        matchWords.some(word =>
+            item.itemName
+                .toLowerCase()
+                .includes(word)
+        )
+    ) {
+        matchLocation = "WORK PACKAGE";
+    }
+    
+    if (
+        selectedSearchFields.includes("description") &&
+        item.description &&
+        matchWords.some(word =>
+            item.description
+                .toLowerCase()
+                .includes(word)
+        )
+    ) {
+        matchLocation = "DESCRIPTION";
+    }
+    
+    if (
+        selectedSearchFields.includes("learnings") &&
+        item.learnings &&
+        matchWords.some(word =>
+            item.learnings
+                .toLowerCase()
+                .includes(word)
+        )
+    ) {
+        matchLocation = "LEARNINGS";
+    }
+    
+    if (
+        selectedSearchFields.includes("realizedHWWK") &&
+        item.realizedHWWK &&
+        matchWords.some(word =>
+            item.realizedHWWK
+                .toLowerCase()
+                .includes(word)
+        )
+    ) {
+        matchLocation = "REALIZED HWWK";
+    }
+    
+    if (
+        selectedSearchFields.includes("diseaseArea") &&
+        item.diseaseArea &&
+        matchWords.some(word =>
+            item.diseaseArea
+                .toLowerCase()
+                .includes(word)
+        )
+    ) {
+        matchLocation = "DISEASE AREA";
+    }
+    
+    if (
+        selectedSearchFields.includes("product") &&
+        item.product &&
+        matchWords.some(word =>
+            item.product
+                .toLowerCase()
+                .includes(word)
+        )
+    ) {
+        matchLocation = "PRODUCT";
+    }
+    
+    if (
+        selectedSearchFields.includes("subitems") &&
+        item.subitems &&
+        item.subitems.some(subitem =>
+            matchWords.some(word =>
+                subitem
                     .toLowerCase()
-                    .split(" ")
-                    .filter(word =>
-                        word.trim().length > 3
-                    );
-            
-            if (
-                item.description &&
-                matchWords.some(word =>
-                    item.description
-                        .toLowerCase()
-                        .includes(word)
-                )
-            ) {
-                matchLocation = "DESCRIPTION";
-            }
-            
-            if (
-                item.learnings &&
-                matchWords.some(word =>
-                    item.learnings
-                        .toLowerCase()
-                        .includes(word)
-                )
-            ) {
-                matchLocation = "LEARNINGS";
-            }
-            
-            if (
-                item.realizedHWWK &&
-                matchWords.some(word =>
-                    item.realizedHWWK
-                        .toLowerCase()
-                        .includes(word)
-                )
-            ) {
-                matchLocation = "REALIZED HWWK";
-            }
-
-            if (
-                item.diseaseArea &&
-                matchWords.some(word =>
-                    item.diseaseArea
-                        .toLowerCase()
-                        .includes(word)
-                )
-            ) {
-                matchLocation = "DISEASE AREA";
-            }
-            
-            if (
-                item.product &&
-                matchWords.some(word =>
-                    item.product
-                        .toLowerCase()
-                        .includes(word)
-                )
-            ) {
-                matchLocation = "PRODUCT";
-            }
-
-    
-            if (
-                item.subitems &&
-                item.subitems.some(subitem =>
-                    matchWords.some(word =>
-                        subitem
-                            .toLowerCase()
-                            .includes(word)
-                    )
-                )
-            ) {
-                matchLocation = "SUBITEM";
-            }
+                    .includes(word)
+            )
+        )
+    ) {
+        matchLocation = "SUBITEM";
+    }
 
         
         const searchWords =
