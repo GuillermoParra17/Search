@@ -126,7 +126,15 @@ async function getBoard(boardId) {
         items {
           id
           name
-
+        
+          column_values {
+            id
+            text
+            column {
+              title
+            }
+          }
+        
           subitems {
             id
             name
