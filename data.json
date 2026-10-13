@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T05:49:49.463Z",
+  "generatedAt": "2026-10-13T08:57:48.020Z",
   "boards": 91,
   "items": [
     {
@@ -13445,6 +13445,17 @@
       "itemName": "Maximizing STARGLO Reimbursement: Identifying Optimal Patient Profiles",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/2034314243/pulses/3211627895"
+    },
+    {
+      "boardId": "2034314243",
+      "boardName": "[South Korea] Work Package Overview",
+      "itemId": "3280404943",
+      "itemName": "[LC] 3C Divarasib filing endorsement",
+      "subitems": [
+        "Weekly meeting set-up",
+        "Kick off meeting set-up"
+      ],
+      "url": "https://globalroche.monday.com/boards/2034314243/pulses/3280404943"
     },
     {
       "boardId": "2034314243",
@@ -27278,7 +27289,6 @@
         "Classification confirmation",
         "MDMS setup",
         "Protocol writing",
-        "Protocol approval for both parts",
         "Data dictionary for both Protocols",
         "Budget preparation",
         "ROSIS setup for SL46835",
@@ -31547,7 +31557,8 @@
         "PAG Global knowledge sharing",
         "THD initial engagement from PAG perspective",
         "Access Journey of Patients",
-        "Awareness meeting"
+        "Awareness meeting",
+        "Kanser Savaşçıları Derneği kick off"
       ],
       "url": "https://globalroche.monday.com/boards/1773051053/pulses/3198088059"
     },
@@ -32764,8 +32775,10 @@
         "LN epidemiyolojik saha çalışması primary invesgator belirlenmesi",
         "Ulusal Romatoloji kongresinde Obi verilerinin sunulması - RWE",
         "Çapa ile mevcut cohort u üzerinden veri keşfi, gebe deneyimi, RWE value messages",
+        "Çapa görüşmesi, hem RWE hem PAG tarafı",
         "Population Health Strategy Lead Aeron ile burden of disease örnekleri görüşmesi",
-        "Burden of disease için Brasil ve RWE için Fransa ile iletişime geçilip bilgi alınması"
+        "Burden of disease için Brasil ve RWE için Fransa ile iletişime geçilip bilgi alınması",
+        "Çapa RWE için Ahmet Gül iletişim & icazet"
       ],
       "url": "https://globalroche.monday.com/boards/1773051053/pulses/3189709870"
     },
@@ -39332,8 +39345,8 @@
         "seminář Plzeň (17.6.)",
         "seminář H. Králové (21.10. od 14 hod.)",
         "seminář FN Ostrava DLBCL + FL 17.9.2026",
-        "seminář FN Olomouc (podzim)",
-        "seminář FNKV"
+        "seminář FN Olomouc (C1 2027)",
+        "seminář FNKV 3.12."
       ],
       "url": "https://globalroche.monday.com/boards/5057605420/pulses/2729972828"
     },
