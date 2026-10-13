@@ -794,7 +794,6 @@ const subitemsHtml =
 
 
 }
-}
     
 document.addEventListener("change", function (event) {
 
