@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T11:53:35.854Z",
+  "generatedAt": "2026-10-13T13:46:58.458Z",
   "boards": 91,
   "items": [
     {
@@ -13316,7 +13316,8 @@
         "Dual Blockade RTD in SLMC QC",
         "Kadcyla RTD at NKTI",
         "Phesgo Round Table Discussion with Medical center Manila Med Onco Consultants",
-        "Dual-blockade RTD in VMMC QC"
+        "Dual-blockade RTD in VMMC QC",
+        "One Breast RTD - VisMin"
       ],
       "description": "Increase adoption of dual blockade in eBC + establish Phesgo convenience",
       "learnings": "",
@@ -55035,7 +55036,10 @@
         "Segmentace HEMA",
         "Segmentace BC",
         "Segmentace LC",
-        "C2 kontrola segmentace ve squadech (120D v září)"
+        "C2 kontrola segmentace ve squadech (120D v září)",
+        "Segmentation calculator",
+        "HEMA sestry - přesunout na NP",
+        "Update segmentačního procesu"
       ],
       "description": "Key DA Segmentation Dimensions Implemented\nEstablish and operationalize a comprehensive, value-driven customer segmentation model - aligned with the global taxonomy and encompassing all customer types (potential, adoption, classification, TAE, and archetype) in collaboration with MarP and PJPs - to consistently inform and personalize integrated customer engagement and content across every cycle (120D).",
       "learnings": "",
@@ -67783,7 +67787,7 @@
         "Speakers contracting",
         "Slides preparation & speaker briefing",
         "Invitation digital",
-        "Invitation digital hard copy"
+        "Invitation hard copy"
       ],
       "description": "",
       "learnings": "",
