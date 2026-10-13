@@ -457,10 +457,10 @@ document
     .innerHTML =
     `
     ${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)
-    <br>
-    <small>
+
+    <div class="page-range">
         Showing ${startResult}-${endResult} of ${results.length.toLocaleString()}
-    </small>
+    </div>
     `;
 
 renderResults(results, searchTerm);
