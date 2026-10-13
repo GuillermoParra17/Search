@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-12T10:39:43.677Z",
-  "boards": 81,
+  "generatedAt": "2026-10-13T04:56:43.738Z",
+  "boards": 90,
   "items": [
     {
       "boardId": "5095413574",
@@ -941,6 +941,14 @@
       "itemName": "In-Field Effectiveness - Ophtha C3",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/1762431187/pulses/3216375531"
+    },
+    {
+      "boardId": "1762431187",
+      "boardName": "[Australia] Work Package Overview",
+      "itemId": "3279413077",
+      "itemName": "Colin Tan Speaker Tour",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/1762431187/pulses/3279413077"
     },
     {
       "boardId": "1762431187",
@@ -3952,10 +3960,13 @@
       "itemName": "[Partner Onboarding] ID: Zuellig Pharma Haematology CSMO",
       "subitems": [
         "Initial Onboarding Kickoff Completed",
-        "Review training matrix based on model, scope & affiliate to ensure appropriate trainings are assigned",
-        "Raise EPP Requests",
+        "Define training agenda (market needs & partner capabilities)",
+        "Set up partner collaboration drive",
+        "Pathway Selection & EPP Requests",
         "Assign relevant training curriculums via cornerstone",
-        "Mabthera & Polivy Product Training",
+        "Mabthera Product Training - Pre Read",
+        "Polivy Product Training - Pre Read",
+        "Q&A Form submission - product training",
         "Conduct F2F Onboarding Workshop",
         "Close out Onboarding with Partner Survey"
       ],
@@ -3968,21 +3979,6 @@
       "itemName": "WP 4 LLC Agreement & Access Framework",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/2034429891/pulses/3230567544"
-    },
-    {
-      "boardId": "2034429891",
-      "boardName": "[FP Squad] Work Package Overview",
-      "itemId": "3239687737",
-      "itemName": "[Partner Onboarding] SG: DKSH",
-      "subitems": [
-        "Initial Onboarding Kickoff",
-        "F2F / Hybrid Onboarding Workshop",
-        "Avastin Product Training",
-        "Actemra Product Training",
-        "Nephrology Product Training",
-        "SG & BN Export Control & Sanctions"
-      ],
-      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239687737"
     },
     {
       "boardId": "2034429891",
@@ -4030,28 +4026,32 @@
     {
       "boardId": "2034429891",
       "boardName": "[FP Squad] Work Package Overview",
-      "itemId": "3239684892",
-      "itemName": "[Partner Onboarding] BN: DKSH",
+      "itemId": "3239684129",
+      "itemName": "[Partner Onboarding] VN: Zuellig Pharma",
       "subitems": [
-        "Immunology: Actemra Product Training",
-        "Oncology: Avastin, Mabthera & Herceptin Product Training",
-        "Initial Onboarding Kickoff Completed (Refresher)",
-        "Conduct F2F Onboarding Workshop",
-        "Healthcare Compliance Training",
-        "Nephrology: Mircera, Cellcept & Recormon Product Training"
+        "Initial Onboarding Kickoff",
+        "Review training matrix based on model, scope & affiliate to ensure appropriate trainings are assigned",
+        "Set up Shared Drive / EPP Register",
+        "Product Training -  RoPolivy",
+        "Supply Chain Training",
+        "Compliance Training"
       ],
-      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239684892"
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239684129"
     },
     {
       "boardId": "2034429891",
       "boardName": "[FP Squad] Work Package Overview",
-      "itemId": "3239684129",
-      "itemName": "[Partner Onboarding] VN: Zuellig Pharma",
+      "itemId": "3239687737",
+      "itemName": "[Partner Onboarding] SG: DKSH",
       "subitems": [
-        "Initial Onboarding Kickoff Completed",
-        "Review training matrix based on model, scope & affiliate to ensure appropriate trainings are assigned"
+        "Initial Onboarding Kickoff",
+        "F2F / Hybrid Onboarding Workshop",
+        "Avastin Product Training",
+        "Actemra Product Training",
+        "Nephrology Product Training",
+        "SG & BN Export Control & Sanctions"
       ],
-      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239684129"
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239687737"
     },
     {
       "boardId": "2034429891",
@@ -4097,9 +4097,27 @@
     {
       "boardId": "2034429891",
       "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3239684892",
+      "itemName": "[Partner Onboarding] BN: DKSH",
+      "subitems": [
+        "Immunology: Actemra Product Training",
+        "Oncology: Avastin, Mabthera & Herceptin Product Training",
+        "Initial Onboarding Kickoff Completed (Refresher)",
+        "Conduct F2F Onboarding Workshop",
+        "Healthcare Compliance Training",
+        "Nephrology: Mircera, Cellcept & Recormon Product Training"
+      ],
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239684892"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
       "itemId": "3239691802",
       "itemName": "[Partner Onboarding] TH: DKSH",
-      "subitems": [],
+      "subitems": [
+        "Refresher Training Workshop",
+        "Nephrology Product Training"
+      ],
       "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239691802"
     },
     {
@@ -4107,7 +4125,9 @@
       "boardName": "[FP Squad] Work Package Overview",
       "itemId": "3239691060",
       "itemName": "[Partner Onboarding] SG: ZP Telesales",
-      "subitems": [],
+      "subitems": [
+        "Xofluza Product Training"
+      ],
       "url": "https://globalroche.monday.com/boards/2034429891/pulses/3239691060"
     },
     {
@@ -8471,49 +8491,6 @@
     {
       "boardId": "2034398282",
       "boardName": "[New Zealand] Work Package Overview",
-      "itemId": "3017677226",
-      "itemName": "2026 C2 Braver Launch Event",
-      "subitems": [
-        "RoME Event Review and Approval",
-        "Finalise attendee list",
-        "Send out invites - Round 1",
-        "Complete Compliance and Legal Review",
-        "MN Speech to Event",
-        "Review LL speech",
-        "Confirm Panel members and faciliatator",
-        "Braver report for NZ",
-        "Send thank-yous and close out"
-      ],
-      "url": "https://globalroche.monday.com/boards/2034398282/pulses/3017677226"
-    },
-    {
-      "boardId": "2034398282",
-      "boardName": "[New Zealand] Work Package Overview",
-      "itemId": "2915429388",
-      "itemName": "2026 C2 DLBCL Funding Escalation and Ecosystem Activation",
-      "subitems": [
-        "Reusable / Scalable Global & Network WP assets",
-        "Deliverable 1: NZIER Media Campaign",
-        "Deliverable 2: PHARMAC Escalation",
-        "Deliverable 3: Refine Market Access strategy for DLBCL pair of medicines",
-        "Reference Documents - See File for list and links",
-        "NZIER Media Campaign - Finalise Report",
-        "NZIER Media Campaign - Launch",
-        "NZIER Media Campaign - Friendly Versions of Report",
-        "NZIER Media Campaign - Patient Story",
-        "NZIER Media Campaign - Clinical Perspective / Activation",
-        "NZIER Media Campaign - PAGs",
-        "NZIER Media Campaign - webinar",
-        "PHARMAC Escalation - Negotiation Strategy",
-        "PHARMAC Escalation - Apply Pressure & Key Messaging",
-        "PHARMAC Escalation - Collective Pressure Escalation",
-        "Refine Market Access Strategy"
-      ],
-      "url": "https://globalroche.monday.com/boards/2034398282/pulses/2915429388"
-    },
-    {
-      "boardId": "2034398282",
-      "boardName": "[New Zealand] Work Package Overview",
       "itemId": "2917279847",
       "itemName": "2026 C2 Sprint - TECENTRIQ funding opportunities",
       "subitems": [
@@ -8544,7 +8521,6 @@
         "Due diligence for Dr Tan",
         "Post event VoC survey?",
         "Compliance questions",
-        "Timeline breakdown",
         "Roche Symposia Agenda",
         "RoME entries",
         "Potential social gathering for Dr Tan to connect with clinicians pre MDNZ event",
@@ -11405,7 +11381,7 @@
       "boardId": "2034380907",
       "boardName": "[Singapore] Work Package Overview",
       "itemId": "3242301169",
-      "itemName": "Ophtha_C3 2026_Preparing for changing external environment",
+      "itemName": "Ophtha_C3 2026_Scenario Planning",
       "subitems": [
         "WP kick-off meeting"
       ],
@@ -15846,6 +15822,14 @@
       "itemName": "test",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/2034336678/pulses/3103853536"
+    },
+    {
+      "boardId": "2034336678",
+      "boardName": "[Taiwan] Work Package Overview",
+      "itemId": "3279518049",
+      "itemName": "FW_Access 2027",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2034336678/pulses/3279518049"
     },
     {
       "boardId": "2034336678",
@@ -22733,9 +22717,9 @@
         "Digital activities regarding Brain Health report",
         "MAP questionnaire creation and validation",
         "MAP data collection",
+        "MS- Everything you need to know brochure- collaboration with MS PAG from Mostar",
         "End of data collection and analysis of MAP data",
         "Expert meeting/presentation of MAP findings",
-        "MS- Everything you need to know brochure- collaboration with MS PAG from Mostar",
         "Understanding MS: A Patient Education Workshop Mostar"
       ],
       "url": "https://globalroche.monday.com/boards/5043246849/pulses/2918608317"
@@ -22748,8 +22732,8 @@
       "subitems": [
         "SMA awareness month digital campaign creation",
         "Development of educational materials for HCPs and patients",
-        "Narrative on Value for payers for SMA therapy created",
         "HCP portal launch preparation",
+        "Narrative on Value for payers for SMA therapy created",
         "NeuroPed - satelit symposium -"
       ],
       "url": "https://globalroche.monday.com/boards/5043246849/pulses/3187596899"
@@ -36179,7 +36163,7 @@
       "itemName": "Consultancy HEM Switch",
       "subitems": [
         "Preparations",
-        "HCP #1 OA Dr.Kammerer",
+        "Consultancy #1 OA Dr.Kammerer",
         "HCP#2 Prof. Feistritzer"
       ],
       "url": "https://globalroche.monday.com/boards/5057676945/pulses/3203801598"
@@ -38242,6 +38226,14 @@
       "itemName": "XXXV. Konferencia detských hematológov a onkológov ČR a SR, Košice, 15. - 17. 10. 2026",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/5057605420/pulses/2997016145"
+    },
+    {
+      "boardId": "5057605420",
+      "boardName": "[Czech Republic] Work Package Overview",
+      "itemId": "3276117886",
+      "itemName": "BHD 4-5.11.2026",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5057605420/pulses/3276117886"
     },
     {
       "boardId": "5057605420",
@@ -41092,7 +41084,8 @@
         "meeting minutes 1.6.2026",
         "meeting minutes 2.7.2026",
         "meeting minutes 6.8.2026",
-        "meeting minutes 3.9.2026"
+        "meeting minutes 3.9.2026",
+        "meeting minutes 7.10.2026"
       ],
       "url": "https://globalroche.monday.com/boards/5057605420/pulses/2866806476"
     },
@@ -41945,14 +41938,6 @@
       "itemName": "VoC HCP portal",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/5057605420/pulses/3222336041"
-    },
-    {
-      "boardId": "5057605420",
-      "boardName": "[Czech Republic] Work Package Overview",
-      "itemId": "3227857776",
-      "itemName": "Lunsumio iPAD sales aid",
-      "subitems": [],
-      "url": "https://globalroche.monday.com/boards/5057605420/pulses/3227857776"
     },
     {
       "boardId": "5057616717",
@@ -49160,14 +49145,6 @@
       "itemName": "Fenebrutinib Access Community Forum",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/5057669820/pulses/3060444706"
-    },
-    {
-      "boardId": "5057669820",
-      "boardName": "[Ireland] Work Package Overview",
-      "itemId": "3101821737",
-      "itemName": "New work package",
-      "subitems": [],
-      "url": "https://globalroche.monday.com/boards/5057669820/pulses/3101821737"
     },
     {
       "boardId": "5057669820",
@@ -57643,7 +57620,8 @@
         "Budowanie Mostu „Reumato-Nefro” – lokalne ROE (5-6 Polska, 02-03.2027, spotkania interdyscyplinarne HCO A/B)",
         "Decyzja (typu „go/no-go”) zespołu ET dotycząca wskazań: toczeń rumieniowaty układowy (SLE), idiopatyczny zespół nerczycowy (INS) i pierwotna nefropatia błoniasta (pMN)",
         "SLE reimbursement: market research, HTA, adboard, drug program,",
-        "INS, pMN: HTA, adboard, drug program"
+        "INS, pMN: HTA, adboard, drug program",
+        "Kampania edukacyjna na temat nefropatii toczniowej skierowana do pacjentów z toczniem rumieniowatym układowym (SLE)"
       ],
       "url": "https://globalroche.monday.com/boards/1667970515/pulses/3257409969"
     },
@@ -60576,7 +60554,8 @@
         "bookmark poglej si v oči",
         "Zgibanka-zdravilo vabysmo",
         "materiali_jesen",
-        "Zgibanka oftalmologija"
+        "Zgibanka oftalmologija",
+        "Vabysmo zgibanka"
       ],
       "url": "https://globalroche.monday.com/boards/5057692961/pulses/2755360336"
     },
@@ -75555,7 +75534,8 @@
         "HM 3 Sponsoring",
         "Referent 12. Lymphom-Symposium von Herrn Prof. Volkenandt",
         "Arzneimittelspende Gazyvaro",
-        "Emotional Brand Monitor (EBM)"
+        "Emotional Brand Monitor (EBM)",
+        "Außendienstanalyse Incyte"
       ],
       "url": "https://globalroche.monday.com/boards/1843040726/pulses/2567058385"
     },
@@ -75755,24 +75735,25 @@
       "itemId": "2564835563",
       "itemName": "WP_DA_Hematology: WP 2026 1: Columvi_Bispecific-competency",
       "subitems": [
-        "Patientenbilder und Kasuistiken_print",
-        "Patientenbilder & Kasuistiken_digital",
-        "KI Patienten Kasuitik",
+        "Thieme Case Cards",
+        "CRS Checkliste",
+        "ICANS Fokusarte",
+        "So Pro - Subgruppen nach Alter",
+        "NiCO Adboard",
+        "Update Anwendungsleitfaden",
         "VirP Klaus: Hosting & Nutzung",
         "Kommunikation zur Verträglichkeit",
         "Kommunikation als Abgrenzung zu Tafa Len",
-        "CRS Checkliste",
-        "ICANS Fokusarte",
         "Gesprächsleitfaden zum Thema Sicherheit für CPMs",
         "Storytelling für NICOs",
-        "SoPro Doppelinterview (CAR-T & NICO)",
-        "So Pro - NICO mit Erfahrung",
-        "CoCreation Mafo Safety",
-        "NiCO Adboard",
-        "Deutsche Preceptorships",
-        "Regionale Veranstaltungen: Ad Boards/Netzwerkveranstaltungen/ etc.",
         "Awareness und Klarheit für reg. und log. Herausforderungen + Lösungsmöglichkeiten (GpT + Toci)",
         "Regionale Analyse der Patientenströme und Ableitung von potenzialen auf regionaler Ebene (CPM, CPL, ASP)",
+        "Regionale Veranstaltungen: Ad Boards/Netzwerkveranstaltungen/ etc.",
+        "KI Patienten Kasuitik",
+        "Patientenbilder & Kasuistiken_digital",
+        "SoPro NICO mit Erfahrung",
+        "CoCreation Mafo Safety",
+        "Deutsche Preceptorships",
         "Außendienstveranstaltung",
         "Nachdrucke Patientenmaterial"
       ],
@@ -75947,9 +75928,9 @@
       "itemId": "2564871049",
       "itemName": "WP_DA_Hematology: WP 2026 2: Columvi Therapie der Wahl",
       "subitems": [
+        "Beratung CRS Checkliste",
         "DGHO Encores Columvi",
         "Gesprächsleitfaden für CPM-Gespräche für NICO und NiOs",
-        "Beratung NICO/ CRS Checkliste",
         "Gesprächsauftrag & Storyflow für MSP",
         "AOKI Arztsoftware -Produktplatzierung",
         "Teilen der Columvi MaFo im Expert Panel",
@@ -76159,33 +76140,37 @@
       "itemId": "2565216220",
       "itemName": "WP_DA_Hematology: WP 2026 3: Columvi Kuratives Potential",
       "subitems": [
-        "Marketingmaterialien_Kampagne kuratives Potenzial_print",
-        "Salesfolder Kuratives Potential",
-        "Abgabekarte Publikation 3 Jahresdaten",
-        "Fokuskarte (frührezidiv/spätrezidiv)",
+        "PR Printanzeigen_Kampagne Kuratives Potenzial",
+        "PR Aktivitäten_Kampagne Kuratives Potenzial_digital",
+        "PR Aktivitäten digital Produktionshanling Juli -Sept",
+        "Snakker Kampagne Columvi",
         "Marketingmaterialien_Kampagne kuratives Potenzial_digital",
+        "Produktionshandling & PZN AOKI 2027",
+        "Fokuskarten Subgruppen nach Alter",
+        "Anpassung Abgabekarte Publikation",
+        "Update Pitchview 4 Jahresdaten",
+        "ASH Doc Check",
+        "Salesfolder Kuratives Potential",
+        "Marketingmaterialien_Kampagne kuratives Potenzial_print",
+        "Fokuskarte (frührezidiv/spätrezidiv)",
+        "Abgabekarte Publikation 3 Jahresdaten",
         "Pitchview Update Kuratives Potential",
         "Gesprächsleitfaden für CPMs zur neuen Leitlinie",
         "OCE Journey & Fachportal Update",
         "Newsletter Neu Kampagne",
         "Banner PR Schaltungen Kampagne",
-        "PR Printanzeigen_Kampagne Kuratives Potenzial",
-        "PR Aktivitäten_Kampagne Kuratives Potenzial_digital",
         "PR Digitale Anzeigen Kuratives Potential",
         "PR Aktivitäten digital - Produktionshandling April - Juni",
-        "PR Aktivitäten digital Produktionshanling Juli -Sept",
-        "Snakker Kampagne Columvi",
-        "Weitere Columvi Aktivitäten",
-        "Qual Mafo 3-Jahres-Daten",
-        "Personalisierte Materialien pro HCP-Zielgruppe_print",
-        "Personalisierte Materialien_digital",
         "CME Sponsoring (Doctorflix)",
         "Erarbeitung neues Gesprächskonzept Post ASH",
         "Neue PR Materialien Post-ASH: Anpassung Storyline, SoPro post-ASH",
         "Marketingmaterialien_Neue Leitlinie_digital",
         "Marketingmaterialien_Neue Leitlinie_print",
+        "FOMF TAE Interview_Neue Leitlinie_digital",
         "PR Aktivitäten_Neue Leitlinie_print",
-        "FOMF TAE Interview_Neue Leitlinie_digital"
+        "Personalisierte Materialien pro HCP-Zielgruppe_print",
+        "Personalisierte Materialien_digital",
+        "Qual Mafo 3-Jahres-Daten"
       ],
       "url": "https://globalroche.monday.com/boards/1843040726/pulses/2565216220"
     },
@@ -79782,7 +79767,8 @@
         "Workshops und CI-Sessions",
         "HCP Panel (Honorare)",
         "IQVIA Sales & Patientenequivalente & Market Shares",
-        "PIA Patienteninsights für Evrysdi"
+        "PIA Patienteninsights für Evrysdi",
+        "SMA Patient Panel #20"
       ],
       "url": "https://globalroche.monday.com/boards/1843040726/pulses/5083198541"
     },
@@ -94870,6 +94856,1004 @@
       "itemName": "LATAM-Descentralized_Clusterization",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/5088557063/pulses/2865334500"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "2962359322",
+      "itemName": "Heme_C2 2026_Drive STARGLO",
+      "subitems": [
+        "RTE post call edm",
+        "APAC case series webinar",
+        "Communicate on CDL (eDM)",
+        "EHA eDMs",
+        "STARGLO experience programme call questions",
+        "H1 wrap up",
+        "Communicate on CDL (F2F)",
+        "STARGLO CSA and VSD, dosing and admin guide",
+        "Communicate to pharmacists on stocks control (CDL comms)",
+        "C2 priority doctors",
+        "Public/Private CDL plan",
+        "CDL public/private LBM",
+        "STARGLO EDM 1",
+        "Closure of EDM to public hospitals edm",
+        "P1/P2 and P3-P5 eDM plan",
+        "STARGLO updated LBM - treatment guide comprehensive booklet",
+        "STARGLO EDM 2",
+        "STARGLO EDM 3",
+        "SLSS LBM",
+        "CDL Launch day EDM",
+        "Updated LBM",
+        "WLAD Magnet and Board for booth",
+        "STARGLO myth buster EDM - RTE",
+        "SDBCC booth design"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/2962359322"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "2669008506",
+      "itemName": "Heme_C1 2026_Non-CDL Pathway",
+      "subitems": [
+        "Develop material",
+        "P1/P2 and P3-P5 eDM",
+        "Kick off meeting",
+        "Gather insights from Dr Hsieh on approach for non CDL"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/2669008506"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "2962604567",
+      "itemName": "Heme_C2 2026_Polivy in IPI 2",
+      "subitems": [
+        "5 year data preparation",
+        "Polivy highlights",
+        "RTE post call edm",
+        "ALE post webinar edm",
+        "RTE Polivy (DAN)",
+        "Emotive campaign data collection",
+        "SLSS and ALF eDM",
+        "Standardised call questions guide",
+        "140mg eDM email",
+        "Pola mini R CHP",
+        "C2 priority doctors",
+        "Pola RWE",
+        "Polivy eDM",
+        "DAN APAC webinar post webinar highlights",
+        "Polivy updated edm",
+        "RWE value story (DAN)"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/2962604567"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "2668996477",
+      "itemName": "Heme_C1 2026_Launch excellence for STARGLO",
+      "subitems": [
+        "HoASH invitation",
+        "Follow up with Will on SSH ASM speaker",
+        "STARGLO approval eDM",
+        "[SSH ASM] Raise ihcp",
+        "Finalise patient flow",
+        "Localise STARGLO curative potential leaflet",
+        "STARGLO Experience programme business case and development",
+        "STARGLO LBM",
+        "SSH ASM booth",
+        "Post SSH ASM and STARGLO launch eDM",
+        "STARGLO programme roll out",
+        "Invitation for Matthew Matasar speaker tour virtual stream",
+        "STARGLO launch speaker tour",
+        "Invite HCPs to DAN APAC medical roundtable",
+        "Prof Gareth speaker tour thank you email",
+        "STARGLO launch hospital visit",
+        "[SSH ASM] SSH ASM agreement",
+        "STARGLO video",
+        "STARGLO deep and durable remission leaflet localisation",
+        "Taiwan Prof GG eDM",
+        "HoASH save the date",
+        "HoASH attendees",
+        "Reach out to Michelle about HoASH",
+        "Localise dosing and administration guide",
+        "Create OCEP accounts for Chin Hua, Hailey, Bradon, Tricia",
+        "Create segmentations for STARGLO",
+        "[SSH ASM] Initiate ROME for speaker tour",
+        "[SSH ASM] Explore dinner talk venues",
+        "[SSH ASM] Draft agenda for launch dinner and hospital talk",
+        "[SSH ASM] Contact hospitals",
+        "[SSH ASM] Identify chairperson for launch and hospital talks",
+        "[SSH ASM] Initiate ROME for SSH ASM",
+        "[SSH ASM] dinner save the date",
+        "[HoASH] Submit TTSH form",
+        "[SSH ASM] Letter of agreement for Will",
+        "[HoASH] Prepare agreement and CMB",
+        "[HoASH] Submit internal grant form",
+        "[SSH ASM] CMB for Dr Ong",
+        "STARGLO desktop screensaver",
+        "[ACML] RoME for Dr Ong speaking opportunity",
+        "[ACML] CMB and HCP agreement",
+        "Update HCP segmentation in OCEP",
+        "[TSH] CMB and HCP agreement for Dr Ong",
+        "[TSH] SG to be added as child country in TH rome",
+        "[HoASH] Deploy lunch symposium and RTD via 1:1 in OCEP",
+        "Veeva Prof GG Edm",
+        "Deploy Prof GG eDM"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/2668996477"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "5009528831",
+      "itemName": "Heme_C3_2025_Columvi 2L launch readiness",
+      "subitems": [
+        "[Launch] Check in with speakers on availability",
+        "[Launch] Agenda for hospital talk",
+        "[Launch] Invitation for hospital talk",
+        "[Launch] CMB and consultancy for dinner speakers and chair",
+        "[Launch] Hospital talk chair briefing",
+        "[Launch] Upload invitation for distribution",
+        "[Launch] Prepare invitation",
+        "[Launch] Confirm with NCCS on hospital talk and chairperson",
+        "[Launch] CMB and consultancy for NCCS chair",
+        "[Launch] Hotel for GG",
+        "[Launch] Dinner speaker and chair briefing",
+        "[Launch] Check with NUH on hospital talk",
+        "[Launch] Agenda for dinner",
+        "[Launch] Agreement for GG (by 15th december)",
+        "[Launch] Finalise dinner venue",
+        "[Launch] CMB and consultancy for NUH talk",
+        "[Launch] Airport transfer and transport for GG",
+        "[Launch] GG speaker briefing (19th December)",
+        "[Launch] Return flight for GG",
+        "STARGLO edm",
+        "STARGLO video",
+        "[Launch] Invitation for hospitals and dinner final talk",
+        "Columvi branding, messaging and tagline",
+        "Launch plan (Feb 2025) + timeline",
+        "HCP segmentation"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/5009528831"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "5009537693",
+      "itemName": "Heme_C3 2025_3L Columvi Experience and Differentiation",
+      "subitems": [
+        "Key value messaging",
+        "Good experience with Columvi",
+        "Insurance pathway",
+        "Prof John Kuruvilla Speaker tour",
+        "Columvi 3L LBM"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/5009537693"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "2668878152",
+      "itemName": "Heme_C1 2026_Driving Polivy in IPI 2 Population",
+      "subitems": [
+        "Emotional marketing patient case #1 eDM",
+        "Engage with Dr Esther Chan",
+        "Engage with Dr Michelle on RWE collection",
+        "Engage with Dr Chiang",
+        "DAN series webinar invitation",
+        "Engage with Dr Lee Chun Tsu",
+        "Engage with Dr Kevin Tay",
+        "Engage with Dr Colin Diong",
+        "Addressing key objections #1 and CDL reminder eDM",
+        "Check with Dr Lee Chun Tsu on cases for DAN case series webinar",
+        "Check with Dr Jason on ACML",
+        "Draft eDM for IPI 2",
+        "Follow up with rose on DAN case series webinar",
+        "ACML Logistics",
+        "Raise GSD for CFCH and NCC",
+        "Polivy LBM",
+        "Polivy Pull up banner"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/2668878152"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "5048602637",
+      "itemName": "Heme Malignant medical Foundational work",
+      "subitems": [
+        "179 MCL study - to explore with Michele/Jason? as encore at SLSS",
+        "Plan Michele's visit",
+        "Compassionate support for Dr Dheepa (STARGLO)",
+        "CMB for Dr Ong (ACML)",
+        "Agreement for Dr Ong (ACML)",
+        "Agreement for Dr Ong (Th-ISH)",
+        "CMB for Dr Ong (Th-ISH)",
+        "LAM for Glofitamab in R/R MCL",
+        "Cevostamab G-CUP"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/5048602637"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "2104569901",
+      "itemName": "Phesgo_WP3_C3 2025_Strengthen the P+H based treatment algorithm",
+      "subitems": [
+        "Insight Gathering on latest DB Trials (DB09 / DB11 / DB05)",
+        "Develop Key Messages suite for optimal HER2+ treatment sequence",
+        "Define Insight Questions",
+        "Develop Segmentation Matrix against Enhertu Threats",
+        "Develop Omnichannel Messaging Plan for the Targeted Segment"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/2104569901"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "2915429388",
+      "itemName": "2026 C2 DLBCL Funding Escalation and Ecosystem Activation",
+      "subitems": [
+        "Reusable / Scalable Global & Network WP assets",
+        "Deliverable 1: NZIER Media Campaign",
+        "Deliverable 2: PHARMAC Escalation",
+        "Deliverable 3: Refine Market Access strategy for DLBCL pair of medicines",
+        "Reference Documents - See File for list and links",
+        "NZIER Media Campaign - Finalise Report",
+        "NZIER Media Campaign - Launch",
+        "NZIER Media Campaign - Friendly Versions of Report",
+        "NZIER Media Campaign - Patient Story",
+        "NZIER Media Campaign - Clinical Perspective / Activation",
+        "NZIER Media Campaign - PAGs",
+        "NZIER Media Campaign - webinar",
+        "PHARMAC Escalation - Negotiation Strategy",
+        "PHARMAC Escalation - Apply Pressure & Key Messaging",
+        "PHARMAC Escalation - Collective Pressure Escalation",
+        "Refine Market Access Strategy"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/2915429388"
+    },
+    {
+      "boardId": "5101234446",
+      "boardName": "[APAC] Archive - Work Package Overview",
+      "itemId": "3017677226",
+      "itemName": "2026 C2 Braver Launch Event",
+      "subitems": [
+        "RoME Event Review and Approval",
+        "Finalise attendee list",
+        "Send out invites - Round 1",
+        "Complete Compliance and Legal Review",
+        "MN Speech to Event",
+        "Review LL speech",
+        "Confirm Panel members and faciliatator",
+        "Braver report for NZ",
+        "Send thank-yous and close out"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234446/pulses/3017677226"
+    },
+    {
+      "boardId": "5101234357",
+      "boardName": "[CEETRIS] Archive - Work Package Overview",
+      "itemId": "5079491896",
+      "itemName": "HSB_EHA_2025_Symposium_Engagemnet & Promotional booth",
+      "subitems": [
+        "Booth design",
+        "Roche presence in the two day conferrence"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234357/pulses/5079491896"
+    },
+    {
+      "boardId": "5101234357",
+      "boardName": "[CEETRIS] Archive - Work Package Overview",
+      "itemId": "2547003996",
+      "itemName": "BD_DLBCL_SLSS 2025 execution",
+      "subitems": [
+        "HCP selection",
+        "Visa and other paperwork",
+        "Connection with Roche SG team to include BD HCPs to the event",
+        "Participation of BD HCPS in APAC DAN arranged symposium",
+        "Meeting of BD HCPs with Dr. Jason Chang: Organizer SLSS",
+        "Omni channel campaign",
+        "Post event follow-up"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234357/pulses/2547003996"
+    },
+    {
+      "boardId": "5101234357",
+      "boardName": "[CEETRIS] Archive - Work Package Overview",
+      "itemId": "5079426248",
+      "itemName": "BD_DLBCL_Polivy Branded Scientific Engagement: 1st yr of launch",
+      "subitems": [
+        "3 ISP",
+        "22 National level standalone promotional event"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234357/pulses/5079426248"
+    },
+    {
+      "boardId": "5101234357",
+      "boardName": "[CEETRIS] Archive - Work Package Overview",
+      "itemId": "2511780291",
+      "itemName": "BD_DLBCL_Capability building of Sales team for Polivy",
+      "subitems": [
+        "Sales trainings: 6 sessions: 1/month",
+        "Training material preparation and update",
+        "post training evaluations",
+        "Training at SMC office"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234357/pulses/2511780291"
+    },
+    {
+      "boardId": "5101234357",
+      "boardName": "[CEETRIS] Archive - Work Package Overview",
+      "itemId": "5080963630",
+      "itemName": "BD_Hem_National Hemophilia Guideline Drafting with HSB & NCDC 2025",
+      "subitems": [
+        "Workshop session 1",
+        "Workshop session 2",
+        "workshop session 3",
+        "writeup finalization"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101234357/pulses/5080963630"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2969516470",
+      "itemName": "Regional HER2 Patient Case Sharing Series",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2969516470"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2873651749",
+      "itemName": "EU N/S Heme Malig PPoC Commercialisation Excellence",
+      "subitems": [
+        "Blueprint Customisation for Malignant Heme"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2873651749"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2867205183",
+      "itemName": "Divarasib Launch EU S/N",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2867205183"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2867158800",
+      "itemName": "Belgium Preceptorship",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2867158800"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2867171057",
+      "itemName": "Poland Preceptorship",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2867171057"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2867177436",
+      "itemName": "ATOMIC Launch EU S/N",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2867177436"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2867059887",
+      "itemName": "HR+ preceptorship and virtual exchange sessions",
+      "subitems": [
+        "KPI on Affiliate Involvement and HCPs in attendance (e.g. Nurture a cohort of at least 15-20 participants who become early adopters of ITOVEBI in their market  and are willing to share their positive clinical experience with peers)",
+        "All key program milestones—including content finalization, KOL contracting, session scheduling, and execution—are completed within the 12-month timeline.",
+        "Roche is recognized as a medical education leader and trusted partner (confirmed through KOL and participant feedback surveys)",
+        "% HCPs that find the medical information practical and useful for their clinical practices"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2867059887"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2777354037",
+      "itemName": "EU23 Portfolio Lead Community - Transparency",
+      "subitems": [
+        "Proposal presented at PL monthly meeting",
+        "Joint DCL meeting scheduled May"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2777354037"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2746881862",
+      "itemName": "EU N/S - Patient Repository Cases",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2746881862"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2841173404",
+      "itemName": "EU23 CE Stewardship Capability Building",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2841173404"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2086287511",
+      "itemName": "EU N/S Webinars: HemExchange",
+      "subitems": [
+        "New Subitem"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2086287511"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2655188181",
+      "itemName": "The Payer toolkit: Translating Vabysmo's Evidence into Market Impact",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2655188181"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2704158626",
+      "itemName": "RWE Publication Support",
+      "subitems": [
+        "Roundtable CZ",
+        "Roundtable IS",
+        "Roundtable POR",
+        "Roundtable SLO"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2704158626"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2867059880",
+      "itemName": "ATOMIC Launch",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2867059880"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2867105345",
+      "itemName": "Phesgo EU Virtual Experience Exchange",
+      "subitems": [
+        "Finalized Speaker Lineup & Agenda: Confirmed participation of key speakers  from UK, Sweden, Denmark, and Netherlands to present best practices and challenges",
+        "Webinar Content & Toolkit: Development of localized slide decks and case study materials demonstrating PHESGO integration into hospital workflows, aligned with SmPC and EU compliance considerations",
+        "Marketing & Registration Launch: Deployment of invitations to key stakeholders (nurses, oncologists, pharmacists) and launch of the registration platform.",
+        "Live Event Execution: Successful delivery of the \"PHESGO EU Virtual Experience Exchange\" webinar.",
+        "Post-Event Resource Package: Distribution of webinar recordings, Q&A summaries, and implementation guide snippets to all attendees to support internal discussions."
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2867105345"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2964306631",
+      "itemName": "MS EN/ES: WP3 Commercialization excellence",
+      "subitems": [
+        "New item"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2964306631"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2086190825",
+      "itemName": "EU N/S NEXUS 1.0",
+      "subitems": [
+        "New Subitem"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2086190825"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2651353402",
+      "itemName": "Peer to Peer Engagement - Retina ExchANGe evolution",
+      "subitems": [
+        "1st Retina Exchange Webinars",
+        "2nd Retina Exchange Webinar",
+        "3rd Retina Exchange Webinar",
+        "F2F Retina Exchange Meeting"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2651353402"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2738876467",
+      "itemName": "MS EN/ES: ICX WP 2 - Omnichannel Journeys",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2738876467"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2086331526",
+      "itemName": "EU N/S multidisciplinary educational event on joint health",
+      "subitems": [
+        "New Subitem"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2086331526"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2651314229",
+      "itemName": "Pan-European Societal Value Publication & Localized Budget Impact Analysis",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2651314229"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2738857795",
+      "itemName": "MS EN/ES: ICX WP 1 - Content Excellence",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2738857795"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2086140220",
+      "itemName": "EU N/S Hemilios",
+      "subitems": [
+        "New Subitem"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2086140220"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2738845744",
+      "itemName": "MS EN/ES: The Prevalence Gap: Unlocking MS Potential in Romania & Hungary",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2738845744"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2745050938",
+      "itemName": "EU23 Portfolio Lead Community - Resourcing WPs",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2745050938"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2620013480",
+      "itemName": "MS EN/ES: The NfL Protocol: Unlocking the full potential of OCREVUS through biomarkers",
+      "subitems": [
+        "Campaign",
+        "Preceptorship",
+        "Biomarker Academy",
+        "Funding"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2620013480"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2738843913",
+      "itemName": "MS EN/ES: European Pregnancy and Lactation Booster Programme: From Diagnosis to Motherhood",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2738843913"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2738835601",
+      "itemName": "MS EN/ES: Commercialization Excellence: Driving High-impact Execution",
+      "subitems": [
+        "Compete from Every Seat, March 2026",
+        "EU23 Unified patient flow",
+        "Compete from every Seat. June-Jan 2026",
+        "Compete from every seat V2",
+        "Above the country investement cases"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2738835601"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2738820023",
+      "itemName": "MS EN/ES:  Flip-the-Pyramid Revolt: Time is brain — creating urgency to treat early and effectively",
+      "subitems": [
+        "TIM model rebuilding",
+        "ISMIND 2026 Roche sattelite"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2738820023"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2692123754",
+      "itemName": "EU23 MKT & ICX | Impactful Omnichannel Journeys",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2692123754"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2691971283",
+      "itemName": "EU23 MKT & ICX | Content Excellence",
+      "subitems": [
+        "Content / Campaigns Calendar",
+        "Omnichannel Implementation Package - Competitive Differentiation",
+        "Omnichannel Implementation Package - Switch Narrative",
+        "AI Tool on Notebook LM",
+        "Improvements to campaigns localization process"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2691971283"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2580409459",
+      "itemName": "EU N/S Heme Malig EU Starglo Launch Event",
+      "subitems": [
+        "Agenda",
+        "\"Save the date\" placeholder"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2580409459"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2550088400",
+      "itemName": "EU N/S Heme Malig  Key Markets Preceptorship",
+      "subitems": [
+        "Previous Preceptorship Review",
+        "Oral communication to Key countries",
+        "Compliance Form Submission",
+        "Event Overview & HCP Selection Criteria",
+        "Written communication to countries",
+        "Site Selection",
+        "Date Confirmation",
+        "NEST Engagement",
+        "Vendor selection",
+        "FMV Validation",
+        "Contracts",
+        "Participants List",
+        "Scientific Agenda creation",
+        "Logistics Check with vendor",
+        "Post-Event & Follow-up"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2550088400"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2718348270",
+      "itemName": "EU N/S - Squad Lead Capability (Discovery)",
+      "subitems": [
+        "Consolidate and review all existing Squad Lead capability analyses across EU23",
+        "Establish a single, validated baseline of current Squad Lead capabilities",
+        "Clarify and align the DCL role in Squad Lead capability building with P&C and Portfolio Heads",
+        "Validate capability priorities through targeted engagement with EU23 Portfolio Leads and Squad Leads",
+        "Define a prioritized shortlist of critical Squad Lead capabilities",
+        "Define target maturity levels and “what good looks like” for each priority capability",
+        "Synthesize insights into a discovery summary with clear Cycle 2 recommendations",
+        "Engage with i8 counterparts to leverage assets and learnings",
+        "New item",
+        "New item"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2718348270"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2680779861",
+      "itemName": "EU N/S - SMA - 2026 - Preceptorships",
+      "subitems": [
+        "Gauge interest from sending and hosting affiliates",
+        "Centre Selection & Program set-up",
+        "Contracting with HCO/HCPs",
+        "April Pediatric Preceptorship Liège",
+        "June Adult Preceptorship Vienna",
+        "October Pediatric Preceptorship Liège",
+        "November Adult Preceptorship Vienna",
+        "Feedback & Retro"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2680779861"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2680906608",
+      "itemName": "EU N/S - SMA - 2026 - Leverage RWE for improved SMA patient care",
+      "subitems": [
+        "Evidence Audit and Brainstorming",
+        "Delivery of dissemination assets",
+        "AI enhanced PPOC training"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2680906608"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2680860495",
+      "itemName": "EU N/S - SMA - 2026 - Evrysdi Real Life Patient Cases",
+      "subitems": [
+        "Vendor selection & contracting",
+        "Case collection",
+        "Case story book (PPT)",
+        "Manuscript development",
+        "Rollout"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2680860495"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2528624515",
+      "itemName": "EU N/S - RWE Israel",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2528624515"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2528619049",
+      "itemName": "EU N/S - RWE - Bulgaria",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2528619049"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2746235404",
+      "itemName": "EU N/S - Preceptorship Portugal (organized in Belgium)",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2746235404"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2528638336",
+      "itemName": "EU N/S - Preceptorship Netherlands",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2528638336"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2528629179",
+      "itemName": "EU N/S - Preceptorship Belgium",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2528629179"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2528610203",
+      "itemName": "EU N/S - Hemlibra impact on Irish healthcare system - testimonials",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2528610203"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2746204745",
+      "itemName": "EU N/S - Hemlibra AI Adboard",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2746204745"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2528641023",
+      "itemName": "EU N/S - HemEducate Execution",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2528641023"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2746235242",
+      "itemName": "EN N/S - Stronger Together Patient Workshop",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2746235242"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2687127095",
+      "itemName": "EU23 Ophtha Competitive Resilience",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2687127095"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2651376874",
+      "itemName": "EU23 Ophtha (and MS) Compete from Every Seat event",
+      "subitems": [
+        "LV-subitem WIP"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2651376874"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2842802223",
+      "itemName": "EU23 CE Capability Building_Medical",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2842802223"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2857841688",
+      "itemName": "EU 23 STO WP example I",
+      "subitems": [
+        "Test 1",
+        "Test 2"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2857841688"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2857860427",
+      "itemName": "EU 23 STO WP example II",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2857860427"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2857865604",
+      "itemName": "Enabling Reuse and Scaling of Affiliate deliverables: WBO TS Data Analysis",
+      "subitems": [
+        "Ophtha GEM: Eylea 8mg Defense strategies analysis: Enabling reuse of 8mg spesific WP deliverables across teams in EU23",
+        "MS GEM: Briumvi Defense Strategies analysis",
+        "SMA GEM: How RWE data are used and Leveraged in a Commercial and Promotional Setting & Patient Cases Dissemination",
+        "Breast GEM: Itovebi launch specifics & challenges",
+        "Cases with the real Impact"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2857865604"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2857863807",
+      "itemName": "EU 23 STO WP example IV",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2857863807"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2857873064",
+      "itemName": "EU 23 STO WP example V",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2857873064"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2923423103",
+      "itemName": "Resource Mgmt Test",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2923423103"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2947068109",
+      "itemName": "BE_Lung_MTO1_STO2_IMforte Ad Board RM test",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2947068109"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2963585109",
+      "itemName": "EU23 Reporting Convergence: Stream 1 - Functional Scope & Decomissioning",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2963585109"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2963609351",
+      "itemName": "EU23 Reporting Convergence: Stream 2 - Technical Architecture & Feasibility",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2963609351"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2963609990",
+      "itemName": "EU23 Reporting Convergence: Stream 3 -  Stakeholder Alignment & Change Management",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2963609990"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "2963624938",
+      "itemName": "EU23 Reporting Convergence: Stream 4 - Affiliate Deployment",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/2963624938"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "3001506865",
+      "itemName": "AAN",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/3001506865"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "3209461457",
+      "itemName": "test",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/3209461457"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "3252043783",
+      "itemName": "EU N/S - SMA - 2027 - DANUBE Project",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/3252043783"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "3255748164",
+      "itemName": "EU N/S - SMA - 2027 - Virtual promotional HCP event",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/3255748164"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "3255833747",
+      "itemName": "EU N/S - SMA - 2027 - Preceptorships",
+      "subitems": [
+        "Preceptorship 1",
+        "Preceptorship 2"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/3255833747"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "3255851552",
+      "itemName": "EU N/S - SMA - 2026/2027 - Virtual SMA CP Training",
+      "subitems": [
+        "BE and CH training",
+        "Virtual multi-country training"
+      ],
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/3255851552"
+    },
+    {
+      "boardId": "5101234297",
+      "boardName": "[I8] Archive - Work Package Overview",
+      "itemId": "2016708902",
+      "itemName": "Scalextriq Meetings",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101234297/pulses/2016708902"
     }
   ]
 }
