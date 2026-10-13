@@ -202,7 +202,9 @@ mark {
 
 }
 
-#clearButton {
+#clearButton,
+#exportAllButton,
+#exportResultsButton {
 
     background: #0073ea;
     color: white;
@@ -330,3 +332,15 @@ mark {
     border-color: #0073ea !important;
 }
 
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+}
