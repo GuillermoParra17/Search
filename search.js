@@ -791,9 +791,6 @@ const subitemsHtml =
             Showing ${startResult}-${endResult} of ${results.length.toLocaleString()}
         </div>
     `;
-
-
-}
     
 document.addEventListener("change", function (event) {
 
