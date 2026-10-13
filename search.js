@@ -706,7 +706,30 @@ pagedResults.forEach(result => {
             ) {
                 matchLocation = "REALIZED HWWK";
             }
+
+            if (
+                item.diseaseArea &&
+                matchWords.some(word =>
+                    item.diseaseArea
+                        .toLowerCase()
+                        .includes(word)
+                )
+            ) {
+                matchLocation = "DISEASE AREA";
+            }
             
+            if (
+                item.product &&
+                matchWords.some(word =>
+                    item.product
+                        .toLowerCase()
+                        .includes(word)
+                )
+            ) {
+                matchLocation = "PRODUCT";
+            }
+
+    
             if (
                 item.subitems &&
                 item.subitems.some(subitem =>
