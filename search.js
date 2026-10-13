@@ -712,7 +712,10 @@ pagedResults.forEach(result => {
                 searchTerm
             );
 
-        let matchLocation = "WORK PACKAGE";
+    const selectedSearchFields =
+    getSelectedSearchFields();    
+    
+    let matchLocation = "WORK PACKAGE";
         
             const matchWords =
                 searchTerm
