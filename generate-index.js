@@ -129,6 +129,7 @@ async function getBoard(boardId) {
             
               column_values {
                 text
+                value
                 column {
                   title
                 }
