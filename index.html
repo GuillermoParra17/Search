@@ -16,7 +16,17 @@
 
   <div class="container">
 
+    <div class="title-row">
+
     <h1>Work Package Search</h1>
+
+    <button
+        id="exportAllButton"
+        onclick="exportAllData()">
+        📁 Export All
+    </button>
+
+</div>
 
     <div id="stats" class="stats">
       Loading workspace statistics...
@@ -52,7 +62,17 @@
 
     </div>
 
-   <div id="resultCount"></div>
+   <div class="results-header">
+
+    <div id="resultCount"></div>
+
+    <button
+        id="exportResultsButton"
+        onclick="exportSearchResults()">
+        📊 Export Results
+    </button>
+
+</div>
  
 <div id="results"></div>
  
