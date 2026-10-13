@@ -657,8 +657,8 @@ pagedResults.forEach(result => {
             );
 
         let matchLocation = "WORK PACKAGE";
-
-            const searchWords =
+        
+            const matchWords =
                 searchTerm
                     .toLowerCase()
                     .split(" ")
@@ -666,7 +666,7 @@ pagedResults.forEach(result => {
             
             if (
                 item.description &&
-                searchWords.some(word =>
+                matchWords.some(word =>
                     item.description
                         .toLowerCase()
                         .includes(word)
@@ -677,7 +677,7 @@ pagedResults.forEach(result => {
             
             if (
                 item.learnings &&
-                searchWords.some(word =>
+                matchWords.some(word =>
                     item.learnings
                         .toLowerCase()
                         .includes(word)
@@ -688,7 +688,7 @@ pagedResults.forEach(result => {
             
             if (
                 item.realizedHWWK &&
-                searchWords.some(word =>
+                matchWords.some(word =>
                     item.realizedHWWK
                         .toLowerCase()
                         .includes(word)
@@ -700,7 +700,7 @@ pagedResults.forEach(result => {
             if (
                 item.subitems &&
                 item.subitems.some(subitem =>
-                    searchWords.some(word =>
+                    matchWords.some(word =>
                         subitem
                             .toLowerCase()
                             .includes(word)
