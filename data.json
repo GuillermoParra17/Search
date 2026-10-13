@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T10:30:22.090Z",
+  "generatedAt": "2026-10-13T11:24:30.052Z",
   "boards": 91,
   "items": [
     {
@@ -47694,7 +47694,8 @@
         "Align agenda with global",
         "Define dates and participants",
         "Global TAE engagement",
-        "Prepare an invitation and follow up NL"
+        "Prepare an invitation and follow up NL",
+        "Send e-mail with the invitation (Newsletter)"
       ],
       "description": "Prepare and run the 90-minute internal virtual session (late Sep 2026, all 8 markets) for local teams — DALs, MA, PJPs, MSLs — delivering STARGLO's clinical, economic and societal value as one convincing narrative before any external activity begins. The goal is to build genuine internal belief in STARGLO, anchored on the CEETRIS reality: where CAR-T is out of reach, a fixed-duration off-the-shelf option is the only second chance with curative intent. Affiliate impact: local teams enter the launch fully convinced and confident in the STARGLO story, speaking with one voice — the foundation for every external conversation that follows.",
       "learnings": "",
@@ -49934,7 +49935,8 @@
         "120year Roche Agency Pitch",
         "Tender Roche Fach- und Patientenportal, Alternative TWT",
         "Demand 2 Pay & Service Provider Chatbot",
-        "Hotel Agreements 2027"
+        "Hotel Agreements 2027",
+        "Limit Po´s / Framework Agreements 2027"
       ],
       "description": "realize savings through all categories via tendering & sourcing;\nhighest  expected savings through security tender cost reduction  Global IFM Tender;  \n\nImplementation of the new SSO Supplier Onboarding Tool\n\nIdentify automation opp. in 4 identified procurement areas;\n\nImplementation of the new local Procurement SOP + GXP Processes incl. going back from OneProcurement Approach to Pharma only Approach",
       "learnings": "",
@@ -51180,7 +51182,13 @@
       "subitems": [
         "Preparations",
         "Consultancy #1 OA Dr.Kammerer",
-        "HCP#2 Prof. Feistritzer"
+        "Consultancy#2 Prof. Feistritzer",
+        "Consultancy #3 Doz.in Thom",
+        "Consultancy #x OA Rettl",
+        "Consultancy #x Prof. Ay",
+        "Consultancy #x Prof. Gallistl",
+        "Consultancy #x Dr. Silbernagel",
+        "Consultancy #x"
       ],
       "description": "Consultancy Series with relevant target accounts to deep dive into Hemlibra Switch, Patient Segments and Hemlibra Patients in AT",
       "learnings": "",
@@ -83516,6 +83524,19 @@
       "diseaseArea": "",
       "product": "",
       "url": "https://globalroche.monday.com/boards/5057688864/pulses/3016896598"
+    },
+    {
+      "boardId": "5057688864",
+      "boardName": "[Portugal] Work Package Overview",
+      "itemId": "3281143920",
+      "itemName": "PT_MS_S3.26 Ad-Hoc - Dia Nacional da Pessoa com Esclerose Múltipla",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/5057688864/pulses/3281143920"
     },
     {
       "boardId": "5057688864",
