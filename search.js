@@ -134,36 +134,7 @@ fetch("data.json")
         fuse = new Fuse(allData, {
             includeScore: true,
             threshold: 0.4,
-            keys: [
-                    {
-                        name: "itemName",
-                        weight: 0.40
-                    },
-                    {
-                        name: "subitems",
-                        weight: 0.15
-                    },
-                    {
-                        name: "description",
-                        weight: 0.15
-                    },
-                    {
-                        name: "learnings",
-                        weight: 0.10
-                    },
-                    {
-                        name: "realizedHWWK",
-                        weight: 0.10
-                    },
-                    {
-                        name: "product",
-                        weight: 0.05
-                    },
-                    {
-                        name: "diseaseArea",
-                        weight: 0.05
-                    }
-                ]
+            keys: []
         });
 
         let searchTimeout;
@@ -405,6 +376,66 @@ function runSearch() {
     const selectedBoards =
         getSelectedBoards();
 
+    const selectedSearchFields =
+        getSelectedSearchFields();
+    
+    const searchKeys = [];
+    
+    if (selectedSearchFields.includes("itemName")) {
+        searchKeys.push({
+            name: "itemName",
+            weight: 0.40
+        });
+    }
+    
+    if (selectedSearchFields.includes("subitems")) {
+        searchKeys.push({
+            name: "subitems",
+            weight: 0.15
+        });
+    }
+    
+    if (selectedSearchFields.includes("description")) {
+        searchKeys.push({
+            name: "description",
+            weight: 0.15
+        });
+    }
+    
+    if (selectedSearchFields.includes("learnings")) {
+        searchKeys.push({
+            name: "learnings",
+            weight: 0.10
+        });
+    }
+    
+    if (selectedSearchFields.includes("realizedHWWK")) {
+        searchKeys.push({
+            name: "realizedHWWK",
+            weight: 0.10
+        });
+    }
+    
+    if (selectedSearchFields.includes("product")) {
+        searchKeys.push({
+            name: "product",
+            weight: 0.05
+        });
+    }
+    
+    if (selectedSearchFields.includes("diseaseArea")) {
+        searchKeys.push({
+            name: "diseaseArea",
+            weight: 0.05
+        });
+    }
+    
+    fuse = new Fuse(allData, {
+        includeScore: true,
+        threshold: 0.4,
+        keys: searchKeys
+    });
+    
     let results =
         fuse.search(searchTerm);
 
