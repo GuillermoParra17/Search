@@ -137,11 +137,23 @@ fetch("data.json")
             keys: [
                 {
                     name: "itemName",
-                    weight: 0.5
+                    weight: 0.45
                 },
-                                {
+                {
                     name: "subitems",
-                    weight: 0.2
+                    weight: 0.20
+                },
+                {
+                    name: "description",
+                    weight: 0.15
+                },
+                {
+                    name: "learnings",
+                    weight: 0.10
+                },
+                {
+                    name: "realizedHWWK",
+                    weight: 0.10
                 }
             ]
         });
