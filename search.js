@@ -442,26 +442,12 @@ else if (activeBoardFilter) {
 }
 
     currentSearchResults = [...results];
-
-const startResult =
-    ((currentPage - 1) * RESULTS_PER_PAGE) + 1;
-
-const endResult =
-    Math.min(
-        currentPage * RESULTS_PER_PAGE,
-        results.length
-    );
-
-document
-    .getElementById("resultCount")
-    .innerHTML =
-    `
-    ${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)
-    <br>
-    <small>
-        Showing ${startResult}-${endResult} of ${results.length.toLocaleString()}
-    </small>
-    `;
+    document
+        .getElementById("resultCount")
+        .innerHTML =
+        `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)`;
+    
+        renderResults(results, searchTerm);
 
 }
 
@@ -775,6 +761,31 @@ const subitemsHtml =
     });
 
     container.innerHTML += paginationHtml;
+    
+    if (totalPages > 1) {
+
+    let paginationHtml =
+        `<div class="pagination">`;
+
+    paginationHtml += `
+        <button
+            ${currentPage === 1 ? "disabled" : ""}
+            onclick="goToPage(${currentPage - 1})"
+        >
+            Previous
+        </button>
+    `;
+
+    for (let i = 1; i <= totalPages; i++) {
+
+        paginationHtml += `
+            <button
+                onclick="goToPage(${i})"
+                class="${i === currentPage ? 'active-page' : ''}"
+            >
+                ${i}
+            </button>
+        `;
 
     }
 
@@ -788,6 +799,10 @@ const subitemsHtml =
     `;
 
     paginationHtml += `</div>`;
+
+
+}
+}
     
 document.addEventListener("change", function (event) {
 
