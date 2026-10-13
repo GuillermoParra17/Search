@@ -858,6 +858,15 @@ const subitemsHtml =
                 </div>
                 ` : ""}
 
+                ${item.diseaseArea ? `
+                    <div class="section-label">
+                        Disease Area
+                    </div>
+                    <div>
+                        ${item.diseaseArea}
+                    </div>
+                    ` : ""}
+
                 ${subitemsHtml ? `
                 <div class="section-label">
                     Matching Subitems
