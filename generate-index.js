@@ -175,7 +175,21 @@ if (item.name === "[2026] Optimizing Fluid Access for Vabysmo") {
         )
     );
 }
-        
+       if (item.name === "[2026] Optimizing Fluid Access for Vabysmo") {
+
+  console.log(
+    JSON.stringify(
+      item.column_values.filter(c =>
+        c.column.title === "Disease Area" ||
+        c.column.title === "Product"
+      ),
+      null,
+      2
+    )
+  );
+
+}
+ 
        items.push({
 
                 boardId: board.id,
