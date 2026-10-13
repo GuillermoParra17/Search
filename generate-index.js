@@ -128,8 +128,10 @@ async function getBoard(boardId) {
               name
             
               column_values {
+                id
                 text
                 value
+                type
                 column {
                   title
                 }
@@ -165,32 +167,26 @@ async function buildIndex() {
       if (!board) continue;
 
       for (const item of board.items_page.items) {
-
-if (item.name === "[2026] Optimizing Fluid Access for Vabysmo") {
-    console.log(
-        JSON.stringify(
-            item.column_values,
-            null,
-            2
-        )
-    );
-}
-       if (item.name === "[2026] Optimizing Fluid Access for Vabysmo") {
-
-  console.log(
-    JSON.stringify(
-      item.column_values.filter(c =>
-        c.column.title === "Disease Area" ||
-        c.column.title === "Product"
-      ),
-      null,
-      2
-    )
-  );
-
-}
  
-       items.push({
+      if (item.name === "[2026] Optimizing Fluid Access for Vabysmo") {
+
+              const debugColumns =
+                  item.column_values.filter(c =>
+                      c.column.title === "Disease Area" ||
+                      c.column.title === "Product"
+                  );
+          
+              console.log(
+                  JSON.stringify(
+                      debugColumns,
+                      null,
+                      2
+                  )
+              );
+
+            }
+        
+        items.push({
 
                 boardId: board.id,
               
