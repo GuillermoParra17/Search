@@ -775,31 +775,6 @@ const subitemsHtml =
     });
 
     container.innerHTML += paginationHtml;
-    
-    if (totalPages > 1) {
-
-    let paginationHtml =
-        `<div class="pagination">`;
-
-    paginationHtml += `
-        <button
-            ${currentPage === 1 ? "disabled" : ""}
-            onclick="goToPage(${currentPage - 1})"
-        >
-            Previous
-        </button>
-    `;
-
-    for (let i = 1; i <= totalPages; i++) {
-
-        paginationHtml += `
-            <button
-                onclick="goToPage(${i})"
-                class="${i === currentPage ? 'active-page' : ''}"
-            >
-                ${i}
-            </button>
-        `;
 
     }
 
