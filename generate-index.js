@@ -92,7 +92,8 @@ const BOARD_IDS = [
   2000458200,
   5101234297,
   5101267071,
-  5101234665 
+  5101234665,
+  5101228134
 ];
 
 async function mondayQuery(query) {
