@@ -577,9 +577,7 @@ if (totalPages > 1) {
     paginationHtml = `
         <div class="pagination">
     `;
-
-    ...
-
+    
     paginationHtml += `
         </div>
 
