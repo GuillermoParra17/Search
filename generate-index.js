@@ -178,6 +178,31 @@ async function buildIndex() {
                 subitems:
                   (item.subitems || [])
                     .map(sub => sub.name),
+
+               description:
+                  item.column_values.find(
+                      c => c.column.title === "Description / Deliverables"
+                  )?.text || "",
+              
+              learnings:
+                  item.column_values.find(
+                      c => c.column.title === "Learnings"
+                  )?.text || "",
+              
+              realizedHWWK:
+                  item.column_values.find(
+                      c => c.column.title === "Realized HWWK?"
+                  )?.text || "",
+              
+              diseaseArea:
+                  item.column_values.find(
+                      c => c.column.title === "Disease Area"
+                  )?.text || "",
+              
+              product:
+                  item.column_values.find(
+                      c => c.column.title === "Product"
+                  )?.text || "",
               
                 url:
                   `https://globalroche.monday.com/boards/${board.id}/pulses/${item.id}`
