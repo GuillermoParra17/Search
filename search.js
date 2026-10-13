@@ -135,27 +135,35 @@ fetch("data.json")
             includeScore: true,
             threshold: 0.4,
             keys: [
-                {
-                    name: "itemName",
-                    weight: 0.45
-                },
-                {
-                    name: "subitems",
-                    weight: 0.20
-                },
-                {
-                    name: "description",
-                    weight: 0.15
-                },
-                {
-                    name: "learnings",
-                    weight: 0.10
-                },
-                {
-                    name: "realizedHWWK",
-                    weight: 0.10
-                }
-            ]
+                    {
+                        name: "itemName",
+                        weight: 0.40
+                    },
+                    {
+                        name: "subitems",
+                        weight: 0.15
+                    },
+                    {
+                        name: "description",
+                        weight: 0.15
+                    },
+                    {
+                        name: "learnings",
+                        weight: 0.10
+                    },
+                    {
+                        name: "realizedHWWK",
+                        weight: 0.10
+                    },
+                    {
+                        name: "product",
+                        weight: 0.05
+                    },
+                    {
+                        name: "diseaseArea",
+                        weight: 0.05
+                    }
+                ]
         });
 
         let searchTimeout;
