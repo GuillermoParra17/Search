@@ -788,8 +788,6 @@ const subitemsHtml =
     `;
 
     paginationHtml += `</div>`;
-
-}
     
 document.addEventListener("change", function (event) {
 
