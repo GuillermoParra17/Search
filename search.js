@@ -662,7 +662,9 @@ pagedResults.forEach(result => {
                 searchTerm
                     .toLowerCase()
                     .split(" ")
-                    .filter(word => word.trim() !== "");
+                    .filter(word =>
+                        word.trim().length > 3
+                    );
             
             if (
                 item.description &&
