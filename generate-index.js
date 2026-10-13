@@ -226,12 +226,17 @@ async function buildIndex() {
               diseaseArea:
                   item.column_values.find(
                       c => c.column.title === "Disease Area"
-                  )?.text || "",
+                  )?.linked_items?.map(
+                      item => item.name
+                  ).join(" | ") || "",
               
               product:
                   item.column_values.find(
                       c => c.column.title === "Product"
-                  )?.text || "",
+                  )?.linked_items?.map(
+                      item => item.name
+                  ).join(" | ") || "",
+            
               
                 url:
                   `https://globalroche.monday.com/boards/${board.id}/pulses/${item.id}`
