@@ -110,6 +110,18 @@ const REGION_MAP = {
 
     IPS: [
         "IPS"
+    ],
+
+    Archive: [
+    "IPS Archive",
+    "LATAM Archive",
+    "Africa Archive",
+    "APAC Archive",
+    "CEETRIS Archive",
+    "Europe Archive",
+    "I8 Archive",
+    "CLT Archive",
+    "PI Archive"
     ]
 
 };
@@ -223,7 +235,8 @@ function getRegionLabel(region) {
         LATAM: "🌎 LATAM",
         i8: "🚀 i8",
         CLT: "🏢 CLT",
-        IPS: "🔬 IPS"
+        IPS: "🔬 IPS",
+        Archive: "📦 Archive",
 
     };
 
