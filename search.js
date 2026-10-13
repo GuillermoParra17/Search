@@ -772,6 +772,33 @@ const subitemsHtml =
                     ${keywords}
                 </div>
 
+                ${item.description ? `
+                <div class="section-label">
+                    Description / Deliverables
+                </div>
+                <div>
+                    ${highlightText(item.description, searchTerm)}
+                </div>
+                ` : ""}
+                
+                ${item.learnings ? `
+                <div class="section-label">
+                    Learnings
+                </div>
+                <div>
+                    ${highlightText(item.learnings, searchTerm)}
+                </div>
+                ` : ""}
+                
+                ${item.realizedHWWK ? `
+                <div class="section-label">
+                    Realized HWWK?
+                </div>
+                <div>
+                    ${highlightText(item.realizedHWWK, searchTerm)}
+                </div>
+                ` : ""}
+
                 ${subitemsHtml ? `
                 <div class="section-label">
                     Matching Subitems
