@@ -128,14 +128,22 @@ async function getBoard(boardId) {
               name
             
               column_values {
-                id
-                text
-                value
-                type
-                column {
-                  title
+                  id
+                  text
+                  type
+                
+                  ... on BoardRelationValue {
+                    linked_items {
+                      id
+                      name
+                    }
+                  }
+                
+                  column {
+                    title
+                  }
                 }
-              }
+
             
               subitems {
                 id
