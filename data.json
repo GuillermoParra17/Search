@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-13T04:56:43.738Z",
-  "boards": 90,
+  "generatedAt": "2026-10-13T05:49:49.463Z",
+  "boards": 91,
   "items": [
     {
       "boardId": "5095413574",
@@ -1274,7 +1274,7 @@
       "boardId": "1762431187",
       "boardName": "[Australia] Work Package Overview",
       "itemId": "3199733229",
-      "itemName": "HOTT 2027 (Check Lung/GI Board for update) and PRIME",
+      "itemName": "HOTT NSW/VIC 2027",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/1762431187/pulses/3199733229"
     },
@@ -95854,6 +95854,246 @@
       "itemName": "Scalextriq Meetings",
       "subitems": [],
       "url": "https://globalroche.monday.com/boards/5101234297/pulses/2016708902"
+    },
+    {
+      "boardId": "5101234665",
+      "boardName": "[PI] Archive - Work Package Overview",
+      "itemId": "3073878646",
+      "itemName": "MS EU23 Commercialisation excellence",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101234665/pulses/3073878646"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2804461562",
+      "itemName": "Maximize PFS uptake",
+      "subitems": [
+        "Biweekly status meetings to check on conversion rate",
+        "Probe accounts for information on PFS and plans to convert",
+        "Regular contact with payer to make sure all accounts are informed on availablility and price of PFS"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2804461562"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2732641208",
+      "itemName": "Improving hospital capacity and total cost of care through Vabysmo",
+      "subitems": [
+        "Present OUS cost study and SKDE data to show total cost saving with Vabysmo",
+        "Arendalsuka: system shaping to focus on total costs and capacity",
+        "SIM roadshow",
+        "Develop a Vabysmo 1L costing paper/poster in our context",
+        "Identify accounts with long waiting lists / capacity constraints",
+        "Work together with RWD WP to generate RWD (available global/local data) on capacity improvements",
+        "Identify hospital economists / decision makers",
+        "Idenitify possibility to leverage Bodø experience with switching from Eylea to Vabysmo",
+        "Investigate opportunities with private clinics",
+        "Develop Norwegian BIM model based on UK example",
+        "Independent OUS paper on number of injections and Vabysmo use",
+        "Presenting implications DRG code change",
+        "Gather all capacity papers and make a value message/poster etc.",
+        "Write a letter to director of Helse Sør-Øst RHF (TR)",
+        "Make Gemini BIM Vabysmo",
+        "Support H at Molde with publishing data",
+        "SKDE data regression",
+        "Retrieve NPR data on injection intervals"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2732641208"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2712578328",
+      "itemName": "Ocrevus Strategic Messaging",
+      "subitems": [
+        "Ocrevus Strategic Messaging Brief - prepared and socialised",
+        "Build Start Strong Stay Strong into Ocrevus Strategic messaging"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2712578328"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "3033616229",
+      "itemName": "TEST",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/3033616229"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2673498153",
+      "itemName": "BEX: Future of MDM (Pre Work for ELEVATE)",
+      "subitems": [
+        "New Subitem"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2673498153"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2673429652",
+      "itemName": "BEX: Kickoff Learning Working Group",
+      "subitems": [
+        "Team needs 2026 assessed & collected",
+        "learning topics for 2026 prioritized",
+        "training & measurement plan 2026 is ready for execution"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2673429652"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2673483682",
+      "itemName": "BEX: Tech Suite Deployment & Adoption",
+      "subitems": [
+        "trainings cohort 3",
+        "trainings cohort 4",
+        "hypercare per team",
+        "tool customization"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2673483682"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2810669593",
+      "itemName": "LV_MS Roche Days 2026 (with DIA)",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2810669593"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2810699057",
+      "itemName": "LV_MS Seminar for MS nurses and pharmacists",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2810699057"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2846682264",
+      "itemName": "Global Medical Visit at MUI PD Trial Site Prof Seppi",
+      "subitems": [
+        "Date and Participants confirmed",
+        "Agenda defined",
+        "Informal Dinner day before",
+        "Conduct Visit in MUI",
+        "Recap afterwards"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2846682264"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2889868066",
+      "itemName": "internal launch Event Susvimo-Gallery Walk",
+      "subitems": [
+        "Slidedeck creation"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2889868066"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2895487301",
+      "itemName": "Contivue summary of product characteristics for MaWi",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2895487301"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2711846081",
+      "itemName": "Roche@ÖGN 2026",
+      "subitems": [
+        "Booth",
+        "Symposium",
+        "OCE-D Kampagne"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2711846081"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2722594983",
+      "itemName": "Ocrevus Commercial AdBoards",
+      "subitems": [
+        "Festlegung, Ort, Zeit, Teilnehmer, Ziel, Agenda",
+        "16.6. in Salzburg",
+        "23.6. in Wien"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2722594983"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2698055232",
+      "itemName": "HER2 Tx Algorithm Adboard",
+      "subitems": [
+        "Task 1: Planung Adboard",
+        "Task 2: HCP Management",
+        "Task 3: Adboard Durchführung",
+        "Task 4: Adboard Nachbereitung"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2698055232"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2704421352",
+      "itemName": "PIK3CA Testing",
+      "subitems": [
+        "Erstellung Consensus Paper",
+        "Kommunikationsstrategie Consensus Paper"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2704421352"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2704557279",
+      "itemName": "ES-SCLC SoC Defense",
+      "subitems": [
+        "SCLC Med-Diplom",
+        "Medical Mess- Aging (brain mets, efficacy, safety)",
+        "SCLC Value Messaging",
+        "HSP involvement: Wording Price,LKF….",
+        "Patient profile Workshops",
+        "Signature expert meetings"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2704557279"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "2704615843",
+      "itemName": "1L NSCLC Monotherapy",
+      "subitems": [
+        "Tecentriq SC Competitive Messaging",
+        "Validating strength of LEMONADE data in RW context",
+        "Collect RW patient cases / Switch Cases / Fall des Jahres"
+      ],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/2704615843"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "3124296521",
+      "itemName": "Item 4",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/3124296521"
+    },
+    {
+      "boardId": "5101228134",
+      "boardName": "[Europe] Archive - Work Package Overview",
+      "itemId": "3124296522",
+      "itemName": "Item 5",
+      "subitems": [],
+      "url": "https://globalroche.monday.com/boards/5101228134/pulses/3124296522"
     }
   ]
 }
