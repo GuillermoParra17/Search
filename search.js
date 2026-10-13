@@ -442,21 +442,10 @@ else if (activeBoardFilter) {
 }
 
     currentSearchResults = [...results];
-    const startResult =
-    ((currentPage - 1) * RESULTS_PER_PAGE) + 1;
-
-const endResult =
-    Math.min(
-        currentPage * RESULTS_PER_PAGE,
-        results.length
-    );
-
-        document
-            .getElementById("resultCount")
-            .innerHTML =
-            `
-            ${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)
-            `;
+    document
+        .getElementById("resultCount")
+        .innerHTML =
+        `${results.length.toLocaleString()} matching work package(s) found across ${new Set(results.map(r => r.item.boardName)).size} affiliate(s)`;
     
         renderResults(results, searchTerm);
 
@@ -576,16 +565,36 @@ if (totalPages > 1) {
 
     paginationHtml = `
         <div class="pagination">
+            <button
+                ${currentPage === 1 ? "disabled" : ""}
+                onclick="goToPage(${currentPage - 1})"
+            >
+                ◀ Previous
+            </button>
     `;
-    
+
+    for (let i = 1; i <= totalPages; i++) {
+
+        paginationHtml += `
+            <button
+                onclick="goToPage(${i})"
+                class="${i === currentPage ? 'active-page' : ''}"
+            >
+                ${i}
+            </button>
+        `;
+
+    }
+
     paginationHtml += `
-        </div>
-
-        <div class="page-range">
-            Showing ${startResult}-${endResult} of ${results.length.toLocaleString()}
+            <button
+                ${currentPage === totalPages ? "disabled" : ""}
+                onclick="goToPage(${currentPage + 1})"
+            >
+                Next ▶
+            </button>
         </div>
     `;
-
 }
 
 container.innerHTML += paginationHtml;
@@ -752,6 +761,31 @@ const subitemsHtml =
     });
 
     container.innerHTML += paginationHtml;
+    
+    if (totalPages > 1) {
+
+    let paginationHtml =
+        `<div class="pagination">`;
+
+    paginationHtml += `
+        <button
+            ${currentPage === 1 ? "disabled" : ""}
+            onclick="goToPage(${currentPage - 1})"
+        >
+            Previous
+        </button>
+    `;
+
+    for (let i = 1; i <= totalPages; i++) {
+
+        paginationHtml += `
+            <button
+                onclick="goToPage(${i})"
+                class="${i === currentPage ? 'active-page' : ''}"
+            >
+                ${i}
+            </button>
+        `;
 
     }
 
@@ -764,13 +798,11 @@ const subitemsHtml =
         </button>
     `;
 
-    paginationHtml += `
-        </div>
+    paginationHtml += `</div>`;
 
-        <div class="page-range">
-            Showing ${startResult}-${endResult} of ${results.length.toLocaleString()}
-        </div>
-    `;
+
+}
+}
     
 document.addEventListener("change", function (event) {
 
