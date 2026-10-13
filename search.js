@@ -938,22 +938,22 @@ const subitemsHtml =
                 ` : ""}
 
                 ${item.diseaseArea ? `
-                    <div class="section-label">
-                        Disease Area
-                    </div>
-                    <div>
-                        ${item.diseaseArea}
-                    </div>
-                    ` : ""}
+                <div class="section-label">
+                    Disease Area
+                </div>
+                <div>
+                    ${highlightText(item.diseaseArea, searchTerm)}
+                </div>
+                ` : ""}
 
                  ${item.product ? `
-                    <div class="section-label">
-                        Product
-                    </div>
-                    <div>
-                        ${item.product}
-                    </div>
-                    ` : ""}   
+                <div class="section-label">
+                    Product
+                </div>
+                <div>
+                    ${highlightText(item.product, searchTerm)}
+                </div>
+                ` : ""}   
 
                 ${subitemsHtml ? `
                 <div class="section-label">
