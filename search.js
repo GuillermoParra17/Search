@@ -1033,19 +1033,25 @@ document.addEventListener("change", function (event) {
     }
 
     if (event.target.classList.contains("region-checkbox")) {
+        
+        const allRegions =
+            document.querySelectorAll(".region-checkbox");
+    
+        const checkedRegions =
+            document.querySelectorAll(".region-checkbox:checked");
+    
+        document.getElementById("selectAllBoards").checked =
+            allRegions.length === checkedRegions.length;
+    
+        runSearch();
+    
+    }
 
-    const allRegions =
-        document.querySelectorAll(".region-checkbox");
+    if (event.target.classList.contains("search-field")) {
 
-    const checkedRegions =
-        document.querySelectorAll(".region-checkbox:checked");
-
-    document.getElementById("selectAllBoards").checked =
-        allRegions.length === checkedRegions.length;
-
-    runSearch();
-
-}
+        runSearch();
+    
+    }
 
 });
 
