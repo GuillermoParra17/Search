@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T09:19:36.871Z",
+  "generatedAt": "2026-10-13T10:30:22.090Z",
   "boards": 91,
   "items": [
     {
@@ -38433,6 +38433,19 @@
     {
       "boardId": "5043241195",
       "boardName": "[Serbia & Montenegro] Work Package Overview",
+      "itemId": "2729511168",
+      "itemName": "HCO Segmentation",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/5043241195/pulses/2729511168"
+    },
+    {
+      "boardId": "5043241195",
+      "boardName": "[Serbia & Montenegro] Work Package Overview",
       "itemId": "2797715506",
       "itemName": "CEETRIS MS RWE SL46835/SL47165 (ECHO)",
       "subitems": [
@@ -55500,7 +55513,7 @@
       "itemId": "2941198170",
       "itemName": "ROE Hemlibra Hradec Králové 8.9. 2026",
       "subitems": [],
-      "description": "",
+      "description": "edukace klíčových lékařů, nettworking se zahraničním spakerem, sdílení zajímavých kazuistik",
       "learnings": "",
       "realizedHWWK": "",
       "diseaseArea": "",
