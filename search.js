@@ -53,6 +53,7 @@ const REGION_MAP = {
     ],
 
     Europe: [
+        "Europe Area",
         "Austria",
         "Baltics",
         "BELUX",
