@@ -867,6 +867,15 @@ const subitemsHtml =
                     </div>
                     ` : ""}
 
+                 ${item.product ? `
+                    <div class="section-label">
+                        Product
+                    </div>
+                    <div>
+                        ${item.product}
+                    </div>
+                    ` : ""}   
+
                 ${subitemsHtml ? `
                 <div class="section-label">
                     Matching Subitems
