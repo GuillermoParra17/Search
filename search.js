@@ -562,7 +562,8 @@ function runSearch() {
     }
 
     const regions = new Set(getSelectedRegions());
-    const similar = $("showSimilarMatches").checked;
+    const similarBox = $("showSimilarMatches");
+    const similar = Boolean(similarBox && similarBox.checked);
 
     // The heavy work is cached so paging / board pills re-render instantly.
     const key = [
