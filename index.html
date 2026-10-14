@@ -36,7 +36,7 @@
     <input
         type="text"
         id="searchInput"
-        placeholder="Search work packages, subitems, keywords..."
+        placeholder='Search work packages, subitems, keywords...  (use "quotes" for an exact phrase)'
     >
 
     <button
@@ -98,6 +98,11 @@
           <input type="checkbox" class="search-field" value="product" checked>
           Product
         </label>
+
+        <label class="board-option">
+            <input type="checkbox" id="showSimilarMatches">
+            Show Similar Matches
+        </label>     
       
       </div>
       
@@ -107,11 +112,25 @@
 
     <div id="resultCount"></div>
 
-    <button
-        id="exportResultsButton"
-        onclick="exportSearchResults()">
-        📊 Export Results
-    </button>
+    <div class="results-actions">
+
+        <label class="sort-label">
+            Sort by
+            <select id="sortSelect">
+                <option value="relevance">Relevance</option>
+                <option value="name-asc">Work package A → Z</option>
+                <option value="name-desc">Work package Z → A</option>
+                <option value="board-asc">Board A → Z</option>
+            </select>
+        </label>
+
+        <button
+            id="exportResultsButton"
+            onclick="exportSearchResults()">
+            📊 Export Results
+        </button>
+
+    </div>
 
 </div>
  
