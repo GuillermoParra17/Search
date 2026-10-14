@@ -377,58 +377,102 @@ function runSearch() {
         getSelectedBoards();
 
     const selectedSearchFields =
-        getSelectedSearchFields();
-    
-    const searchKeys = [];
-    
-    if (selectedSearchFields.includes("itemName")) {
-        searchKeys.push({
-            name: "itemName",
-            weight: 0.40
-        });
-    }
-    
-    if (selectedSearchFields.includes("subitems")) {
-        searchKeys.push({
-            name: "subitems",
-            weight: 0.15
-        });
-    }
-    
-    if (selectedSearchFields.includes("description")) {
-        searchKeys.push({
-            name: "description",
-            weight: 0.15
-        });
-    }
-    
-    if (selectedSearchFields.includes("learnings")) {
-        searchKeys.push({
-            name: "learnings",
-            weight: 0.10
-        });
-    }
-    
-    if (selectedSearchFields.includes("realizedHWWK")) {
-        searchKeys.push({
-            name: "realizedHWWK",
-            weight: 0.10
-        });
-    }
-    
-    if (selectedSearchFields.includes("product")) {
-        searchKeys.push({
-            name: "product",
-            weight: 0.05
-        });
-    }
-    
-    if (selectedSearchFields.includes("diseaseArea")) {
-        searchKeys.push({
-            name: "diseaseArea",
-            weight: 0.05
-        });
-    }
+    getSelectedSearchFields();
+
+        const matchWords =
+            searchTerm
+                .toLowerCase()
+                .split(" ")
+                .filter(word =>
+                    word.trim().length > 3
+                );
+        
+        let matchLocation = "MATCH";
+        
+        if (
+            selectedSearchFields.includes("diseaseArea") &&
+            item.diseaseArea &&
+            matchWords.some(word =>
+                item.diseaseArea
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            matchLocation = "DISEASE AREA";
+        }
+        
+        else if (
+            selectedSearchFields.includes("product") &&
+            item.product &&
+            matchWords.some(word =>
+                item.product
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            matchLocation = "PRODUCT";
+        }
+        
+        else if (
+            selectedSearchFields.includes("description") &&
+            item.description &&
+            matchWords.some(word =>
+                item.description
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            matchLocation = "DESCRIPTION";
+        }
+        
+        else if (
+            selectedSearchFields.includes("subitems") &&
+            item.subitems &&
+            item.subitems.some(subitem =>
+                matchWords.some(word =>
+                    subitem
+                        .toLowerCase()
+                        .includes(word)
+                )
+            )
+        ) {
+            matchLocation = "SUBITEM";
+        }
+        
+        else if (
+            selectedSearchFields.includes("itemName") &&
+            matchWords.some(word =>
+                item.itemName
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            matchLocation = "WORK PACKAGE";
+        }
+        
+        else if (
+            selectedSearchFields.includes("realizedHWWK") &&
+            item.realizedHWWK &&
+            matchWords.some(word =>
+                item.realizedHWWK
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            matchLocation = "REALIZED HWWK";
+        }
+        
+        else if (
+            selectedSearchFields.includes("learnings") &&
+            item.learnings &&
+            matchWords.some(word =>
+                item.learnings
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            matchLocation = "LEARNINGS";
+        }
     
     fuse = new Fuse(allData, {
         includeScore: true,
