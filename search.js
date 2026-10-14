@@ -161,7 +161,7 @@ let currentSearchResults = [];   // what "Export Results" exports (after board f
 let activeBoardFilter = null;
 
 const fuseCache = new Map();     // one Fuse index per distinct set of searched fields
-const wordRegexCache = new Map();
+const termRegexCache = new Map();
 let searchCache = { key: null };
 
 /* ---------- Small helpers ---------- */
@@ -234,14 +234,14 @@ function prepareItem(item) {
 
 /* ---------- Query parsing and matching ---------- */
 
-function parseWords(query) {
+// Plain words: lower-cased, edge punctuation stripped ("(oncology)," -> "oncology")
+function parseWords(text) {
 
     const seen = new Set();
 
-    return query
+    return text
         .toLowerCase()
         .split(/\s+/)
-        // strip punctuation from both ends ("(oncology)," -> "oncology")
         .map(word => word.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, ""))
         .filter(word => {
             if (word.length < MIN_WORD_LENGTH || seen.has(word)) return false;
@@ -250,49 +250,90 @@ function parseWords(query) {
         });
 }
 
-function wordRegex(word) {
+// A query is a list of terms:
+//   "exact phrase"  -> { text: "exact phrase", phrase: true }  (must appear exactly, whole words)
+//   other words     -> { text: "word",         phrase: false } (all must appear somewhere)
+function parseQuery(query) {
 
-    if (!wordRegexCache.has(word)) {
+    const phrases = [];
 
-        const body = escapeRegExp(word);
+    const remainder = query.replace(/["“”]([^"“”]+)["“”]/g, (match, phrase) => {
 
-        wordRegexCache.set(
-            word,
-            new RegExp(
-                word.length <= SHORT_WORD_MAX
-                    ? `(?<![\\p{L}\\p{N}])${body}`
-                    : body,
-                "u"
-            )
-        );
-    }
+        const clean = phrase.toLowerCase().replace(/\s+/g, " ").trim();
 
-    return wordRegexCache.get(word);
+        if (clean.length >= MIN_WORD_LENGTH) phrases.push(clean);
+
+        return " ";
+    });
+
+    const candidates = [
+        ...phrases.map(text => ({ text, phrase: true })),
+        ...parseWords(remainder).map(text => ({ text, phrase: false }))
+    ];
+
+    const seen = new Set();
+
+    return candidates.filter(term => {
+        const key = termKey(term);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
 }
 
-function textHasWord(lowerCaseText, word) {
+function termKey(term) {
+    return term.phrase ? `"${term.text}"` : term.text;
+}
+
+// Regex source for one term (also used for highlighting)
+function termPattern(term) {
+
+    if (term.phrase) {
+
+        const body = term.text.split(" ").map(escapeRegExp).join("\\s+");
+
+        return `(?<![\\p{L}\\p{N}])${body}(?![\\p{L}\\p{N}])`;
+    }
+
+    const body = escapeRegExp(term.text);
+
+    // very short words must start a word ("ai" must not match "maintain")
+    return term.text.length <= SHORT_WORD_MAX
+        ? `(?<![\\p{L}\\p{N}])${body}`
+        : body;
+}
+
+function textHasTerm(lowerCaseText, term) {
 
     if (!lowerCaseText) return false;
 
-    return word.length <= SHORT_WORD_MAX
-        ? wordRegex(word).test(lowerCaseText)
-        : lowerCaseText.includes(word);
+    if (!term.phrase && term.text.length > SHORT_WORD_MAX) {
+        return lowerCaseText.includes(term.text);
+    }
+
+    const key = termKey(term);
+
+    if (!termRegexCache.has(key)) {
+        termRegexCache.set(key, new RegExp(termPattern(term), "u"));
+    }
+
+    return termRegexCache.get(key).test(lowerCaseText);
 }
 
-// every word must appear somewhere in the searched fields
-function itemMatchesAll(item, fields, words) {
+// every term must appear somewhere in the given fields
+function itemMatchesAll(item, fields, terms) {
 
-    return words.every(word =>
-        fields.some(field => textHasWord(item._lc[field], word))
+    return terms.every(term =>
+        fields.some(field => textHasTerm(item._lc[field], term))
     );
 }
 
-function matchedFieldLabels(item, fields, words) {
+function matchedFieldLabels(item, fields, terms) {
 
     return FIELDS
         .filter(field => fields.includes(field.key))
         .filter(field =>
-            words.some(word => textHasWord(item._lc[field.key], word))
+            terms.some(term => textHasTerm(item._lc[field.key], term))
         )
         .map(field => field.label);
 }
@@ -360,20 +401,28 @@ function fuzzyScores(words, fields) {
     return combined;
 }
 
+// Set of itemIds where at least one word fuzzy-matches inside the given fields
+function fuzzyHitIds(words, fields) {
+
+    const fuse = getFuse(fields);
+    const ids = new Set();
+
+    words.forEach(word => {
+        fuse.search(word).forEach(result => ids.add(result.item.itemId));
+    });
+
+    return ids;
+}
+
 /* ---------- Text rendering helpers (all output is HTML-escaped) ---------- */
 
-function buildHighlightRegex(words) {
+function buildHighlightRegex(terms) {
 
-    if (!words.length) return null;
+    if (!terms.length) return null;
 
-    const alternatives = [...words]
-        .sort((a, b) => b.length - a.length)
-        .map(word => {
-            const body = escapeRegExp(word);
-            return word.length <= SHORT_WORD_MAX
-                ? `(?<![\\p{L}\\p{N}])${body}`
-                : body;
-        });
+    const alternatives = [...terms]
+        .sort((a, b) => b.text.length - a.text.length)
+        .map(termPattern);
 
     return new RegExp(`(${alternatives.join("|")})`, "giu");
 }
@@ -396,15 +445,15 @@ function highlight(text, regex) {
 }
 
 // Shortens long text but keeps the first match visible
-function excerpt(text, words, max = MAX_TEXT_CHARS) {
+function excerpt(text, terms, max = MAX_TEXT_CHARS) {
 
     if (!text || text.length <= max) return text || "";
 
     const lower = text.toLowerCase();
     let firstMatch = -1;
 
-    words.forEach(word => {
-        const index = lower.indexOf(word);
+    terms.forEach(term => {
+        const index = lower.search(new RegExp(termPattern(term), "u"));
         if (index !== -1 && (firstMatch === -1 || index < firstMatch)) {
             firstMatch = index;
         }
@@ -549,9 +598,9 @@ function runSearch() {
         return;
     }
 
-    const words = parseWords(query);
+    const terms = parseQuery(query);
 
-    if (!words.length) {
+    if (!terms.length) {
         showMessage(`Please enter at least ${MIN_WORD_LENGTH} characters.`);
         return;
     }
@@ -567,9 +616,12 @@ function runSearch() {
     const similarBox = $("showSimilarMatches");
     const similar = Boolean(similarBox && similarBox.checked);
 
-    // The heavy work is cached so paging / board pills re-render instantly.
+    // plain words (phrases split up) used for fuzzy ranking and similar matches
+    const words = parseWords(terms.map(term => term.text).join(" "));
+
+    // The heavy work is cached so paging / sorting / board pills re-render instantly.
     const key = [
-        words.join(" "),
+        terms.map(termKey).join(" "),
         fields.join(","),
         [...regions].sort().join(","),
         similar
@@ -578,41 +630,48 @@ function runSearch() {
     if (searchCache.key !== key) {
         searchCache = {
             key,
-            words,
+            terms,
             fields,
-            results: computeResults(words, fields, regions, similar)
+            results: computeResults(terms, words, fields, regions, similar)
         };
     }
 
     renderPage();
 }
 
-function computeResults(words, fields, regions, similar) {
+function computeResults(terms, words, fields, regions, similar) {
 
-    const fuzzy = fuzzyScores(words, fields);
+    // Scores always come from ALL fields, so the ranking (and the % shown)
+    // does not change when a "Search In" box is ticked or unticked -
+    // results only appear or disappear, they never jump to another page.
+    const scores = fuzzyScores(words, ALL_FIELD_KEYS);
+
+    // Only needed for similar matches: which items fuzzy-match in a ticked field
+    const similarHits = similar ? fuzzyHitIds(words, fields) : null;
+
     const results = [];
 
     for (const item of allData) {
 
         if (!regions.has(item._region)) continue;
 
-        // A work package qualifies when every word appears somewhere in the item
+        // A work package qualifies when every term appears somewhere in the item
         // (any field), and it is shown as long as at least one of the fields
-        // ticked in "Search In" contains one of the words. Unticking a field
-        // therefore hides an item only when that field was its only match.
+        // ticked in "Search In" contains one of the terms.
         const exact =
-            itemMatchesAll(item, ALL_FIELD_KEYS, words) &&
+            itemMatchesAll(item, ALL_FIELD_KEYS, terms) &&
             fields.some(field =>
-                words.some(word => textHasWord(item._lc[field], word))
+                terms.some(term => textHasTerm(item._lc[field], term))
             );
-        const fuzzyHit = fuzzy.has(item.itemId);
 
-        if (!exact && !(similar && fuzzyHit)) continue;
+        const scored = scores.has(item.itemId);
+
+        if (!exact && !(similar && scored && similarHits.has(item.itemId))) continue;
 
         results.push({
             item,
             exact,
-            score: fuzzyHit ? fuzzy.get(item.itemId) : FALLBACK_SCORE
+            score: scored ? scores.get(item.itemId) : FALLBACK_SCORE
         });
     }
 
@@ -625,9 +684,30 @@ function computeResults(words, fields, regions, similar) {
     return results;
 }
 
+// "relevance" keeps the computed order; the other modes re-sort a copy
+function sortResults(results) {
+
+    const select = $("sortSelect");
+    const mode = select ? select.value : "relevance";
+
+    if (mode === "relevance") return results;
+
+    const collator = new Intl.Collator(undefined, { sensitivity: "base", numeric: true });
+    const byName = (a, b) => collator.compare(a.item.itemName, b.item.itemName);
+    const byBoard = (a, b) => collator.compare(a.item.boardName, b.item.boardName);
+
+    const sorted = [...results];
+
+    if (mode === "name-asc") sorted.sort(byName);
+    else if (mode === "name-desc") sorted.sort((a, b) => byName(b, a));
+    else if (mode === "board-asc") sorted.sort((a, b) => byBoard(a, b) || byName(a, b));
+
+    return sorted;
+}
+
 function renderPage() {
 
-    const { words, fields, results } = searchCache;
+    const { terms, fields, results } = searchCache;
 
     // Board facets are built from the results BEFORE the board filter,
     // so the pills stay visible while a board is selected.
@@ -651,7 +731,9 @@ function renderPage() {
         visible = results.filter(r => r.item.boardName === activeBoardFilter);
     }
 
-    currentSearchResults = visible;
+    visible = sortResults(visible);
+
+    currentSearchResults = visible;   // "Export Results" uses this (same order as on screen)
 
     const totalPages = Math.max(1, Math.ceil(visible.length / RESULTS_PER_PAGE));
     currentPage = Math.min(Math.max(1, currentPage), totalPages);
@@ -670,7 +752,7 @@ function renderPage() {
         </div>
     `;
 
-    const regex = buildHighlightRegex(words);
+    const regex = buildHighlightRegex(terms);
     const pager = paginationHtml(totalPages);
 
     const html = [];
@@ -690,7 +772,7 @@ function renderPage() {
     html.push(pager);
 
     pageResults.forEach(result => {
-        html.push(cardHtml(result, words, fields, regex));
+        html.push(cardHtml(result, terms, fields, regex));
     });
 
     html.push(pager);
@@ -773,7 +855,7 @@ function paginationHtml(totalPages) {
     return html;
 }
 
-function cardHtml({ item, exact, score }, words, fields, regex) {
+function cardHtml({ item, exact, score }, terms, fields, regex) {
 
     const percentage = Math.max(0, Math.min(100, Math.round((1 - score) * 100)));
 
@@ -782,21 +864,22 @@ function cardHtml({ item, exact, score }, words, fields, regex) {
     else if (percentage >= 75) scoreColor = "#0073ea";
     else if (percentage >= 60) scoreColor = "#f59e0b";
 
-    const labels = exact ? matchedFieldLabels(item, fields, words) : [];
+    const labels = exact ? matchedFieldLabels(item, fields, terms) : [];
     const matchLocation = labels.length ? labels.join(" · ") : "SIMILAR MATCH";
 
     const textSection = (label, text, truncate) => text ? `
         <div class="section-label">${label}</div>
-        <div style="white-space: pre-line">${highlight(truncate ? excerpt(text, words) : text, regex)}</div>
+        <div style="white-space: pre-line">${highlight(truncate ? excerpt(text, terms) : text, regex)}</div>
     ` : "";
 
     let subitemsHtml = "";
 
     if (fields.includes("subitems")) {
 
-        const matching = item.subitems.filter(subitem =>
-            words.some(word => textHasWord(subitem.toLowerCase(), word))
-        );
+        const matching = item.subitems.filter(subitem => {
+            const lower = subitem.toLowerCase();
+            return terms.some(term => textHasTerm(lower, term));
+        });
 
         const shown = matching.slice(0, MAX_SUBITEMS_SHOWN);
 
@@ -809,8 +892,8 @@ function cardHtml({ item, exact, score }, words, fields, regex) {
         }
     }
 
-    const keywords = words
-        .map(word => `<span class="keyword">${escapeHtml(word)}</span>`)
+    const keywords = terms
+        .map(term => `<span class="keyword">${escapeHtml(termKey(term))}</span>`)
         .join("");
 
     const url = isSafeUrl(item.url) ? item.url : "";
@@ -925,7 +1008,8 @@ document.addEventListener("change", event => {
 
     if (
         target.classList.contains("search-field") ||
-        target.id === "showSimilarMatches"
+        target.id === "showSimilarMatches" ||
+        target.id === "sortSelect"
     ) {
         currentPage = 1;
         runSearch();
@@ -977,28 +1061,44 @@ function clearSearch() {
 
 /* ---------- CSV export ---------- */
 
+const EXCEL_CELL_LIMIT = 32000;   // Excel cuts cells at 32,767 characters
+
+function exportRow(item) {
+
+    return {
+        Board: item.boardName,
+        Region: item._region,
+        "Work Package": item.itemName,
+        URL: item.url,
+        "Description / Deliverables": item.description,
+        Learnings: item.learnings,
+        "Realized HWWK?": item.realizedHWWK,
+        "Disease Area": item.diseaseArea,
+        Product: item.product,
+        Subitems: item.subitems.join(" | ")
+    };
+}
+
 function exportAllData() {
 
-    downloadCsv(
-        allData.map(item => ({
-            Board: item.boardName,
-            "Work Package": item.itemName,
-            URL: item.url,
-            Subitems: item.subitems.join(" | ")
-        })),
-        "all-work-packages.csv"
-    );
+    downloadCsv(allData.map(exportRow), "all-work-packages.csv");
 }
 
 function exportSearchResults() {
 
+    const { terms, fields } = searchCache;
+
     downloadCsv(
-        currentSearchResults.map(({ item }) => ({
-            Board: item.boardName,
-            "Work Package": item.itemName,
-            URL: item.url,
-            Subitems: item.subitems.join(" | ")
-        })),
+        currentSearchResults.map(({ item, exact, score }) => {
+
+            const labels = exact && terms ? matchedFieldLabels(item, fields, terms) : [];
+
+            return {
+                "Match %": Math.max(0, Math.min(100, Math.round((1 - score) * 100))),
+                "Matched In": labels.length ? labels.join(" · ") : "Similar match",
+                ...exportRow(item)
+            };
+        }),
         "search-results.csv"
     );
 }
@@ -1007,8 +1107,12 @@ function csvCell(value) {
 
     let text = String(value ?? "");
 
-    // stop spreadsheet apps from executing cells that start with = + - @
-    if (/^[=+\-@\t\r]/.test(text)) text = "'" + text;
+    if (text.length > EXCEL_CELL_LIMIT) {
+        text = text.slice(0, EXCEL_CELL_LIMIT) + "…";
+    }
+
+    // stop spreadsheet apps from executing cells that start with = + @ or -<non-space>
+    if (/^[=+@\t\r]|^-(?!\s)/.test(text)) text = "'" + text;
 
     return `"${text.replace(/"/g, '""')}"`;
 }
