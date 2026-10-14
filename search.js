@@ -1079,12 +1079,16 @@ document.addEventListener("change", function (event) {
 
     if (event.target.classList.contains("search-field")) {
 
+        currentPage = 1;
+    
         runSearch();
     
     }
 
     if (event.target.id === "showSimilarMatches") {
 
+        currentPage = 1;
+    
         runSearch();
     
     }
