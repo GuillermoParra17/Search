@@ -439,6 +439,10 @@ function runSearch() {
     let results =
         fuse.search(searchTerm);
 
+    results = results.filter(
+        result => result.score <= 0.60
+    );
+
     console.log(
     "Actual Board Names:",
     [...new Set(allData.map(x => x.boardName))]
