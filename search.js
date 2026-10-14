@@ -451,6 +451,100 @@ function runSearch() {
                 word.trim().length > 3
             );
 
+    results = results.filter(result => {
+    
+        const item = result.item;
+    
+        if (
+            selectedSearchFields.includes("itemName") &&
+            item.itemName &&
+            searchWords.some(word =>
+                item.itemName
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            return true;
+        }
+    
+        if (
+            selectedSearchFields.includes("subitems") &&
+            item.subitems &&
+            item.subitems.some(subitem =>
+                searchWords.some(word =>
+                    subitem
+                        .toLowerCase()
+                        .includes(word)
+                )
+            )
+        ) {
+            return true;
+        }
+    
+        if (
+            selectedSearchFields.includes("description") &&
+            item.description &&
+            searchWords.some(word =>
+                item.description
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            return true;
+        }
+    
+        if (
+            selectedSearchFields.includes("learnings") &&
+            item.learnings &&
+            searchWords.some(word =>
+                item.learnings
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            return true;
+        }
+    
+        if (
+            selectedSearchFields.includes("realizedHWWK") &&
+            item.realizedHWWK &&
+            searchWords.some(word =>
+                item.realizedHWWK
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            return true;
+        }
+    
+        if (
+            selectedSearchFields.includes("diseaseArea") &&
+            item.diseaseArea &&
+            searchWords.some(word =>
+                item.diseaseArea
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            return true;
+        }
+    
+        if (
+            selectedSearchFields.includes("product") &&
+            item.product &&
+            searchWords.some(word =>
+                item.product
+                    .toLowerCase()
+                    .includes(word)
+            )
+        ) {
+            return true;
+        }
+    
+        return false;
+    
+    });
+    
     console.log(
     "Actual Board Names:",
     [...new Set(allData.map(x => x.boardName))]
