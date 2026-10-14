@@ -451,7 +451,7 @@ function runSearch() {
                 word.trim().length > 3
             );
 
-  /*  results = results.filter(result => {
+    results = results.filter(result => {
     
         const item = result.item;
     
@@ -490,10 +490,6 @@ function runSearch() {
                     .includes(word)
             )
         ) {
-            console.log(
-            "DESCRIPTION MATCH",
-            item.itemName
-        );
             return true;
         }
     
@@ -548,7 +544,7 @@ function runSearch() {
         return false;
     
     });
-   */
+    
     console.log(
     "Actual Board Names:",
     [...new Set(allData.map(x => x.boardName))]
@@ -825,7 +821,7 @@ pagedResults.forEach(result => {
     const selectedSearchFields =
     getSelectedSearchFields();
 
-    const matchLocations = [];
+    let matchLocation = "SIMILAR MATCH";
     
     const matchWords =
         searchTerm
@@ -843,7 +839,7 @@ pagedResults.forEach(result => {
                 .includes(word)
         )
     ) {
-        matchLocations.push("WORK PACKAGE");
+        matchLocation = "WORK PACKAGE";
     }
     
     if (
