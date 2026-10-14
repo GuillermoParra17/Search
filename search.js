@@ -443,6 +443,14 @@ function runSearch() {
     let results =
         fuse.search(searchTerm);
 
+    const searchWords =
+        searchTerm
+            .toLowerCase()
+            .split(" ")
+            .filter(word =>
+                word.trim().length > 3
+            );
+
     console.log(
     "Actual Board Names:",
     [...new Set(allData.map(x => x.boardName))]
