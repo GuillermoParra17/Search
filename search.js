@@ -21,13 +21,13 @@ const OTHER_BOARDS = "Other Affiliate(s)";
 
 // Order = display order and tie-break priority for "matched in" labels.
 const FIELDS = [
-    { key: "itemName",     label: "WORK PACKAGE", short: "Work package",  weight: 0.40 },
-    { key: "subitems",     label: "SUBITEM", short: "Subitem",       weight: 0.15 },
-    { key: "description",  label: "DESCRIPTION", short: "Description",   weight: 0.15 },
-    { key: "learnings",    label: "LEARNINGS", short: "Learnings",     weight: 0.10 },
-    { key: "realizedHWWK", label: "REALIZED HWWK", short: "Realized HWWK", weight: 0.10 },
-    { key: "diseaseArea",  label: "DISEASE AREA", short: "Disease area",  weight: 0.05 },
-    { key: "product",      label: "PRODUCT", short: "Product",       weight: 0.05 }
+    { key: "itemName",     label: "WORK PACKAGE",  weight: 0.40 },
+    { key: "subitems",     label: "SUBITEM",       weight: 0.15 },
+    { key: "description",  label: "DESCRIPTION",   weight: 0.15 },
+    { key: "learnings",    label: "LEARNINGS",     weight: 0.10 },
+    { key: "realizedHWWK", label: "REALIZED HWWK", weight: 0.10 },
+    { key: "diseaseArea",  label: "DISEASE AREA",  weight: 0.05 },
+    { key: "product",      label: "PRODUCT",       weight: 0.05 }
 ];
 
 const ALL_FIELD_KEYS = FIELDS.map(field => field.key);
@@ -328,14 +328,14 @@ function itemMatchesAll(item, fields, terms) {
     );
 }
 
-function matchedFieldLabels(item, fields, terms, nameType = "label") {
+function matchedFieldLabels(item, fields, terms) {
 
     return FIELDS
         .filter(field => fields.includes(field.key))
         .filter(field =>
             terms.some(term => textHasTerm(item._lc[field.key], term))
         )
-        .map(field => field[nameType]);
+        .map(field => field.label);
 }
 
 /* ---------- Fuzzy search (Fuse) ---------- */
@@ -508,6 +508,7 @@ fetch("data.json", { cache: "no-cache" })
         });
 
         $("results").addEventListener("click", handleResultsClick);
+        $("results").addEventListener("keydown", handleResultsKeydown);
 
     })
     .catch(error => {
@@ -770,30 +771,23 @@ function renderPage() {
     html.push(boardSummaryHtml(topBoards, otherBoards));
     html.push(pager);
 
-    html.push(
-        `<div class="results-grid">` +
-        pageResults.map(result => cardHtml(result, terms, fields, regex)).join("") +
-        `</div>`
-    );
+    pageResults.forEach(result => {
+        html.push(cardHtml(result, terms, fields, regex));
+    });
 
     html.push(pager);
 
     $("results").innerHTML = html.join("");
 }
 
-function shortBoardName(board) {
-
-    return board
-        .replace(" Work Package Overview", "")
-        .replace(" WP Portfolio Overview", "")
-        .replace(" Work Packages Overview", "");
-}
-
 function boardSummaryHtml(topBoards, otherBoards) {
 
     const pills = topBoards.map(([board, count]) => {
 
-        const shortName = shortBoardName(board);
+        const shortName = board
+            .replace(" Work Package Overview", "")
+            .replace(" WP Portfolio Overview", "")
+            .replace(" Work Packages Overview", "");
 
         return `
             <span class="board-summary-pill" data-board="${escapeHtml(board)}">
@@ -861,67 +855,6 @@ function paginationHtml(totalPages) {
     return html;
 }
 
-// "A | B | C" -> up to `max` pills plus a "+N" pill
-function tagPills(text, className, icon, max = 2) {
-
-    const values = [...new Set(
-        String(text || "").split("|").map(value => value.trim()).filter(Boolean)
-    )];
-
-    if (!values.length) return "";
-
-    const pills = values.slice(0, max).map(value =>
-        `<span class="wp-tag ${className}" title="${escapeHtml(value)}">${icon ? icon + " " : ""}${escapeHtml(value)}</span>`
-    );
-
-    if (values.length > max) {
-        pills.push(
-            `<span class="wp-tag wp-tag--more" title="${escapeHtml(values.slice(max).join(", "))}">+${values.length - max}</span>`
-        );
-    }
-
-    return pills.join("");
-}
-
-// Short context lines for matches that are NOT visible in the description
-function matchSnippets(item, terms, fields, regex) {
-
-    const lines = [];
-
-    const line = (label, text) =>
-        `<div class="wp-match-line"><span class="wp-match-label">${label}</span> ${highlight(excerpt(text, terms, 140), regex)}</div>`;
-
-    if (fields.includes("subitems")) {
-
-        const matching = item.subitems.filter(subitem => {
-            const lower = subitem.toLowerCase();
-            return terms.some(term => textHasTerm(lower, term));
-        });
-
-        matching.slice(0, 2).forEach(subitem => lines.push(line("Subitem", subitem)));
-
-        if (matching.length > 2) {
-            lines.push(`<div class="wp-match-more">+${matching.length - 2} more matching subitems</div>`);
-        }
-    }
-
-    [
-        ["learnings", "Learnings", item.learnings],
-        ["realizedHWWK", "Realized HWWK", item.realizedHWWK]
-    ].forEach(([key, label, text]) => {
-
-        if (
-            fields.includes(key) &&
-            text &&
-            terms.some(term => textHasTerm(item._lc[key], term))
-        ) {
-            lines.push(line(label, text));
-        }
-    });
-
-    return lines.join("");
-}
-
 function cardHtml({ item, exact, score }, terms, fields, regex) {
 
     const percentage = Math.max(0, Math.min(100, Math.round((1 - score) * 100)));
@@ -931,63 +864,84 @@ function cardHtml({ item, exact, score }, terms, fields, regex) {
     else if (percentage >= 75) scoreColor = "#0073ea";
     else if (percentage >= 60) scoreColor = "#f59e0b";
 
-    const names = exact ? matchedFieldLabels(item, fields, terms, "short") : [];
-    const matchedIn = names.length ? `Matched in ${names.join(" · ")}` : "Similar match";
+    const labels = exact ? matchedFieldLabels(item, fields, terms) : [];
+    const matchLocation = labels.length ? labels.join(" · ") : "SIMILAR MATCH";
 
-    const description = item.description
-        ? `<div class="wp-description">${highlight(excerpt(item.description, terms, 220), regex)}</div>`
-        : "";
+    const textSection = (label, text, truncate) => text ? `
+        <div class="section-label">${label}</div>
+        <div style="white-space: pre-line">${highlight(truncate ? excerpt(text, terms) : text, regex)}</div>
+    ` : "";
 
-    const subitemCount = item.subitems.length
-        ? `<span class="wp-tag wp-tag--count">☰ ${item.subitems.length} subitem${item.subitems.length === 1 ? "" : "s"}</span>`
-        : "";
+    let subitemsHtml = "";
 
-    const tags =
-        tagPills(item.diseaseArea, "wp-tag--disease", "") +
-        tagPills(item.product, "wp-tag--product", "💊") +
-        subitemCount;
+    if (fields.includes("subitems")) {
 
-    const snippets = matchSnippets(item, terms, fields, regex);
+        const matching = item.subitems.filter(subitem => {
+            const lower = subitem.toLowerCase();
+            return terms.some(term => textHasTerm(lower, term));
+        });
 
-    const detailsLink = isSafeUrl(item.url)
-        ? `<a class="wp-details" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Details <span aria-hidden="true">›</span></a>`
-        : `<span class="wp-details wp-details--off">Details</span>`;
+        const shown = matching.slice(0, MAX_SUBITEMS_SHOWN);
+
+        subitemsHtml = shown
+            .map(subitem => `<div class="subitem-name">⭐ ${highlight(subitem, regex)}</div>`)
+            .join("");
+
+        if (matching.length > shown.length) {
+            subitemsHtml += `<div class="subitem-name">… and ${matching.length - shown.length} more</div>`;
+        }
+    }
+
+    const keywords = terms
+        .map(term => `<span class="keyword">${escapeHtml(termKey(term))}</span>`)
+        .join("");
+
+    const url = isSafeUrl(item.url) ? item.url : "";
 
     return `
-        <article class="wp-card">
+        <div class="result-card" data-url="${escapeHtml(url)}" tabindex="0" role="link">
 
-            <div class="wp-card-body">
-
-                <span class="wp-status">${escapeHtml(item._region)}</span>
-
-                <div class="wp-title">${highlight(item.itemName, regex)}</div>
-
-                <div class="wp-subtitle">${escapeHtml(shortBoardName(item.boardName))}</div>
-
-                ${description}
-
-                ${tags ? `<div class="wp-tags">${tags}</div>` : ""}
-
-                ${snippets ? `<div class="wp-match">${snippets}</div>` : ""}
-
-            </div>
-
-            <div class="wp-card-footer">
-
-                <div class="wp-owner">
-                    <span class="wp-avatar" style="background:${scoreColor}">${percentage}%</span>
-                    <span class="wp-owner-name" title="${escapeHtml(matchedIn)}">${escapeHtml(matchedIn)}</span>
+            <div class="result-header">
+                <div class="match-score" style="color:${scoreColor}">
+                    ${percentage}% Match
                 </div>
-
-                ${detailsLink}
-
+                <div class="match-type">${escapeHtml(matchLocation)}</div>
             </div>
 
-        </article>
+            <div class="section-label">Board</div>
+            <div class="board-name">${escapeHtml(item.boardName)}</div>
+
+            <div class="section-label">Work Package</div>
+            <div class="work-package">${highlight(item.itemName, regex)}</div>
+
+            <div class="section-label">Keywords</div>
+            <div class="keywords">${keywords}</div>
+
+            ${textSection("Description / Deliverables", item.description, true)}
+            ${textSection("Learnings", item.learnings, true)}
+            ${textSection("Realized HWWK?", item.realizedHWWK, true)}
+            ${textSection("Disease Area", item.diseaseArea, false)}
+            ${textSection("Product", item.product, false)}
+
+            ${subitemsHtml ? `
+            <div class="section-label">Matching Subitems</div>
+            <div>${subitemsHtml}</div>
+            ` : ""}
+
+        </div>
     `;
 }
 
 /* ---------- Events ---------- */
+
+function openCard(card) {
+
+    const url = card && card.dataset.url;
+
+    if (isSafeUrl(url)) {
+        window.open(url, "_blank", "noopener");
+    }
+}
 
 function handleResultsClick(event) {
 
@@ -1015,6 +969,14 @@ function handleResultsClick(event) {
         return;
     }
 
+    openCard(target.closest(".result-card"));
+}
+
+function handleResultsKeydown(event) {
+
+    if (event.key === "Enter" && event.target.classList.contains("result-card")) {
+        openCard(event.target);
+    }
 }
 
 document.addEventListener("change", event => {
