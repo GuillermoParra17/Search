@@ -814,7 +814,14 @@ pagedResults.forEach(result => {
         matchLocation = "SUBITEM";
     }
 
-        
+    if (
+        !showSimilarMatches &&
+        matchLocation === "SIMILAR MATCH"
+    ) {
+        return;
+    }
+
+    
         const searchWords =
     searchTerm
         .toLowerCase()
