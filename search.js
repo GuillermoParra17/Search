@@ -839,7 +839,7 @@ pagedResults.forEach(result => {
                 .includes(word)
         )
     ) {
-        matchLocation = "WORK PACKAGE";
+        matchLocations.push("WORK PACKAGE");
     }
     
     if (
