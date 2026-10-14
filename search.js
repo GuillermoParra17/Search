@@ -1,6 +1,5 @@
 let unfilteredResults = [];
 let currentSearchResults = [];
-let showSimilarMatches = false;
 
 let currentPage = 1;
 const RESULTS_PER_PAGE = 50;
@@ -381,7 +380,6 @@ function runSearch() {
         getSelectedSearchFields();
 
     showSimilarMatches =
-    document.getElementById("showSimilarMatches").checked;
     
     const searchKeys = [];
     
@@ -1187,13 +1185,6 @@ document.addEventListener("change", function (event) {
     
     }
 
-    if (event.target.id === "showSimilarMatches") {
-
-        currentPage = 1;
-    
-        runSearch();
-    
-    }
 
 });
 
