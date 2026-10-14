@@ -1076,6 +1076,12 @@ document.addEventListener("change", function (event) {
     
     }
 
+    if (event.target.id === "showSimilarMatches") {
+
+        runSearch();
+    
+    }
+
 });
 
 function clearSearch() {
