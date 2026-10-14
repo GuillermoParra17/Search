@@ -450,7 +450,7 @@ function runSearch() {
             .filter(word =>
                 word.trim().length > 3
             );
-/*
+
     results = results.filter(result => {
     
         const item = result.item;
@@ -544,7 +544,7 @@ function runSearch() {
         return false;
     
     });
-  */  
+   
     console.log(
     "Actual Board Names:",
     [...new Set(allData.map(x => x.boardName))]
