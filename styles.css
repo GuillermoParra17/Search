@@ -352,3 +352,28 @@ mark {
     color: #666;
     margin-top: 4px;
 }
+
+.results-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sort-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #676879;
+}
+
+#sortSelect {
+    padding: 10px 12px;
+    border: 1px solid #c3c6d4;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    color: #323338;
+    cursor: pointer;
+}
