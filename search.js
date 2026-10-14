@@ -490,6 +490,10 @@ function runSearch() {
                     .includes(word)
             )
         ) {
+            console.log(
+            "DESCRIPTION MATCH",
+            item.itemName
+        );
             return true;
         }
     
