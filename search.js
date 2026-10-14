@@ -821,7 +821,7 @@ pagedResults.forEach(result => {
     const selectedSearchFields =
     getSelectedSearchFields();
 
-    let matchLocation = "SIMILAR MATCH";
+    const matchLocations = [];
     
     const matchWords =
         searchTerm
