@@ -30,6 +30,8 @@ const FIELDS = [
     { key: "product",      label: "PRODUCT",       weight: 0.05 }
 ];
 
+const ALL_FIELD_KEYS = FIELDS.map(field => field.key);
+
 const REGION_MAP = {
 
     Africa: [
@@ -594,7 +596,15 @@ function computeResults(words, fields, regions, similar) {
 
         if (!regions.has(item._region)) continue;
 
-        const exact = itemMatchesAll(item, fields, words);
+        // A work package qualifies when every word appears somewhere in the item
+        // (any field), and it is shown as long as at least one of the fields
+        // ticked in "Search In" contains one of the words. Unticking a field
+        // therefore hides an item only when that field was its only match.
+        const exact =
+            itemMatchesAll(item, ALL_FIELD_KEYS, words) &&
+            fields.some(field =>
+                words.some(word => textHasWord(item._lc[field], word))
+            );
         const fuzzyHit = fuzzy.has(item.itemId);
 
         if (!exact && !(similar && fuzzyHit)) continue;
