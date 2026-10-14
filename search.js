@@ -1,5 +1,6 @@
 let unfilteredResults = [];
 let currentSearchResults = [];
+let showSimilarMatches = false;
 
 let currentPage = 1;
 const RESULTS_PER_PAGE = 50;
@@ -378,6 +379,9 @@ function runSearch() {
 
     const selectedSearchFields =
         getSelectedSearchFields();
+
+    showSimilarMatches =
+    document.getElementById("showSimilarMatches").checked;
     
     const searchKeys = [];
     
