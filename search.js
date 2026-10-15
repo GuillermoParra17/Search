@@ -1044,8 +1044,8 @@ function cardHtml({ item, exact, score }, terms, fields, regex) {
     else if (percentage >= 75) scoreColor = "#0073ea";
     else if (percentage >= 60) scoreColor = "#f59e0b";
 
-    const names = exact ? matchedFieldLabels(item, fields, terms, "short") : [];
-    const matchedIn = names.length ? `Matched in ${names.join(" · ")}` : "Similar match";
+    const names = exact ? matchedFieldLabels(item, fields, terms) : [];
+    const matchedIn = names.length ? names.join(" · ") : "SIMILAR MATCH";
 
     const descriptionHead = headText(item.description);
 
@@ -1088,7 +1088,7 @@ function cardHtml({ item, exact, score }, terms, fields, regex) {
 
                 <div class="wp-owner">
                     <span class="wp-avatar" style="background:${scoreColor}">${percentage}%</span>
-                    <span class="wp-owner-name" title="${escapeHtml(matchedIn)}">${escapeHtml(matchedIn)}</span>
+                    <span class="wp-match-type" title="Matched in: ${escapeHtml(matchedIn)}">${escapeHtml(matchedIn)}</span>
                 </div>
 
                 ${detailsLink}
