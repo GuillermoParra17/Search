@@ -4,8 +4,10 @@ on:
   workflow_dispatch:
 
   schedule:
-    # every day at 03:00 UTC
-    - cron: "0 3 * * *"
+    # Two runs a day, both at odd minutes (GitHub is busiest on the hour).
+    # The second one is a backup and is skipped if the first one already worked.
+    - cron: "23 1 * * *"   # about 03:23 Budapest (02:23 after 25 October)
+    - cron: "37 4 * * *"   # about 06:37 Budapest (05:37 after 25 October)
 
 # never run two index builds at the same time
 concurrency:
@@ -32,17 +34,29 @@ jobs:
         with:
           node-version: 22
 
+      - name: Check how old data.json is
+        id: age
+        run: |
+          age=$(node -e "try{const t=Date.parse(require('./data.json').generatedAt);console.log(isNaN(t)?99999:Math.round((Date.now()-t)/60000))}catch(e){console.log(99999)}")
+          echo "data.json is $age minutes old"
+          echo "minutes=$age" >> "$GITHUB_OUTPUT"
+
+      # scheduled runs are skipped when the data is less than 4 hours old;
+      # manual runs ("Run workflow") always run
       - name: Run Index Generator
+        if: ${{ github.event_name != 'schedule' || fromJSON(steps.age.outputs.minutes) > 240 }}
         env:
           MONDAY_API_TOKEN: ${{ secrets.MONDAY_API_TOKEN }}
         run: |
           node generate-index.js
 
       - name: Report boards that could not be refreshed
+        if: ${{ github.event_name != 'schedule' || fromJSON(steps.age.outputs.minutes) > 240 }}
         run: |
           node -e "const f=require('./data.json').failedBoards||[]; if(f.length) console.log('::warning title=Boards not refreshed::'+f.join(', '))"
 
       - name: Commit data.json
+        if: ${{ github.event_name != 'schedule' || fromJSON(steps.age.outputs.minutes) > 240 }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
