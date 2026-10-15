@@ -382,8 +382,14 @@ mark {
 
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));   /* 2 cards per row */
+    gap: 20px;
+}
+
+@media (max-width: 760px) {
+    .results-grid {
+        grid-template-columns: minmax(0, 1fr);          /* 1 per row on phones */
+    }
 }
 
 .wp-card {
@@ -568,10 +574,23 @@ button.wp-tag--hit:hover {
 }
 
 .wp-owner {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     min-width: 0;
+}
+
+/* "WORK PACKAGE · SUBITEM · DESCRIPTION" bubble (same look as before) */
+.wp-match-type {
+    min-width: 0;
+    background: #e8f3ff;
+    color: #0073ea;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .wp-avatar {
