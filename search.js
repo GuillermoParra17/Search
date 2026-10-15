@@ -12,7 +12,9 @@ const MIN_WORD_LENGTH = 2;
 const SHORT_WORD_MAX = 3;        // words this short must match at the START of a word ("ai" must not match "maintain")
 const TOP_BOARD_PILLS = 10;
 const MAX_TEXT_CHARS = 300;
-const MAX_SUBITEMS_SHOWN = 10;
+const HEAD_CHARS = 140;           // cards show only the start of the description
+const MAX_TAGS_SHOWN = 2;        // Disease Area / Product tags per card (matching ones may exceed this)
+const MAX_HIT_TAGS_SHOWN = 4;
 const FUZZY_THRESHOLD = 0.3;
 const FALLBACK_SCORE = 0.25;     // score used for exact matches Fuse did not return
 
@@ -21,13 +23,13 @@ const OTHER_BOARDS = "Other Affiliate(s)";
 
 // Order = display order and tie-break priority for "matched in" labels.
 const FIELDS = [
-    { key: "itemName",     label: "WORK PACKAGE",  weight: 0.40 },
-    { key: "subitems",     label: "SUBITEM",       weight: 0.15 },
-    { key: "description",  label: "DESCRIPTION",   weight: 0.15 },
-    { key: "learnings",    label: "LEARNINGS",     weight: 0.10 },
-    { key: "realizedHWWK", label: "REALIZED HWWK", weight: 0.10 },
-    { key: "diseaseArea",  label: "DISEASE AREA",  weight: 0.05 },
-    { key: "product",      label: "PRODUCT",       weight: 0.05 }
+    { key: "itemName",     label: "WORK PACKAGE", short: "Work package",  weight: 0.40 },
+    { key: "subitems",     label: "SUBITEM", short: "Subitem",       weight: 0.15 },
+    { key: "description",  label: "DESCRIPTION", short: "Description",   weight: 0.15 },
+    { key: "learnings",    label: "LEARNINGS", short: "Learnings",     weight: 0.10 },
+    { key: "realizedHWWK", label: "REALIZED HWWK", short: "Realized HWWK", weight: 0.10 },
+    { key: "diseaseArea",  label: "DISEASE AREA", short: "Disease area",  weight: 0.05 },
+    { key: "product",      label: "PRODUCT", short: "Product",       weight: 0.05 }
 ];
 
 const ALL_FIELD_KEYS = FIELDS.map(field => field.key);
@@ -159,6 +161,7 @@ let dataLoaded = false;
 let currentPage = 1;
 let currentSearchResults = [];   // what "Export Results" exports (after board filter)
 let activeBoardFilter = null;
+let activeTagFilter = null;      // { type: "diseaseArea" | "product", value }
 
 const fuseCache = new Map();     // one Fuse index per distinct set of searched fields
 const termRegexCache = new Map();
@@ -328,14 +331,14 @@ function itemMatchesAll(item, fields, terms) {
     );
 }
 
-function matchedFieldLabels(item, fields, terms) {
+function matchedFieldLabels(item, fields, terms, nameType = "label") {
 
     return FIELDS
         .filter(field => fields.includes(field.key))
         .filter(field =>
             terms.some(term => textHasTerm(item._lc[field.key], term))
         )
-        .map(field => field.label);
+        .map(field => field[nameType]);
 }
 
 /* ---------- Fuzzy search (Fuse) ---------- */
@@ -508,7 +511,6 @@ fetch("data.json", { cache: "no-cache" })
         });
 
         $("results").addEventListener("click", handleResultsClick);
-        $("results").addEventListener("keydown", handleResultsKeydown);
 
     })
     .catch(error => {
@@ -707,7 +709,13 @@ function sortResults(results) {
 
 function renderPage() {
 
-    const { terms, fields, results } = searchCache;
+    const { terms, fields } = searchCache;
+
+    // the tag filter (click a Disease Area / Product tag) applies before the board pills are counted
+    const results = activeTagFilter
+        ? searchCache.results.filter(result =>
+              splitValues(result.item[activeTagFilter.type]).includes(activeTagFilter.value))
+        : searchCache.results;
 
     // Board facets are built from the results BEFORE the board filter,
     // so the pills stay visible while a board is selected.
@@ -768,26 +776,44 @@ function renderPage() {
         `);
     }
 
+    if (activeTagFilter) {
+        html.push(`
+            <div class="active-filter">
+                Active ${activeTagFilter.type === "product" ? "Product" : "Disease Area"} Filter:
+                <span class="active-filter-pill" data-clear-tag="1">
+                    ${escapeHtml(activeTagFilter.value)} ✕
+                </span>
+            </div>
+        `);
+    }
+
     html.push(boardSummaryHtml(topBoards, otherBoards));
     html.push(pager);
 
-    pageResults.forEach(result => {
-        html.push(cardHtml(result, terms, fields, regex));
-    });
+    html.push(
+        `<div class="results-grid">` +
+        pageResults.map(result => cardHtml(result, terms, fields, regex)).join("") +
+        `</div>`
+    );
 
     html.push(pager);
 
     $("results").innerHTML = html.join("");
 }
 
+function shortBoardName(board) {
+
+    return board
+        .replace(" Work Package Overview", "")
+        .replace(" WP Portfolio Overview", "")
+        .replace(" Work Packages Overview", "");
+}
+
 function boardSummaryHtml(topBoards, otherBoards) {
 
     const pills = topBoards.map(([board, count]) => {
 
-        const shortName = board
-            .replace(" Work Package Overview", "")
-            .replace(" WP Portfolio Overview", "")
-            .replace(" Work Packages Overview", "");
+        const shortName = shortBoardName(board);
 
         return `
             <span class="board-summary-pill" data-board="${escapeHtml(board)}">
@@ -855,6 +881,160 @@ function paginationHtml(totalPages) {
     return html;
 }
 
+/* ----- result cards ----- */
+
+// "A | B | C" -> ["A", "B", "C"] (no empty values, no duplicates)
+function splitValues(text) {
+
+    return [...new Set(
+        String(text || "").split("|").map(value => value.trim()).filter(Boolean)
+    )];
+}
+
+// "[Singapore] Work Package Overview" -> "[Singapore]"
+function boardTag(board) {
+
+    const match = board.match(/^\s*(\[[^\]]+\])/);
+
+    return match ? match[1] : shortBoardName(board);
+}
+
+function regionClass(region) {
+
+    return "wp-region--" + region.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+// Only the beginning of the text, cut at a word boundary
+function headText(text, max = HEAD_CHARS) {
+
+    const value = String(text || "").replace(/\s+/g, " ").trim();
+
+    if (value.length <= max) return value;
+
+    const cut = value.slice(0, max);
+    const lastSpace = cut.lastIndexOf(" ");
+
+    return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:.\-–]+$/, "") + "…";
+}
+
+function termsHit(lowerCaseText, terms) {
+
+    return terms.some(term => textHasTerm(lowerCaseText, term));
+}
+
+// Disease Area / Product tags. Tags that match the search are blue and shown first.
+// Clicking a tag filters the results by it.
+function tagGroupHtml(type, text, icon, fields, terms) {
+
+    const values = splitValues(text);
+
+    if (!values.length) return "";
+
+    const checkMatches = fields.includes(type);
+    const isHit = value => checkMatches && termsHit(value.toLowerCase(), terms);
+
+    const hits = values.filter(isHit);
+    const ordered = [...hits, ...values.filter(value => !isHit(value))];
+
+    const limit = Math.max(MAX_TAGS_SHOWN, Math.min(hits.length, MAX_HIT_TAGS_SHOWN));
+    const shown = ordered.slice(0, limit);
+    const hidden = ordered.slice(limit);
+
+    const pills = shown.map(value => {
+
+        const classes = [
+            "wp-tag",
+            `wp-tag--${type}`,
+            hits.includes(value) ? "wp-tag--hit" : "",
+            activeTagFilter && activeTagFilter.type === type && activeTagFilter.value === value
+                ? "wp-tag--active" : ""
+        ].filter(Boolean).join(" ");
+
+        return `<button type="button" class="${classes}" data-tag-type="${type}" ` +
+               `data-tag-value="${escapeHtml(value)}" title="Filter by ${escapeHtml(value)}">` +
+               `${icon ? icon + " " : ""}${escapeHtml(value)}</button>`;
+    });
+
+    if (hidden.length) {
+        pills.push(
+            `<span class="wp-tag wp-tag--more${hidden.some(isHit) ? " wp-tag--hit" : ""}" ` +
+            `title="${escapeHtml(hidden.join(", "))}">+${hidden.length}</span>`
+        );
+    }
+
+    return pills.join("");
+}
+
+// "16 subitems", or "3 of 16 subitems" (blue) when the search matches some of them
+function subitemTagHtml(item, terms, fields) {
+
+    const total = item.subitems.length;
+
+    if (!total) return "";
+
+    const matching = fields.includes("subitems")
+        ? item.subitems.filter(subitem => termsHit(subitem.toLowerCase(), terms)).length
+        : 0;
+
+    const noun = `subitem${total === 1 ? "" : "s"}`;
+
+    return matching
+        ? `<span class="wp-tag wp-tag--count wp-tag--hit">☰ ${matching} of ${total} ${noun}</span>`
+        : `<span class="wp-tag wp-tag--count">☰ ${total} ${noun}</span>`;
+}
+
+// Places where the search matched that are NOT already visible on the card.
+// Only the first one is shown; the rest are summarised as "+N more".
+function matchBoxHtml(item, terms, fields, regex, descriptionHead) {
+
+    const found = [];
+
+    if (
+        fields.includes("description") &&
+        item.description &&
+        termsHit(item._lc.description, terms) &&
+        !termsHit(descriptionHead.toLowerCase(), terms)
+    ) {
+        found.push({ label: "Description", text: item.description });
+    }
+
+    if (fields.includes("subitems")) {
+        item.subitems.forEach(subitem => {
+            if (termsHit(subitem.toLowerCase(), terms)) {
+                found.push({ label: "Subitem", text: subitem });
+            }
+        });
+    }
+
+    [
+        ["learnings", "Learnings", item.learnings],
+        ["realizedHWWK", "Realized HWWK", item.realizedHWWK]
+    ].forEach(([key, label, text]) => {
+
+        if (fields.includes(key) && text && termsHit(item._lc[key], terms)) {
+            found.push({ label, text });
+        }
+    });
+
+    if (!found.length) return "";
+
+    const [first, ...rest] = found;
+
+    const more = rest.length
+        ? `<div class="wp-match-more" title="${escapeHtml([...new Set(rest.map(r => r.label))].join(", "))}">+${rest.length} more</div>`
+        : "";
+
+    return `
+        <div class="wp-match">
+            <div class="wp-match-line">
+                <span class="wp-match-label">${first.label}</span>
+                ${highlight(excerpt(first.text, terms, 140), regex)}
+            </div>
+            ${more}
+        </div>
+    `;
+}
+
 function cardHtml({ item, exact, score }, terms, fields, regex) {
 
     const percentage = Math.max(0, Math.min(100, Math.round((1 - score) * 100)));
@@ -864,88 +1044,77 @@ function cardHtml({ item, exact, score }, terms, fields, regex) {
     else if (percentage >= 75) scoreColor = "#0073ea";
     else if (percentage >= 60) scoreColor = "#f59e0b";
 
-    const labels = exact ? matchedFieldLabels(item, fields, terms) : [];
-    const matchLocation = labels.length ? labels.join(" · ") : "SIMILAR MATCH";
+    const names = exact ? matchedFieldLabels(item, fields, terms, "short") : [];
+    const matchedIn = names.length ? `Matched in ${names.join(" · ")}` : "Similar match";
 
-    const textSection = (label, text, truncate) => text ? `
-        <div class="section-label">${label}</div>
-        <div style="white-space: pre-line">${highlight(truncate ? excerpt(text, terms) : text, regex)}</div>
-    ` : "";
+    const descriptionHead = headText(item.description);
 
-    let subitemsHtml = "";
+    const description = descriptionHead
+        ? `<div class="wp-description">${highlight(descriptionHead, regex)}</div>`
+        : "";
 
-    if (fields.includes("subitems")) {
+    const tags =
+        tagGroupHtml("diseaseArea", item.diseaseArea, "", fields, terms) +
+        tagGroupHtml("product", item.product, "💊", fields, terms) +
+        subitemTagHtml(item, terms, fields);
 
-        const matching = item.subitems.filter(subitem => {
-            const lower = subitem.toLowerCase();
-            return terms.some(term => textHasTerm(lower, term));
-        });
-
-        const shown = matching.slice(0, MAX_SUBITEMS_SHOWN);
-
-        subitemsHtml = shown
-            .map(subitem => `<div class="subitem-name">⭐ ${highlight(subitem, regex)}</div>`)
-            .join("");
-
-        if (matching.length > shown.length) {
-            subitemsHtml += `<div class="subitem-name">… and ${matching.length - shown.length} more</div>`;
-        }
-    }
-
-    const keywords = terms
-        .map(term => `<span class="keyword">${escapeHtml(termKey(term))}</span>`)
-        .join("");
-
-    const url = isSafeUrl(item.url) ? item.url : "";
+    const detailsLink = isSafeUrl(item.url)
+        ? `<a class="wp-details" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Details <span aria-hidden="true">›</span></a>`
+        : `<span class="wp-details wp-details--off">Details</span>`;
 
     return `
-        <div class="result-card" data-url="${escapeHtml(url)}" tabindex="0" role="link">
+        <article class="wp-card">
 
-            <div class="result-header">
-                <div class="match-score" style="color:${scoreColor}">
-                    ${percentage}% Match
-                </div>
-                <div class="match-type">${escapeHtml(matchLocation)}</div>
+            <div class="wp-card-body">
+
+                <span class="wp-status ${regionClass(item._region)}"
+                      title="${escapeHtml(item._region + " - " + item.boardName)}">
+                    <span class="wp-status-region">${escapeHtml(item._region)}</span>
+                    <span class="wp-status-sep">-</span>
+                    <span class="wp-status-board">${escapeHtml(boardTag(item.boardName))}</span>
+                </span>
+
+                <div class="wp-title">${highlight(item.itemName, regex)}</div>
+
+                ${description}
+
+                ${tags ? `<div class="wp-tags">${tags}</div>` : ""}
+
+                ${matchBoxHtml(item, terms, fields, regex, descriptionHead)}
+
             </div>
 
-            <div class="section-label">Board</div>
-            <div class="board-name">${escapeHtml(item.boardName)}</div>
+            <div class="wp-card-footer">
 
-            <div class="section-label">Work Package</div>
-            <div class="work-package">${highlight(item.itemName, regex)}</div>
+                <div class="wp-owner">
+                    <span class="wp-avatar" style="background:${scoreColor}">${percentage}%</span>
+                    <span class="wp-owner-name" title="${escapeHtml(matchedIn)}">${escapeHtml(matchedIn)}</span>
+                </div>
 
-            <div class="section-label">Keywords</div>
-            <div class="keywords">${keywords}</div>
+                ${detailsLink}
 
-            ${textSection("Description / Deliverables", item.description, true)}
-            ${textSection("Learnings", item.learnings, true)}
-            ${textSection("Realized HWWK?", item.realizedHWWK, true)}
-            ${textSection("Disease Area", item.diseaseArea, false)}
-            ${textSection("Product", item.product, false)}
+            </div>
 
-            ${subitemsHtml ? `
-            <div class="section-label">Matching Subitems</div>
-            <div>${subitemsHtml}</div>
-            ` : ""}
-
-        </div>
+        </article>
     `;
 }
 
 /* ---------- Events ---------- */
 
-function openCard(card) {
-
-    const url = card && card.dataset.url;
-
-    if (isSafeUrl(url)) {
-        window.open(url, "_blank", "noopener");
-    }
-}
-
 function handleResultsClick(event) {
 
     const target = event.target;
+
+    const tagButton = target.closest("[data-tag-type]");
+    if (tagButton) {
+        filterTag(tagButton.dataset.tagType, tagButton.dataset.tagValue);
+        return;
+    }
+
+    if (target.closest("[data-clear-tag]")) {
+        clearTagFilter();
+        return;
+    }
 
     const pageButton = target.closest("[data-page]");
     if (pageButton) {
@@ -969,14 +1138,6 @@ function handleResultsClick(event) {
         return;
     }
 
-    openCard(target.closest(".result-card"));
-}
-
-function handleResultsKeydown(event) {
-
-    if (event.key === "Enter" && event.target.classList.contains("result-card")) {
-        openCard(event.target);
-    }
 }
 
 document.addEventListener("change", event => {
@@ -1045,6 +1206,26 @@ function clearBoardFilter() {
     runSearch();
 }
 
+// clicking the same tag again removes the filter
+function filterTag(type, value) {
+
+    const same =
+        activeTagFilter &&
+        activeTagFilter.type === type &&
+        activeTagFilter.value === value;
+
+    currentPage = 1;
+    activeTagFilter = same ? null : { type, value };
+    runSearch();
+}
+
+function clearTagFilter() {
+
+    currentPage = 1;
+    activeTagFilter = null;
+    runSearch();
+}
+
 function clearSearch() {
 
     $("searchInput").value = "";
@@ -1053,6 +1234,7 @@ function clearSearch() {
 
     currentPage = 1;
     activeBoardFilter = null;
+    activeTagFilter = null;
     currentSearchResults = [];
     searchCache = { key: null };
 
