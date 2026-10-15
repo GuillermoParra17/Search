@@ -18,6 +18,8 @@ const MAX_HIT_TAGS_SHOWN = 4;
 const FUZZY_THRESHOLD = 0.3;
 const FALLBACK_SCORE = 0.25;     // score used for exact matches Fuse did not return
 
+const STALE_AFTER_HOURS = 36;     // show a warning when the data is older than this
+
 const OTHER_REGION = "Other";
 const OTHER_BOARDS = "Other Affiliate(s)";
 
@@ -527,6 +529,14 @@ function updateStats(data) {
 
     const failed = Array.isArray(data.failedBoards) ? data.failedBoards : [];
 
+    // warn when the daily refresh seems to have stopped
+    const ageHours = (Date.now() - generated.getTime()) / 36e5;
+    const stale = Number.isFinite(ageHours) && ageHours > STALE_AFTER_HOURS;
+
+    const ageText = ageHours < 48
+        ? `${Math.round(ageHours)} hours`
+        : `${Math.floor(ageHours / 24)} days`;
+
     $("stats").innerHTML = `
         <strong>${escapeHtml(data.boards)}</strong> Boards Indexed |
         <strong>${allData.length.toLocaleString()}</strong> Work Packages Indexed
@@ -536,6 +546,10 @@ function updateStats(data) {
         <small>
             Search results are refreshed daily from WBO Tech Suite.
         </small>
+        ${stale ? `
+        <br>
+        <small style="color:#b45309;font-weight:600">⚠️ This data is ${ageText} old - the daily refresh may not have run. Newer changes in Monday are not shown yet.</small>
+        ` : ""}
         ${failed.length ? `
         <br>
         <small>⚠️ ${failed.length} board(s) could not be refreshed in the last run; older data is shown for them.</small>
