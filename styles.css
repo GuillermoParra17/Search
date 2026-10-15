@@ -377,3 +377,242 @@ mark {
     color: #323338;
     cursor: pointer;
 }
+
+/* ---------- Result cards (grid) ---------- */
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.wp-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #eceef2;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.10);
+    overflow: hidden;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.wp-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+.wp-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 16px 12px;
+}
+
+/* region + board bubble, e.g.  APAC - [Singapore] */
+.wp-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    align-self: flex-start;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #eef0f3;
+    color: #676879;
+}
+
+.wp-status-region {
+    flex: none;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.wp-status-sep {
+    flex: none;
+    opacity: .6;
+}
+
+.wp-status-board {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wp-region--africa  { background: #fff1de; color: #b45309; }
+.wp-region--apac    { background: #dff5f1; color: #0f766e; }
+.wp-region--ceetris { background: #f3e8ff; color: #7e22ce; }
+.wp-region--europe  { background: #e8eaf6; color: #3949ab; }
+.wp-region--latam   { background: #e4f5e4; color: #15803d; }
+.wp-region--i8      { background: #fde8f1; color: #be185d; }
+.wp-region--clt     { background: #eceff3; color: #475569; }
+.wp-region--ips     { background: #e0f2fe; color: #0369a1; }
+.wp-region--archive,
+.wp-region--other   { background: #eef0f3; color: #676879; }
+
+.wp-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #1f2937;
+    overflow-wrap: anywhere;
+}
+
+/* only the beginning of the description */
+.wp-description {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #676879;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Disease Area / Product / subitem boxes: grey, and BLUE when the search matches them */
+.wp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.wp-tag {
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 4px 10px;
+    border: 1px solid #e1e4ea;
+    border-radius: 6px;
+    background: #eef0f3;
+    color: #4b4e69;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button.wp-tag {
+    cursor: pointer;
+    transition: background .15s ease;
+}
+
+button.wp-tag:hover {
+    background: #dde1e8;
+}
+
+.wp-tag--count {
+    background: white;
+    border-color: #d0d4e4;
+    color: #676879;
+}
+
+.wp-tag--more {
+    background: #f7f8fa;
+    color: #676879;
+}
+
+.wp-tag--hit,
+button.wp-tag--hit:hover {
+    background: #0073ea;
+    border-color: #0073ea;
+    color: white;
+}
+
+button.wp-tag--hit:hover {
+    background: #005bb5;
+}
+
+.wp-tag--active {
+    outline: 2px solid #0073ea;
+    outline-offset: 1px;
+}
+
+/* where else the search matched (first match only) */
+.wp-match {
+    background: #f7f8fa;
+    border-left: 3px solid #0073ea;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #323338;
+}
+
+.wp-match-label {
+    font-weight: 700;
+    color: #0073ea;
+    margin-right: 4px;
+}
+
+.wp-match-more {
+    margin-top: 4px;
+    color: #676879;
+    font-style: italic;
+}
+
+.wp-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-top: 1px solid #eceef2;
+}
+
+.wp-owner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.wp-avatar {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 30px;
+    padding: 0 3px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.wp-owner-name {
+    font-size: 12px;
+    color: #323338;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wp-details {
+    flex: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: #676879;
+    text-decoration: none;
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+a.wp-details:hover,
+a.wp-details:focus-visible {
+    color: white;
+    background: #0073ea;
+}
+
+.wp-details--off {
+    opacity: .4;
+}
