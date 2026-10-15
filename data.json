@@ -1,10 +1,8 @@
 {
-  "generatedAt": "2026-10-15T12:20:59.319Z",
-  "boards": 90,
+  "generatedAt": "2026-10-15T12:52:02.699Z",
+  "boards": 91,
   "boardsConfigured": 91,
-  "failedBoards": [
-    "1762431187"
-  ],
+  "failedBoards": [],
   "items": [
     {
       "boardId": "5095413574",
@@ -116835,6 +116833,45 @@
     {
       "boardId": "1843040726",
       "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287252393",
+      "itemName": "WP_DA_MS:WP_2027_03_[Competitive advantage through market intelligence]",
+      "subitems": [],
+      "description": "Wir generieren kontinuierlich Insights zu Marktdynamiken und Kundenwahrnehmung, um unseren Erfolg am Markt zu überprüfen, die 1st Line Positionierung von OCREVUS zu schärfen und Strategie / Taktiken bei Bedarf anzupassen. Durch gezieltes Wettbewerbs-Monitoring erkennen wir Markt- risiken frühzeitig, antizipieren Aktivitäten der Mitbewerber und können diese proaktiv adressieren.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287252393"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287284690",
+      "itemName": "WP_DA_MS:WP_2027_04_[Patient Activation]",
+      "subitems": [],
+      "description": "Wir informieren und befähigen neudiagnostizierte MS-Patient:innen, den Mehrwert einer hocheffektiven Therapie direkt nach Diagnose mit nur zwei Applikationen pro Jahr zu erkennen und gemeinsam mit ihrem Behandlungsteam sich aktiv für die passende Erstlinientherapie zu entscheiden.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287284690"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287276603",
+      "itemName": "WP_DA_MS:WP_2027_05_[Nurse Empowerment]",
+      "subitems": [],
+      "description": "Wir informieren Nurses über die Vorteile einer frühzeitigen, hocheffektiven Therapie, befähigen sie zum Einsatz von OCREVUS und aktivieren sie dazu, die gemeinsame Entscheidungsfindung mit Arzt und Patient zu unterstützen.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287276603"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
       "itemId": "1843960358",
       "itemName": "WP_DA_Neuromusc SMA 1 Small molecule Story",
       "subitems": [
@@ -142009,6 +142046,19 @@
       "diseaseArea": "Heme Malig",
       "product": "",
       "url": "https://globalroche.monday.com/boards/2000458200/pulses/3287120520"
+    },
+    {
+      "boardId": "2000458200",
+      "boardName": "[Europe Area]Work Package Overview",
+      "itemId": "3287205850",
+      "itemName": "EU N/S Heme Malig Preceptorship 2",
+      "subitems": [],
+      "description": "Expert-led preceptorship to boost physician confidence and intent to treat, through hands-on learning and live discussion",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "Heme Malig",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2000458200/pulses/3287205850"
     },
     {
       "boardId": "2000458200",
