@@ -286,6 +286,47 @@ function parseQuery(query) {
     });
 }
 
+// "eylea, aflibercept" -> two groups, a work package matches if it matches EITHER group.
+// Inside a group the usual rules apply (all words must appear, "quotes" = exact phrase).
+// Commas inside "quotes" do not split.
+function splitQueryGroups(query) {
+
+    const groups = [];
+    let current = "";
+    let inQuotes = false;
+
+    for (const char of query) {
+
+        if (char === '"' || char === "“" || char === "”") inQuotes = !inQuotes;
+
+        if ((char === "," || char === ";") && !inQuotes) {
+            groups.push(current);
+            current = "";
+        } else {
+            current += char;
+        }
+    }
+
+    groups.push(current);
+
+    return groups;
+}
+
+function parseQueryGroups(query) {
+
+    const seen = new Set();
+
+    return splitQueryGroups(query)
+        .map(parseQuery)
+        .filter(group => group.length)
+        .filter(group => {
+            const key = group.map(termKey).join(" ");
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+}
+
 function termKey(term) {
     return term.phrase ? `"${term.text}"` : term.text;
 }
@@ -614,9 +655,9 @@ function runSearch() {
         return;
     }
 
-    const terms = parseQuery(query);
+    const groups = parseQueryGroups(query);
 
-    if (!terms.length) {
+    if (!groups.length) {
         showMessage(`Please enter at least ${MIN_WORD_LENGTH} characters.`);
         return;
     }
@@ -632,12 +673,25 @@ function runSearch() {
     const similarBox = $("showSimilarMatches");
     const similar = Boolean(similarBox && similarBox.checked);
 
-    // plain words (phrases split up) used for fuzzy ranking and similar matches
-    const words = parseWords(terms.map(term => term.text).join(" "));
+    // every distinct term of every group (used for highlighting and the match box)
+    const terms = [];
+    const seenTerms = new Set();
+
+    groups.flat().forEach(term => {
+        if (!seenTerms.has(termKey(term))) {
+            seenTerms.add(termKey(term));
+            terms.push(term);
+        }
+    });
+
+    // plain words per group (phrases split up) used for fuzzy ranking and similar matches
+    const wordGroups = groups.map(group =>
+        parseWords(group.map(term => term.text).join(" "))
+    );
 
     // The heavy work is cached so paging / sorting / board pills re-render instantly.
     const key = [
-        terms.map(termKey).join(" "),
+        groups.map(group => group.map(termKey).join(" ")).join(" , "),
         fields.join(","),
         [...regions].sort().join(","),
         similar
@@ -647,23 +701,26 @@ function runSearch() {
         searchCache = {
             key,
             terms,
+            groups,
             fields,
-            results: computeResults(terms, words, fields, regions, similar)
+            results: computeResults(groups, wordGroups, fields, regions, similar)
         };
     }
 
     renderPage();
 }
 
-function computeResults(terms, words, fields, regions, similar) {
+function computeResults(groups, wordGroups, fields, regions, similar) {
 
     // Scores always come from ALL fields, so the ranking (and the % shown)
     // does not change when a "Search In" box is ticked or unticked -
     // results only appear or disappear, they never jump to another page.
-    const scores = fuzzyScores(words, ALL_FIELD_KEYS);
+    const scoreMaps = wordGroups.map(words => fuzzyScores(words, ALL_FIELD_KEYS));
 
     // Only needed for similar matches: which items fuzzy-match in a ticked field
-    const similarHits = similar ? fuzzyHitIds(words, fields) : null;
+    const similarHits = similar
+        ? fuzzyHitIds([...new Set(wordGroups.flat())], fields)
+        : null;
 
     const results = [];
 
@@ -671,28 +728,50 @@ function computeResults(terms, words, fields, regions, similar) {
 
         if (!regions.has(item._region)) continue;
 
-        // A work package qualifies when every term appears somewhere in the item
-        // (any field), and it is shown as long as at least one of the fields
-        // ticked in "Search In" contains one of the terms.
-        const exact =
-            itemMatchesAll(item, ALL_FIELD_KEYS, terms) &&
-            fields.some(field =>
-                terms.some(term => textHasTerm(item._lc[field], term))
-            );
+        // A group matches when every term of the group appears somewhere in the item
+        // (any field), and at least one ticked "Search In" field contains one of its terms.
+        // A work package qualifies when ANY group matches.
+        const matchedGroups = [];
 
-        const scored = scores.has(item.itemId);
+        groups.forEach((group, index) => {
+
+            const matches =
+                itemMatchesAll(item, ALL_FIELD_KEYS, group) &&
+                fields.some(field =>
+                    group.some(term => textHasTerm(item._lc[field], term))
+                );
+
+            if (matches) matchedGroups.push(index);
+        });
+
+        const exact = matchedGroups.length > 0;
+
+        // best fuzzy score over the groups
+        let best = null;
+
+        scoreMaps.forEach(scores => {
+            if (scores.has(item.itemId)) {
+                const score = scores.get(item.itemId);
+                if (best === null || score < best) best = score;
+            }
+        });
+
+        const scored = best !== null;
 
         if (!exact && !(similar && scored && similarHits.has(item.itemId))) continue;
 
         results.push({
             item,
             exact,
-            score: scored ? scores.get(item.itemId) : FALLBACK_SCORE
+            groups: matchedGroups,
+            score: scored ? best : FALLBACK_SCORE
         });
     }
 
+    // exact matches first; among them, items matching more keyword groups first
     results.sort((a, b) =>
         (b.exact - a.exact) ||
+        (b.groups.length - a.groups.length) ||
         (a.score - b.score) ||
         a.item.itemName.localeCompare(b.item.itemName)
     );
@@ -723,7 +802,7 @@ function sortResults(results) {
 
 function renderPage() {
 
-    const { terms, fields } = searchCache;
+    const { terms, groups, fields } = searchCache;
 
     // the tag filter (click a Disease Area / Product tag) applies before the board pills are counted
     const results = activeTagFilter
@@ -765,6 +844,22 @@ function renderPage() {
 
     const boardCount = new Set(visible.map(r => r.item.boardName)).size;
 
+    // with several keywords (comma separated): how many results each one has
+    let breakdown = "";
+
+    if (groups.length > 1) {
+
+        const parts = groups.map((group, index) =>
+            `<strong>${escapeHtml(group.map(termKey).join(" "))}</strong> ${
+                visible.filter(r => r.groups.includes(index)).length.toLocaleString()}`
+        );
+
+        const several = visible.filter(r => r.groups.length > 1).length;
+
+        breakdown = `<div class="page-range">By keyword: ${parts.join(" · ")}` +
+            `${several ? ` · ${several.toLocaleString()} match more than one` : ""}</div>`;
+    }
+
     $("resultCount").innerHTML = `
         ${visible.length.toLocaleString()} matching work package(s) found across ${boardCount} affiliate(s)
         <div class="page-range">
@@ -772,6 +867,7 @@ function renderPage() {
                 ? `Showing ${(startIndex + 1).toLocaleString()}-${(startIndex + pageResults.length).toLocaleString()} of ${visible.length.toLocaleString()}`
                 : ""}
         </div>
+        ${breakdown}
     `;
 
     const regex = buildHighlightRegex(terms);
