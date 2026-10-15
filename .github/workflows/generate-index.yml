@@ -4,7 +4,13 @@ on:
   workflow_dispatch:
 
   schedule:
+    # every day at 03:00 UTC
     - cron: "0 3 * * *"
+
+# never run two index builds at the same time
+concurrency:
+  group: generate-index
+  cancel-in-progress: false
 
 jobs:
 
@@ -14,6 +20,7 @@ jobs:
       contents: write
 
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
 
@@ -30,10 +37,20 @@ jobs:
           MONDAY_API_TOKEN: ${{ secrets.MONDAY_API_TOKEN }}
         run: |
           node generate-index.js
+
+      - name: Report boards that could not be refreshed
+        run: |
+          node -e "const f=require('./data.json').failedBoards||[]; if(f.length) console.log('::warning title=Boards not refreshed::'+f.join(', '))"
+
       - name: Commit data.json
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data.json
-          git diff --staged --quiet || git commit -m "Update search index"
+          if git diff --staged --quiet; then
+            echo "data.json did not change - nothing to commit"
+            exit 0
+          fi
+          git commit -m "Update search index"
+          git pull --rebase origin main
           git push origin HEAD:main
