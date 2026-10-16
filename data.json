@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T12:52:02.699Z",
+  "generatedAt": "2026-10-16T06:05:33.383Z",
   "boards": 91,
   "boardsConfigured": 91,
   "failedBoards": [],
@@ -63,8 +63,8 @@
         "In-field coaching"
       ],
       "description": "The Capability Blueprint offers a highly practical learning experience that builds core capabilities through real-life scenarios and peer collaboration, ensuring skills are embedded into daily work.",
-      "learnings": "",
-      "realizedHWWK": "",
+      "learnings": "Participants gained a deeper understanding of consultative persuasion and persuasive storytelling through practical case studies and structured models like SCARF and CARC. You appreciated the interactivity and the opportunity to bridge theory with practice during the workshop. To master these skills moving forward, there's need for regular refreshers, mentorship, and continuous infield practice.",
+      "realizedHWWK": "10% increase in pre- and post- workshop quiz scores, overall learning experience highly rated, workshop rated as highly relevant to participants' roles, following the training participants rated being either confident and very confident in the key CP skills (leading with empathy, deep listening, powerful questioning and story telling)",
       "diseaseArea": "Breast",
       "product": "Phesgo | Herceptin | Kadcyla",
       "url": "https://globalroche.monday.com/boards/5095413574/pulses/2992392141"
@@ -5134,16 +5134,7 @@
       "boardName": "[FP Squad] Work Package Overview",
       "itemId": "2929110808",
       "itemName": "[Archive 2026 C2]  WP 4. New FPS Markets Partner Capability Building",
-      "subitems": [
-        "EG Retrospective",
-        "New Scope Alignment",
-        "Communicate the what good look like and KPI with marketing GIGs",
-        "[C2] assessment checklist",
-        "[C2] Marketing GIG Evaluation",
-        "[C3] pre-lim discussion on MKT GIG permanent role or hiring new MKT",
-        "[C3] Final Marketing GIG",
-        "[C3] Final evaluation form and learning summaries"
-      ],
+      "subitems": [],
       "description": "",
       "learnings": "",
       "realizedHWWK": "",
@@ -6189,7 +6180,15 @@
         "2027 Strategic Plan (Present) Actemra",
         "2027 Strategic Plan (Present) Heme",
         "Summarize Key Learning & Recommendation on future partner Cap building / PI Leadership Discussion",
-        "Final FPS Evaluation & WP Closure"
+        "Final FPS Evaluation & WP Closure",
+        "EG Retrospective",
+        "New Scope Alignment",
+        "Communicate the what good look like and KPI with marketing GIGs",
+        "[C2] assessment checklist",
+        "[C2] Marketing GIG Evaluation",
+        "[C3] pre-lim discussion on MKT GIG permanent role or hiring new MKT",
+        "[C3] Final Marketing GIG",
+        "[C3] Final evaluation form and learning summaries"
       ],
       "description": "",
       "learnings": "",
@@ -6197,6 +6196,19 @@
       "diseaseArea": "",
       "product": "",
       "url": "https://globalroche.monday.com/boards/2034429891/pulses/3230567663"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3288440132",
+      "itemName": "[Archive 2026 C2]  WP 6. Finalise top 3 R&O assessment and complete actions",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3288440132"
     },
     {
       "boardId": "2034429891",
@@ -22489,7 +22501,13 @@
       "boardName": "[Taiwan] Work Package Overview",
       "itemId": "3279518049",
       "itemName": "FW_Access 2027",
-      "subitems": [],
+      "subitems": [
+        "Outcome Based Agreement - GPP guideline and pricing",
+        "Outcome Based Agreement - Clinical Outcomes",
+        "Outcome Based Agreement - Financial Outcomes",
+        "Pre-DBC - Slide deck",
+        "Pre-DBC - DMD Reviewers engagement"
+      ],
       "description": "How we accelerate and realize our dream case for DMD",
       "learnings": "",
       "realizedHWWK": "",
@@ -26088,7 +26106,7 @@
         "Tecentriq - Monthly contents update",
         "Video contents from APAC LC/GI Cancer Forum",
         "Lung cancer awareness month in November (12 Nov)",
-        "Event-Siriraj Lung Cancer Academic Day 2026"
+        "Event-Siriraj Lung Cancer Academic Day 2026 11-December"
       ],
       "description": "",
       "learnings": "",
@@ -28427,7 +28445,7 @@
         "GP- Surgeon department",
         "MDT BC-UBHN-cycle 3'2026",
         "Grant: CLB Benh Nhan UBHCM",
-        "GP Oncology dept Viet Tiep",
+        "GP BC TTUB Viet Tiep",
         "GP serial UBNA - K (consultant): Role PH in neo adj Her2+BC treatment",
         "GP UBNA - Pharmacy: Value of PH SC in BC treatment",
         "GP Vinmec Central Park",
@@ -44860,7 +44878,8 @@
         "Launch Event Mini (Hematoloji Eğt ve Araş. Congres)",
         "Market Research",
         "Columvi Launch Technical Readiness",
-        "Mythbuster localization"
+        "Mythbuster localization",
+        "Congress segmentation & budgeting"
       ],
       "description": "",
       "learnings": "",
@@ -98904,8 +98923,8 @@
         "C3-Acesso: Reunião CMED pedido de reconsideração",
         "C2-Acesso: Pedido de reconsideração do preço CMED",
         "C2 - Acesso: Reunião pós submissão com a CMED",
-        "C3-Acesso: Estratégia extra-rol",
         "C3-Acesso: Parecer CMED pedido de reconsideração do preço CMED",
+        "C3-Acesso: Estratégia extra-rol",
         "C3-Comercial: Publicação da Politica Comercial",
         "C3-Comercial: Aprovação NET Price pela Global"
       ],
@@ -100217,71 +100236,6 @@
       "diseaseArea": "Alzheimers",
       "product": "AR degrader (2992)",
       "url": "https://globalroche.monday.com/boards/1880922043/pulses/3286602102"
-    },
-    {
-      "boardId": "1880922043",
-      "boardName": "[Brazil] Work Package Overview",
-      "itemId": "3286630005",
-      "itemName": "Test",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Alzheimers",
-      "product": "AR degrader (2992)",
-      "url": "https://globalroche.monday.com/boards/1880922043/pulses/3286630005"
-    },
-    {
-      "boardId": "1880922043",
-      "boardName": "[Brazil] Work Package Overview",
-      "itemId": "3286647716",
-      "itemName": "Test",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Alzheimers",
-      "product": "AR degrader (2992)",
-      "url": "https://globalroche.monday.com/boards/1880922043/pulses/3286647716"
-    },
-    {
-      "boardId": "1880922043",
-      "boardName": "[Brazil] Work Package Overview",
-      "itemId": "3286685754",
-      "itemName": "Test",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Alzheimers",
-      "product": "AR degrader (2992)",
-      "url": "https://globalroche.monday.com/boards/1880922043/pulses/3286685754"
-    },
-    {
-      "boardId": "1880922043",
-      "boardName": "[Brazil] Work Package Overview",
-      "itemId": "3286743598",
-      "itemName": "Test",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Alzheimers",
-      "product": "",
-      "url": "https://globalroche.monday.com/boards/1880922043/pulses/3286743598"
-    },
-    {
-      "boardId": "1880922043",
-      "boardName": "[Brazil] Work Package Overview",
-      "itemId": "3286758551",
-      "itemName": "Test",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Alzheimers",
-      "product": "AR degrader (2992)",
-      "url": "https://globalroche.monday.com/boards/1880922043/pulses/3286758551"
     },
     {
       "boardId": "1880922043",
@@ -116872,6 +116826,97 @@
     {
       "boardId": "1843040726",
       "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287309164",
+      "itemName": "WP_DA_MS:WP_2027_06_[SC Information & Process Simplification]",
+      "subitems": [],
+      "description": "Wir vermitteln Neurolog:innen transparent den Mehrwert einer zweimal jährlichen s.c. Gabe, mit Fokus auf Einfachheit, Zeitersparnis und die Optimierung von Arbeitsabläufen. Durch sachbezogene Schulungen der MS Nurses sowie das gemeinsame Identifizieren und Lösen von praxisspezifischen Hürden befähigen wir Behandlungsteams zur sicheren Integration von OCREVUS s.c. in den Alltag. Den Patient:innen stellen wir dabei unterstützende neutrale Informationsmaterialien zur Seite.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287309164"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287349794",
+      "itemName": "WP_DA_MS:WP_2027_07_[OBI launch preparation]",
+      "subitems": [],
+      "description": "Wir schaffen die Voraussetzungen für einen erfolgreichen OBI Launch in Q1.2028. Dafür entwickeln wir ein klares Zielbild für die zukünftige OBI-Nutzung, identifizieren und adressieren relevante Bedürfnisse und Hürden auf Basis wissenschaftlicher Evidenz sowie emotionaler Argumente und bereiten Teams, Prozesse und Maßnahmen so vor, dass wir zum Launch in Q1.2028 schnell und konsistent in die Umsetzung gehen können.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287349794"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287380968",
+      "itemName": "WP_DA_MS:WP_2027_08_[Financial security at the moment of truth]",
+      "subitems": [],
+      "description": "Wir bauen wirtschaftlich bedingte Verunsicherung in der Verordnungsentscheidung ab, verbessern die Vergütungsbedingungen für die Gabe von OCREVUS s.c. und unterstützen die Wirtschaftlichkeit von OCREVUS im Krankenhaus durch gezielte IVKs.\nMit der Neuverhandlung des Erstattungsbetrags sichern wir eine nachhaltige Erstattungsbasis für OCREVUS. Für POMS schaffen wir über Nutzenbewertung und Preisverhandlung die Voraussetzungen für einen nachhaltigen Zugang.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287380968"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287392245",
+      "itemName": "WP_DA_MS:WP_2027_09_[Targeted omnichannel communication & maximum presence]",
+      "subitems": [],
+      "description": "Aus Daten leiten wir präzise Kundensegmentierungen und personalisierte Customer-Engagement-Pläne ab. Darauf basierend orchestrieren wir eine nahtlose Omnichannel-Kommunikation: Mit der passenden Botschaft, über den relevanten Touchpoint und mit hoher Frequenz. So schaffen wir eine qualitativ und quantitativ starke Präsenz und übersetzen zielgerichtetes Customer Engagement direkt in eine tiefe Überzeugung für und die gezielte Verordnung von OCREVUS.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287392245"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287396343",
+      "itemName": "WP_DA_MS:WP_2027_10_[Compete to Win Selling Skills & CFF Effectiveness]",
+      "subitems": [],
+      "description": "Wir maximieren unseren Impact beim Kunden und bewirken Denk-und Verhaltensänderungen: \nDazu entwickeln wir die Fähigkeit unseres Customer-Facing Teams kontinuierlich weiter, die Bedürfnisse unserer Kunden treffsicher zu analysieren, überzeugende fachliche sowie emotionale Argumente zum richtigen Zeitpunkt zu platzieren und die Kund:innen aktiv ins Handeln zu bringen. So wandeln wir mögliche Bedenken oder passive Zustimmung in proaktive Verordnungen für OCREVUS (1st Line und s.c.) um. Unsere Kundeninteraktionen sind optimal geplant und umgesetzt. Die Dialog Coverage halten wir kontinuierlich hoch und steigern sie im Vergleich zum Vorjahr.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287396343"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287421001",
+      "itemName": "WP_DA_MS:WP_2027_11_[TAE Advocacy]",
+      "subitems": [],
+      "description": "Wir stärken die partnerschaftliche Zusammenarbeit mit TAEs, um den 1L-Einsatz von OCREVUS sowie die s.c.-Adoption gemeinsam aktiv voranzutreiben. Indem wir außerdem frühzeitig Innovationen wie den OBI, Fenebrutinib und unsere breite Pipeline in ein gemeinsames Zukunftsbild der MS-Versorgung integrieren, entwickeln wir unsere TAEs zu starken Advokaten, die Roches aktuelles und zukünftiges Portfolio proaktiv und eigenständig auf Kongressen und Fortbildungen überzeugend vertreten.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287421001"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
+      "itemId": "3287414749",
+      "itemName": "WP_DA_MS:WP_2027_12_[High-Impact Events]",
+      "subitems": [],
+      "description": "Wir schaffen neue, inspirierende Erlebnisse auf Kongressen und Events, die die Differenzierung von Roche und OCREVUS gegenüber dem Wettbewerb nachhaltig verankern, den Dialog mit unseren Neurolog:innen, Nurses und Patient:innen stärken und unsere Innovationskraft demonstrieren. So vertiefen wir die Partnerschaft mit Roche und stärken den Einsatz von OCREVUS (1L und s.c.) nachhaltig.",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "MS/ Neuroimmunology",
+      "product": "Ocrevus",
+      "url": "https://globalroche.monday.com/boards/1843040726/pulses/3287414749"
+    },
+    {
+      "boardId": "1843040726",
+      "boardName": "[Germany] Work Package Overview",
       "itemId": "1843960358",
       "itemName": "WP_DA_Neuromusc SMA 1 Small molecule Story",
       "subitems": [
@@ -129551,6 +129596,19 @@
       "diseaseArea": "MS/ Neuroimmunology",
       "product": "Ocrevus SC | Ocrevus",
       "url": "https://globalroche.monday.com/boards/1880773874/pulses/3026992505"
+    },
+    {
+      "boardId": "1880773874",
+      "boardName": "[UK] Work Package Overview",
+      "itemId": "3287893444",
+      "itemName": "Test",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "Alzheimers",
+      "product": "AR degrader (2992)",
+      "url": "https://globalroche.monday.com/boards/1880773874/pulses/3287893444"
     },
     {
       "boardId": "1880773874",
