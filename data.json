@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T06:05:33.383Z",
+  "generatedAt": "2026-10-17T05:49:49.516Z",
   "boards": 91,
   "boardsConfigured": 91,
   "failedBoards": [],
@@ -96,8 +96,8 @@
       "itemName": "Regional HR+ pre-launch activities",
       "subitems": [
         "Inavo120 advisory boards",
-        "HCP Preceptorships",
-        "Inavolisib Speaker Training Day",
+        "Itovebi Preceptorship",
+        "Best of St. Gallen Africa and GRIE Preceptorship in Egypt",
         "Regional HR+ BC genetic mutations NIS"
       ],
       "description": "Invao120 advisory boards in countries with sustainable path to value and HCP Preceptorships. Value: Physicians choose & are confident in managing the Itovebi-based regimen, including hyperglycemia Test: All patients with 1L HR+ endocrine resistant mBC undergo timely & quality PIK3CAmt testing, Access: Achieve access / reimbursement at a price that is in line with inavolisib's value and sustainable in light of future line extensions",
@@ -132,7 +132,7 @@
         "New Subitem"
       ],
       "description": "18 healthcare professionals (surgeons, oncologists, and pathologists) from Ivory Coast to one of Algeria's major potential centers. Event to be under the Ministry of Health's partnership for maximum impact",
-      "learnings": "",
+      "learnings": "Extended collaboration and best practice exchange optimized the patient journey.\nThe Ministry of Health requested program expansion to other countries.\nNational breast cancer guidelines acceleration improved standardization.\nIncreased early-stage Kadcyla consumption drove significant clinical and financial impact.\nHealthcare professionals demonstrated strong interest in long-term clinical immersion.",
       "realizedHWWK": "",
       "diseaseArea": "Breast",
       "product": "Kadcyla",
@@ -5744,26 +5744,6 @@
     {
       "boardId": "2034429891",
       "boardName": "[FP Squad] Work Package Overview",
-      "itemId": "3176704247",
-      "itemName": "FET 5. Product Transition",
-      "subitems": [
-        "Product Transition_Tunisia & Libya",
-        "Product Transition_Algeria",
-        "Product Transition_Middle East",
-        "Product Transition_Alecensa",
-        "Product Transition_Breast",
-        "Product Transition_Lung"
-      ],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "",
-      "product": "",
-      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3176704247"
-    },
-    {
-      "boardId": "2034429891",
-      "boardName": "[FP Squad] Work Package Overview",
       "itemId": "3181197409",
       "itemName": "[BE&I] Nephrology",
       "subitems": [
@@ -5790,6 +5770,19 @@
     {
       "boardId": "2034429891",
       "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3288712122",
+      "itemName": "FET 1. Protect priorities & deliver business+",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3288712122"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
       "itemId": "3181187890",
       "itemName": "[BE&I]  Infectious",
       "subitems": [
@@ -5806,6 +5799,52 @@
       "diseaseArea": "",
       "product": "",
       "url": "https://globalroche.monday.com/boards/2034429891/pulses/3181187890"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3288696114",
+      "itemName": "FET 2. Mobilise market access support",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3288696114"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3288736907",
+      "itemName": "FET 3. APAC outsourcing strategy",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3288736907"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3176704247",
+      "itemName": "FET 4. Transition line-of-sight",
+      "subitems": [
+        "Product Transition_Tunisia & Libya",
+        "Product Transition_Algeria",
+        "Product Transition_Middle East",
+        "Product Transition_Alecensa",
+        "Product Transition_Breast",
+        "Product Transition_Lung"
+      ],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3176704247"
     },
     {
       "boardId": "2034429891",
@@ -5840,6 +5879,19 @@
     {
       "boardId": "2034429891",
       "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3288714344",
+      "itemName": "FET 5.Accelerate AI & unlock efficiency",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3288714344"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
       "itemId": "3181224424",
       "itemName": "[BE&I]  Oncology: TCQ LC & HCC",
       "subitems": [
@@ -5866,6 +5918,19 @@
       "diseaseArea": "",
       "product": "",
       "url": "https://globalroche.monday.com/boards/2034429891/pulses/3181195662"
+    },
+    {
+      "boardId": "2034429891",
+      "boardName": "[FP Squad] Work Package Overview",
+      "itemId": "3288726683",
+      "itemName": "FET 6.Ensure commercial delivery",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/2034429891/pulses/3288726683"
     },
     {
       "boardId": "2034429891",
@@ -29916,6 +29981,19 @@
     {
       "boardId": "5043249432",
       "boardName": "[Albania] Work Package Overview",
+      "itemId": "3289688756",
+      "itemName": "Test",
+      "subitems": [],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "Alzheimers",
+      "product": "AR degrader (2992)",
+      "url": "https://globalroche.monday.com/boards/5043249432/pulses/3289688756"
+    },
+    {
+      "boardId": "5043249432",
+      "boardName": "[Albania] Work Package Overview",
       "itemId": "2687786826",
       "itemName": "External Engagement & Omnichannel Education for Early Diagnosis and Awareness",
       "subitems": [
@@ -37090,32 +37168,6 @@
     {
       "boardId": "5043241195",
       "boardName": "[Serbia & Montenegro] Work Package Overview",
-      "itemId": "3208519048",
-      "itemName": "New work package",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "",
-      "product": "",
-      "url": "https://globalroche.monday.com/boards/5043241195/pulses/3208519048"
-    },
-    {
-      "boardId": "5043241195",
-      "boardName": "[Serbia & Montenegro] Work Package Overview",
-      "itemId": "3276188847",
-      "itemName": "New work package",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Breast",
-      "product": "",
-      "url": "https://globalroche.monday.com/boards/5043241195/pulses/3276188847"
-    },
-    {
-      "boardId": "5043241195",
-      "boardName": "[Serbia & Montenegro] Work Package Overview",
       "itemId": "2759774891",
       "itemName": "Warehouse Launch",
       "subitems": [
@@ -38852,7 +38904,6 @@
       "itemId": "3186924567",
       "itemName": "C3-2026 Authority Stakeholder Awareness",
       "subitems": [
-        "HIMMS",
         "SASDER",
         "TUSAP"
       ],
@@ -48842,6 +48893,29 @@
     {
       "boardId": "1773051053",
       "boardName": "[Türkiye] Work Package Overview",
+      "itemId": "3186931987",
+      "itemName": "HIMMS",
+      "subitems": [
+        "Himms sözleşme",
+        "HIMMS stand tasarım ve kreatif çalışma",
+        "Himms evde sağlık panel planlama",
+        "evde sağlık konuşmacı belirleme",
+        "Evde sağlık konuşmacı sözleşme",
+        "Evde sağlık sunum ve mesaj seti hazırlık",
+        "Himms RWE panel planlama",
+        "RWE sunum ve mesaj seti hazırlık",
+        "HIMMS evde sağlık kapalı oturum planlama"
+      ],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "Other",
+      "product": "",
+      "url": "https://globalroche.monday.com/boards/1773051053/pulses/3186931987"
+    },
+    {
+      "boardId": "1773051053",
+      "boardName": "[Türkiye] Work Package Overview",
       "itemId": "2878275213",
       "itemName": "WP2",
       "subitems": [],
@@ -51398,7 +51472,8 @@
       "itemName": "Account Mastery Focus Accounts",
       "subitems": [
         "Folder Account Pläne (TOP 5)",
-        "C2 Account Planning meetings"
+        "C2 Account Planning meetings",
+        "C3 Account Planning meetings"
       ],
       "description": "Enable SC switch and SC new starts with help of Sanvartis Nurses if needed",
       "learnings": "",
@@ -56519,7 +56594,7 @@
       "boardId": "5057605420",
       "boardName": "[Czech Republic] Work Package Overview",
       "itemId": "2670834817",
-      "itemName": "Patient´s workshop Liberec and Hradec Králové",
+      "itemName": "Patient´s workshop Liberec and Hradec Králové (2027)",
       "subitems": [
         "Program",
         "Speakers",
@@ -61270,7 +61345,8 @@
         "MM 24/7/2026",
         "MM 7/8/2026",
         "MM 21/8/2026",
-        "MM 18/09/2026"
+        "MM 18/09/2026",
+        "MM 16/10/2026"
       ],
       "description": "Safety stock update; ad hoc topics (Launch, streamline, divestment, blocking of goods, disposals, etc.)",
       "learnings": "",
@@ -70347,6 +70423,22 @@
     {
       "boardId": "1583188396",
       "boardName": "[Greece] Work Package Overview",
+      "itemId": "3289600364",
+      "itemName": "Hemophlia Promo Omnichannel",
+      "subitems": [
+        "Material 1",
+        "Material 2"
+      ],
+      "description": "",
+      "learnings": "",
+      "realizedHWWK": "",
+      "diseaseArea": "Heme Non Malig",
+      "product": "Hemlibra",
+      "url": "https://globalroche.monday.com/boards/1583188396/pulses/3289600364"
+    },
+    {
+      "boardId": "1583188396",
+      "boardName": "[Greece] Work Package Overview",
       "itemId": "3283786907",
       "itemName": "TEMPLATE - Non Promo Omnichannel",
       "subitems": [
@@ -70359,25 +70451,6 @@
       "diseaseArea": "",
       "product": "",
       "url": "https://globalroche.monday.com/boards/1583188396/pulses/3283786907"
-    },
-    {
-      "boardId": "1583188396",
-      "boardName": "[Greece] Work Package Overview",
-      "itemId": "3270111867",
-      "itemName": "ELLANA 2027",
-      "subitems": [
-        "Define type of sponsorship (eg insertion, booth, banner, logo)",
-        "Rome opening",
-        "Contracting",
-        "Material creation if needed (i.e banner)",
-        "Material sharing with PCO"
-      ],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "MS/ Neuroimmunology",
-      "product": "Ocrevus",
-      "url": "https://globalroche.monday.com/boards/1583188396/pulses/3270111867"
     },
     {
       "boardId": "1583188396",
@@ -70443,32 +70516,6 @@
       "diseaseArea": "",
       "product": "",
       "url": "https://globalroche.monday.com/boards/1583188396/pulses/3264412482"
-    },
-    {
-      "boardId": "1583188396",
-      "boardName": "[Greece] Work Package Overview",
-      "itemId": "3270431629",
-      "itemName": "Omnichannel Hemophilia",
-      "subitems": [],
-      "description": "All materials needed to have a robust omnichannell strategy",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Heme Non Malig",
-      "product": "Hemlibra",
-      "url": "https://globalroche.monday.com/boards/1583188396/pulses/3270431629"
-    },
-    {
-      "boardId": "5057678016",
-      "boardName": "[Hungary] Work Package Overview",
-      "itemId": "2524697064",
-      "itemName": "test",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "MS/ Neuroimmunology",
-      "product": "Ocrevus | Ocrevus SC",
-      "url": "https://globalroche.monday.com/boards/5057678016/pulses/2524697064"
     },
     {
       "boardId": "5057678016",
@@ -70539,19 +70586,6 @@
       "diseaseArea": "Ophthalmology",
       "product": "Vabysmo",
       "url": "https://globalroche.monday.com/boards/5057678016/pulses/2740088729"
-    },
-    {
-      "boardId": "5057678016",
-      "boardName": "[Hungary] Work Package Overview",
-      "itemId": "2748050983",
-      "itemName": "Test 1",
-      "subitems": [],
-      "description": "",
-      "learnings": "",
-      "realizedHWWK": "",
-      "diseaseArea": "Lung",
-      "product": "Tecentriq",
-      "url": "https://globalroche.monday.com/boards/5057678016/pulses/2748050983"
     },
     {
       "boardId": "5057678016",
@@ -100227,7 +100261,7 @@
     {
       "boardId": "1880922043",
       "boardName": "[Brazil] Work Package Overview",
-      "itemId": "3286602102",
+      "itemId": "3289303602",
       "itemName": "Test",
       "subitems": [],
       "description": "",
@@ -100235,7 +100269,7 @@
       "realizedHWWK": "",
       "diseaseArea": "Alzheimers",
       "product": "AR degrader (2992)",
-      "url": "https://globalroche.monday.com/boards/1880922043/pulses/3286602102"
+      "url": "https://globalroche.monday.com/boards/1880922043/pulses/3289303602"
     },
     {
       "boardId": "1880922043",
@@ -116906,7 +116940,9 @@
       "boardName": "[Germany] Work Package Overview",
       "itemId": "3287414749",
       "itemName": "WP_DA_MS:WP_2027_12_[High-Impact Events]",
-      "subitems": [],
+      "subitems": [
+        "B Zell Forum"
+      ],
       "description": "Wir schaffen neue, inspirierende Erlebnisse auf Kongressen und Events, die die Differenzierung von Roche und OCREVUS gegenüber dem Wettbewerb nachhaltig verankern, den Dialog mit unseren Neurolog:innen, Nurses und Patient:innen stärken und unsere Innovationskraft demonstrieren. So vertiefen wir die Partnerschaft mit Roche und stärken den Einsatz von OCREVUS (1L und s.c.) nachhaltig.",
       "learnings": "",
       "realizedHWWK": "",
@@ -130117,12 +130153,12 @@
         "* Registro de iniciativa en backlog RDT LATAM",
         "Ciclo 2",
         "* Adaptar los campos de la herramienta de Ecuador al contexto de Chile para AME",
-        "* Carga de Datos de Prueba (HCP/HCO)",
-        "* Realizar testeos de usabilidad, alertas, reportería y seguimiento de la herramienta",
         "* Corrección y Ajustes: Resolver incidencias técnicas detectadas durante el testeo y refinar la interfaz",
+        "Ciclo 3",
+        "* Realizar testeos de usabilidad, alertas, reportería y seguimiento de la herramienta",
+        "* Carga de Datos de Prueba (HCP/HCO)",
         "* Entrenamiento al Equipo de PJPs",
-        "* Presentación y monitoreo de impacto del MVP AME",
-        "Ciclo 3"
+        "* Presentación y monitoreo de impacto del MVP AME"
       ],
       "description": "",
       "learnings": "",
@@ -130329,20 +130365,21 @@
         "Configuración técnica de campos",
         "Estructuración de automatizaciones y Dashboards para Leadership Team",
         "2. Testing Piloto Hemofilia (Agosto)",
-        "Carga de datos maestros, actores clave (HCPs) e instituciones",
+        "Carga de datos maestros e instituciones",
         "Presentacion del Plan de Cuentas al Equipo de Hemofilia",
         "Levantamiento de feedback del piloto y ajustes finos en la plataforma",
         "Entrega de Feedback luego de Test Hemofilia",
         "Ajustes a Monday Hemofilia",
-        "3. Preparación y Capacitación Masiva",
+        "3. Preparación y Capacitación",
+        "Sesion 1 Taller Onco Solidos - Objetivos de Ciclo 3 y Tacticas",
+        "Sesion 1 Taller Hemato - Objetivos de Ciclo 3 y Tacticas",
+        "Sesion 1 Taller AME - Objetivos de Ciclo 3 y Tacticas",
+        "Sesion 1 Taller Nefro - Objetivos de Ciclo 3 y Tacticas",
+        "Sesion 1 Taller MS - Objetivos de Ciclo 3 y Tacticas",
         "Modulo Segmentacion HCO y Modulo Stakeholder Claves",
         "Modulo Journeys and Pains",
         "Modulo Plan Tactico",
-        "Modulo Monitoreo",
-        "Sesiones prácticas por Squad 'Hands-on'",
-        "4. Go-Live Monday & Rituales",
-        "Go-Live Oficial de la herramienta Monday.com",
-        "Ejecución de primeros Account Reviews reales basados en impacto y KPIs"
+        "Modulo Monitoreo"
       ],
       "description": "",
       "learnings": "",
